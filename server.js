@@ -38,10 +38,11 @@ app.use(bodyParser.json());
 //};
 //
 // external API call
-var getFromActive = function (location) {
+var getFromNps = function (location) {
     var emitter = new events.EventEmitter();
     unirest.get("https://developer.nps.gov/api/v0/alerts?parkCode=yell,yose")
-        .header("Accept", "application/json")
+//        .header("Accept", "application/json")
+        .header("Authorization", "EF26EC69-4C03-458F-9AD7-C33903A87CAB")
         .end(function (result) {
         //success scenario
         if (result.ok) {
@@ -59,27 +60,27 @@ var getFromActive = function (location) {
 
 
 //
-//// local API endpoints
+// local API endpoints
 
 
+//
+app.get('/activity/:location', function (req, res) {
 
-//app.get('/activity/:location', function (req, res) {
-//
-//
-//    //external api function call and response
-//    var searchReq = getFromActive(req.params.location);
-//
-//    //get the data from the first api call
-//    searchReq.on('end', function (item) {
-//        res.json(item);
-//    });
-//
-//    //error handling
-//    searchReq.on('error', function (code) {
-//        res.sendStatus(code);
-//    });
-//
-//});
+
+    //external api function call and response
+    var searchReq = getFromNps(req.params.location);
+
+    //get the data from the first api call
+    searchReq.on('end', function (item) {
+        res.json(item);
+    });
+
+    //error handling
+    searchReq.on('error', function (code) {
+        res.sendStatus(code);
+    });
+
+});
 //
 //app.post('/add-to-favorites/', function (req, res) {
 //
