@@ -6,6 +6,9 @@ var mongoose = require('mongoose');
 var config = require('./config');
 //var activity = require('./models/activity');
 
+var https = require('https');
+var http = require('http');
+
 
 
 var app = express();
@@ -38,24 +41,61 @@ app.use(bodyParser.json());
 //};
 //
 // external API call
+//var getFromNps = function (location) {
+//    var emitter = new events.EventEmitter();
+//    unirest.get("https://developer.nps.gov/api/v0/alerts?parkCode=yell,yose")
+////        .header("Accept", "application/json")
+//        .header("Authorization", "EF26EC69-4C03-458F-9AD7-C33903A87CAB")
+//        .end(function (result) {
+//        //success scenario
+//        if (result.ok) {
+//            emitter.emit('end', result.body);
+//        }
+//        //failure scenario
+//        else {
+//            emitter.emit('error', result.code);
+//        }
+//    });
+//
+//    return emitter;
+//};
+
 var getFromNps = function (location) {
     var emitter = new events.EventEmitter();
-    unirest.get("https://developer.nps.gov/api/v0/alerts?parkCode=yell,yose")
-//        .header("Accept", "application/json")
-        .header("Authorization", "EF26EC69-4C03-458F-9AD7-C33903A87CAB")
-        .end(function (result) {
-        //success scenario
-        if (result.ok) {
-            emitter.emit('end', result.body);
+
+
+    var options = {
+        host: 'developer.nps.gov',
+        path: '/api/v0/parks?parkCode=yell,yose',
+        method: 'GET',
+        headers: {
+            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB"
         }
-        //failure scenario
-        else {
-            emitter.emit('error', result.code);
-        }
+    };
+
+    https.get(options, function (res) {
+        var body = '';
+
+        res.on('data', function (chunk) {
+            body += chunk;
+        });
+
+        res.on('end', function () {
+            emitter.emit('end', body);
+            //            var stringResult = JSON.parse(body);
+            //            eventCallback(stringResult);
+        });
+    }).on('error', function (e) {
+        console.log("Got error: ", e);
+
+        emitter.emit('error', e);
     });
+
+
 
     return emitter;
 };
+
 
 
 
@@ -128,7 +168,8 @@ exports.app = app;
 
 
 // listen for requests
-app.listen(process.env.PORT || 8080, function() { return console.log('Your app is listening on port ' + (process.env.PORT || 8080));
-                                                });
+app.listen(process.env.PORT || 8080, function () {
+    return console.log('Your app is listening on port ' + (process.env.PORT || 8080));
+});
 
 //app.listen(3002);
