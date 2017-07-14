@@ -69,40 +69,63 @@ var getFromNps = function (location) {
         path: '/api/v0/parks?parkCode=yell,yose',
         method: 'GET',
         headers: {
-            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB"
+            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
+            'Content-Type': "application/json",
+            'Port': 443,
+            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
         }
     };
 
     https.get(options, function (res) {
+        console.log(res)
         var body = '';
 
         res.on('data', function (chunk) {
             body += chunk;
+            //res.json(body);
+            console.log(res.body);
         });
 
         res.on('end', function () {
             emitter.emit('end', body);
-            //            var stringResult = JSON.parse(body);
-            //            eventCallback(stringResult);
+            //var stringResult = JSON.parse(body);
+            //eventCallback(stringResult);
         });
     }).on('error', function (e) {
         console.log("Got error: ", e);
 
         emitter.emit('error', e);
     });
-
-
-
     return emitter;
 };
 
-
-
-
+//function getJsonFromNPS(park, eventCallback) {
+//    var options = {
+//        host: 'developer.nps.gov',
+//        path: '/api/v0/parks?parkCode=' + park,
+//        method: 'GET',
+//        headers: {
+//            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB"
+//        }
+//    };
 //
+//    https.get(options, function (res) {
+//        var body = '';
+//
+//        res.on('data', function (chunk) {
+//            body += chunk;
+//        });
+//
+//        res.on('end', function () {
+//            var stringResult = JSON.parse(body);
+//            eventCallback(stringResult);
+//        });
+//    }).on('error', function (e) {
+//        console.log("Got error: ", e);
+//    });
+//}
+
 // local API endpoints
-
-
 //
 app.get('/activity/:location', function (req, res) {
 
