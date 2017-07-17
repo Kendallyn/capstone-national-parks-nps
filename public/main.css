@@ -4,3 +4,30 @@
     border: 0;
     box-sizing: border-box;
 }
+
+.top {
+    margin: 15px;
+    margin-bottom: 50px;
+    padding: 2px;
+    background: url(img/arch.jpg);
+    color: white;
+    height: 300px;
+    width: 100%;
+}
+
+.top h1 {
+    text-align: center;
+}
+
+.top h4 {
+    text-align: right;
+}
+
+.top a {
+    text-align: left;
+}
+
+.choosePark {
+    margin: 25px;
+    display: inline-block;
+}
