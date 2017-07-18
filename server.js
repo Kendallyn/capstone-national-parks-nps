@@ -77,21 +77,32 @@ var getFromNps = function (location) {
     };
 
     https.get(options, function (res) {
-        console.log(res)
+        //        console.log(res)
         var body = '';
 
-        res.on('data', function (chunk) {
-            body += chunk;
-            //res.json(body);
-            console.log(res.body);
-        });
 
-        res.on('end', function () {
-            emitter.emit('end', body);
+        res.on('data', function (chunk) {
+
+            console.log("inside data");
+            body += chunk;
+            //            emitter.emit('end', body);
+            //            res.json(body);
+            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
+            var jsonFormattedResults = JSON.parse(body);
+            console.log(jsonFormattedResults);
+            emitter.emit('end', jsonFormattedResults);
             //var stringResult = JSON.parse(body);
             //eventCallback(stringResult);
         });
+
+        //        res.on('end', function () {
+        //            console.log("inside end");
+        //            emitter.emit('end', body);
+        //            //var stringResult = JSON.parse(body);
+        //            //eventCallback(stringResult);
+        //        });
     }).on('error', function (e) {
+        console.log("inside error");
         console.log("Got error: ", e);
 
         emitter.emit('error', e);
