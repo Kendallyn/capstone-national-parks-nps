@@ -3,14 +3,15 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    background: black;
+    color: white;
+    font-family: 'Simonetta', cursive;
 }
 
 .top {
-    margin: 15px;
-    margin-bottom: 50px;
+    margin: 10px;
     padding: 2px;
     font-family: 'Playfair Display', serif;
-    border: 1px solid black;
 }
 
 .top h1 {
@@ -26,18 +27,82 @@
     float: right;
 }
 
+.picture {
+    width: 100%;
+}
+
+.choosePark {
+    width: 100%;
+    background: #6A6767;
+}
+
 .choosePark,
 .parks {
-    margin: 25px;
+    padding: 15px;
     font-family: 'Simonetta', cursive;
-    border: 1px solid black;
+    font-size: 20px;
     text-align: center;
+    background-color: #434343;
+}
+
+#search {
+    font-size: 20px;
+    border: 1px solid white;
+    padding: 2px;
+    border-radius: 5px;
 }
 
 .results {
-    border: 2px solid black;
+    border: 2px solid white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.results h4 {
+    text-align: center;
 }
 
 .bucketList {
-    border: 2px dotted black;
+    border: 2px solid white;
+    margin-top: 10px;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 3rem;
+    padding-top: 0rem;
+    font-family: cursive;
+}
+
+footer p {
+    padding: 1rem;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+}
+
+footer ul {
+    text-decoration: none;
+}
+
+footer ul li {
+    display: inline-block;
+    font-size: 40px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: .5rem;
+}
+
+footer ul li a {
+    color: white;
+}
+
+footer ul li a:hover {
+    color: red;
+}
+
+footer ul li a .fa-envelope {
+    font-size: 42px;
 }
