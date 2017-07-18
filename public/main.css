@@ -9,25 +9,35 @@
     margin: 15px;
     margin-bottom: 50px;
     padding: 2px;
-    background: url(img/arch.jpg);
-    color: white;
-    height: 300px;
-    width: 100%;
+    font-family: 'Playfair Display', serif;
+    border: 1px solid black;
 }
 
 .top h1 {
+    font-size: 40px;
+}
+
+.top h1,
+.top ul {
+    display: inline-block;
+}
+
+.top ul {
+    float: right;
+}
+
+.choosePark,
+.parks {
+    margin: 25px;
+    font-family: 'Simonetta', cursive;
+    border: 1px solid black;
     text-align: center;
 }
 
-.top h4 {
-    text-align: right;
+.results {
+    border: 2px solid black;
 }
 
-.top a {
-    text-align: left;
-}
-
-.choosePark {
-    margin: 25px;
-    display: inline-block;
+.bucketList {
+    border: 2px dotted black;
 }
