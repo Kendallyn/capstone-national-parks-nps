@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>National Park Explorer</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Simonetta" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -12,15 +13,16 @@
 <body>
     <header class="top">
         <h1>National Park Explorer</h1>
-        <h4>Log in Sign Up</h4>
-        <a href="something.com">Home</a>
-        <a href="something.com">Bucket List</a>
+        <ul>
+            <a href="something.com">Home</a>
+            <a href="something.com">Bucket List</a>
+        </ul>
     </header>
     <section class="choosePark">
         <p>A place to find out information about National Parks to help you get out and explore! Choose your Park:</p>
         <!--Have a drop down list of national parks-->
         <form>
-            <select name="nationalPark" id="parks" required>
+            <select name="nationalPark" class="parks" required>
                 <option value="Yellowstone National Park">Yellowstone National Park</option>
                 <option value="Yosemite National Park">Yosemite National Park</option>
                 <option value="Glacier National Park">Glacier National Park</option>
