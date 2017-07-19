@@ -124,6 +124,7 @@ h4 {
 
 .bucketListTitle h2 {
     margin-bottom: .75rem;
+    text-decoration: underline;
 }
 
 .bucketListTitle .removeExplanation {
@@ -137,6 +138,18 @@ h4 {
 .bucketList {
     margin-top: 10px;
     font-size: 20px;
+}
+
+.bucketList #checkedOff {
+    font-size: 16px;
+    border: 2px solid white;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: black;
+    font-family: 'Lora', serif;
+    position: relative;
+    top: -32px;
+    right: 6px;
 }
 
 .bucketList ul li {
