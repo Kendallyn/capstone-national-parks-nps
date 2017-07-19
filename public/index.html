@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>National Park Explorer</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Simonetta" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Simonetta" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -21,10 +20,21 @@
         <img src="img/glacierpan.jpg" class="picture" alt="Glacier National Park">
         <p>Glacier National Park</p>
     </div>
-    <section class="choosePark">
+    <section class="choose">
         <p>A place to find out information about National Parks to help you get out and explore! </p>
         <!--Have a drop down list of national parks-->
         <form>
+            <p>Choose your state:
+                <select name="state" class="states" placeholder="states" required>
+                    <option value="Wyoming">Wyoming</option>
+                    <option value="California">California</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Washington">Washington</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Oregon">Oregon</option>
+                </select>
+                <button id="searchButton" type="submit">Search</button>
+            </p>
             <p>Choose your Park:
                 <select name="nationalPark" class="parks" placeholder="National Parks" required>
                     <option value="Yellowstone National Park">Yellowstone National Park</option>
@@ -37,7 +47,7 @@
                 <button id="searchButton" type="submit">Search</button>
             </p>
         </form>
-        <p>To add a park to your bucket list, click <span><img src="img/plus.png" class="iconDisplay"></span></p>
+        <p>To add a place to your bucket list, click <span><img src="img/plus.png" class="iconDisplay"></span></p>
     </section>
     <section class="results">
         <ul>
@@ -52,8 +62,7 @@
                 <h4>Weather Information:</h4>
                 <p> Yellowstone's weather can vary quite a bit, even in a single day. In the summer, daytime highs can exceed 70F (25C), only to drop 20 or more degrees when a thunderstorm rolls through. It can snow during any month of the year, and winter lows frequently drop below zero, especially at night. Bring a range of clothing options, including a warm jacket and rain gear, even in the summer.</p>
                 <!--State located in from API-->
-                <h4>State(s) Park is located in:</h4>
-                <p>ID,MT,WY</p>
+                <h4>State(s) Park is located in: <span>ID,MT,WY</span></h4>
                 <!--Directions Info from API-->
                 <h4>Directions: </h4>
                 <p>Yellowstone National Park covers nearly 3,500 square miles in the northwest corner of Wyoming (3% of the park is in Montana and 1% is in Idaho). Yellowstone has five entrance stations, and several are closed to regular vehicles during winter. It takes many hours to drive between these entrances, so be sure to check the status of roads at the entrance you intend to use while planning your trip and before you arrive.</p>

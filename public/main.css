@@ -4,7 +4,6 @@
     border: 0;
     box-sizing: border-box;
     color: #F3F0F0;
-    font-family: 'Simonetta', cursive;
     font-weight: bold;
 }
 
@@ -15,11 +14,11 @@ html {
 .top {
     margin: 10px;
     padding: 2px;
-    font-family: 'Playfair Display', serif;
 }
 
 .top h1 {
     font-size: 50px;
+    font-family: ‘Simonetta’, cursive;
 }
 
 .top h1,
@@ -33,29 +32,40 @@ html {
     text-decoration: none;
 }
 
+p,
+a,
+h2,
+h4 {
+    font-family: 'Lora', serif;
+}
+
 .picture {
     width: 100%;
 }
 
-.choosePark,
-.parks {
+.choose,
+.parks,
+.states {
     padding: 10px;
-    font-family: 'Simonetta', cursive;
-    font-size: 26px;
+    margin-top: 1rem;
+    font-family: 'Lora', serif;
+    font-size: 24px;
     text-align: center;
     background-color: black;
 }
 
-.parks {
+.parks,
+.states {
     border: 2px solid white;
 }
 
 #searchButton {
-    font-size: 26px;
+    font-size: 24px;
     border: 2px solid white;
     padding: 2px;
     border-radius: 5px;
     background-color: black;
+    font-family: 'Lora', serif;
 }
 
 .iconDisplay {
