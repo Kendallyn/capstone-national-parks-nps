@@ -66,7 +66,7 @@ var getFromNps = function (location) {
 
     var options = {
         host: 'developer.nps.gov',
-        path: '/api/v0/parks?parkCode=linc',
+        path: '/api/v0/parks?parkCode=yell',
         method: 'GET',
         headers: {
             'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
