@@ -3,17 +3,42 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    color: #F3F0F0;
-    font-weight: bold;
+    /*reset Chrome user agent styles*/
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
 }
 
 html {
     background-color: black;
 }
 
+body {
+    font-weight: bold;
+    color: #F3F0F0;
+    font-size: 15px;
+}
+
+section.choose,
+section.results,
+section.bucketListTitle,
+section.bucketList,
+footer {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
 .top {
     margin: 10px;
     padding: 2px;
+    font-family: ‘Simonetta’, cursive;
 }
 
 .top h1 {
@@ -29,33 +54,43 @@ html {
 .top ul {
     float: right;
     font-size: 20px;
-    text-decoration: none;
 }
 
 p,
-a,
 h2,
 h4 {
     font-family: 'Lora', serif;
 }
 
-.picture {
+a {
+    text-decoration: none;
+}
+
+.wrapper .topPicture {
     width: 100%;
 }
 
-.choose,
-.parks,
-.states {
-    padding: 10px;
-    margin-top: 1rem;
-    font-family: 'Lora', serif;
-    font-size: 24px;
-    text-align: center;
-    background-color: black;
+.wrapper p {
+    position: relative;
+    top: -20px;
 }
 
+.choose,
+.states,
 .parks,
-.states {
+.monuments {
+    padding: 5px;
+    margin-top: 1rem;
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.states,
+.parks,
+.monuments {
     border: 2px solid white;
 }
 
@@ -88,7 +123,10 @@ h4 {
     border-radius: 10px;
     padding: 5px;
     border: 1px solid cornflowerblue;
-    list-style-type: none;
+}
+
+.results ul {
+    list-style: none;
 }
 
 .results ul li h2 {
@@ -108,6 +146,10 @@ h4 {
     text-align: left;
     color: cornflowerblue;
     font-size: 22px;
+}
+
+.results ul li h4 a {
+    color: #F3F0F0;
 }
 
 .results ul li p {
@@ -157,6 +199,10 @@ h4 {
     right: 6px;
 }
 
+.bucketList ul {
+    text-align: center;
+}
+
 .bucketList ul li {
     background-color: #242525;
     display: inline-block;
@@ -178,8 +224,8 @@ h4 {
 }
 
 .bucketList ul li .remove {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     position: relative;
     top: 15px;
 }
@@ -191,17 +237,13 @@ footer {
     margin-right: auto;
     padding-bottom: 3rem;
     padding-top: 0rem;
-    font-family: cursive;
+    font-family: ‘Simonetta’, cursive;
 }
 
 footer p {
     padding: 1rem;
     color: white;
     text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
-}
-
-footer ul {
-    text-decoration: none;
 }
 
 footer ul li {
@@ -224,7 +266,31 @@ footer ul li a .fa-envelope {
     font-size: 42px;
 }
 
+@media only screen and (max-width: 1200px) {
+    section.choose,
+    section.results,
+    section.bucketListTitle,
+    section.bucketList,
+    footer {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
+    body {
+        font-size: 11px;
+    }
+    section.choose,
+    section.results,
+    section.bucketListTitle,
+    section.bucketList,
+    footer {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .results ul li .parkImage {
         width: 100%;
         height: auto;
@@ -233,5 +299,17 @@ footer ul li a .fa-envelope {
         display: block;
         margin-left: 1.3rem;
         width: 95%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    section.choose,
+    section.results,
+    section.bucketListTitle,
+    section.bucketList,
+    footer {
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

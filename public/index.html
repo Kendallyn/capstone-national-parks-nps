@@ -17,15 +17,17 @@
         </ul>
     </header>
     <div class="wrapper">
-        <img src="img/glacierpan.jpg" class="picture" alt="Glacier National Park">
+        <img src="img/glacierpan.jpg" class="topPicture" alt="Glacier National Park">
         <p>Glacier National Park</p>
     </div>
     <section class="choose">
         <p>A place to find out information about National Parks to help you get out and explore! </p>
         <!--Have a drop down list of national parks-->
         <form>
+            <!--
             <p>Choose your state:
                 <select name="state" class="states" placeholder="states" required>
+                    <option value="">States</option>
                     <option value="Wyoming">Wyoming</option>
                     <option value="California">California</option>
                     <option value="Montana">Montana</option>
@@ -35,8 +37,10 @@
                 </select>
                 <button id="searchButton" type="submit">Search</button>
             </p>
-            <p>Choose your Park:
+-->
+            <p>
                 <select name="nationalPark" class="parks" placeholder="National Parks" required>
+                    <option value="">Choose your park</option>
                     <option value="Yellowstone National Park">Yellowstone National Park</option>
                     <option value="Yosemite National Park">Yosemite National Park</option>
                     <option value="Glacier National Park">Glacier National Park</option>
@@ -46,6 +50,20 @@
                 </select>
                 <button id="searchButton" type="submit">Search</button>
             </p>
+<!--
+            <p>Or choose your monument:
+    <select name="monument" class="monuments" placeholder="National Monuments" required>
+        <option value="">Monuments</option>
+        <option value="Devils Tower">Devils Tower</option>
+        <option value="Yukon-Charley Rivers">Yukon-Charley Rivers</option>
+        <option value="Lincoln Memorial">Lincoln Memorial</option>
+        <option value="Aniakchak">Aniakchak</option>
+        <option value="Golden Gate">Golden Gate</option>
+        <option value="Lava Beds">Lava Beds</option>
+    </select>
+    <button id="searchButton" type="submit">Search</button>
+</p>
+-->
         </form>
         <p class="instructions">To add a place to your bucket list, click <span><img src="img/plus.png" class="iconDisplay"></span></p>
     </section>
