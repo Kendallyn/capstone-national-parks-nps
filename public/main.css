@@ -120,10 +120,10 @@ a {
     background-color: #242525;
     border-radius: 10px;
     border: 1px solid cornflowerblue;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .results ul {
@@ -214,11 +214,39 @@ a {
     position: relative;
     vertical-align: top;
     padding: 1rem;
+    /*
+    height: 700px;
+overflow-y: auto;
+*/
 }
 
 .bucketList ul li h2 {
     color: cornflowerblue;
     text-align: center;
+}
+
+.bucketList ul li .checkbox {
+    height: 25px;
+    width: 25px;
+    background-image: url(img/checked-checkbox-sprite.png);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.bucketList ul li .checkbox-checked {
+    height: 25px;
+    width: 25px;
+    background-image: url(img/checked-checkbox-sprite.png);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .bucketList ul li h4 {
