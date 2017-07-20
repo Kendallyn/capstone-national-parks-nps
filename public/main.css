@@ -143,6 +143,11 @@ a {
     top: 10px;
 }
 
+.results ul li .parkImage {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .results ul li h4 {
     text-align: left;
     color: cornflowerblue;
@@ -156,11 +161,6 @@ a {
 .results ul li p {
     text-align: left;
     font-size: 20px;
-}
-
-.results ul li .parkImage {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
 .bucketListTitle {
