@@ -64,6 +64,7 @@ h4 {
 
 a {
     text-decoration: none;
+    color: #F3F0F0;
 }
 
 .wrapper .topPicture {
@@ -85,7 +86,7 @@ a {
     font-size: 1.5rem;
     text-align: center;
     background-color: black;
-    color: white;
+    color: #F3F0F0;
 }
 
 .states,
@@ -101,10 +102,7 @@ a {
     border-radius: 5px;
     background-color: black;
     font-family: 'Lora', serif;
-}
-
-.instructions {
-    margin-top: 1rem;
+    color: #F3F0F0;
 }
 
 .iconDisplay {
@@ -121,8 +119,11 @@ a {
     margin-right: 1rem;
     background-color: #242525;
     border-radius: 10px;
-    padding: 5px;
     border: 1px solid cornflowerblue;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 .results ul {
@@ -148,7 +149,7 @@ a {
     font-size: 22px;
 }
 
-.results ul li h4 a {
+.results ul li h4 span {
     color: #F3F0F0;
 }
 
@@ -192,11 +193,12 @@ a {
     border: 2px solid white;
     padding: 2px;
     border-radius: 5px;
-    background-color: black;
+    background-color: #242525;
+    color: #F3F0F0;
     font-family: 'Lora', serif;
-    position: relative;
-    top: -32px;
-    right: 6px;
+    position: absolute;
+    top: 27px;
+    right: 0px;
 }
 
 .bucketList ul {
@@ -223,11 +225,16 @@ a {
     color: cornflowerblue;
 }
 
+.bucketList ul li h4 span {
+    color: #F3F0F0;
+}
+
 .bucketList ul li .remove {
     height: 45px;
     width: 45px;
-    position: relative;
-    top: 15px;
+    position: absolute;
+    top: -13px;
+    right: -13px;
 }
 
 footer {
