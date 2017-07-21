@@ -204,6 +204,7 @@ a {
 
 .bucketList ul {
     text-align: center;
+    padding-bottom: 1rem;
 }
 
 .bucketList ul li {
@@ -267,12 +268,14 @@ footer {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
     padding-top: 0rem;
+    border-top: 2px solid cornflowerblue;
 }
 
 footer p {
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
     color: white;
     text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
     font-family: ‘Simonetta’, cursive;
@@ -295,7 +298,7 @@ footer ul li a:hover {
 }
 
 footer ul li a .fa-envelope {
-    font-size: 42px;
+    font-size: 41px;
 }
 
 @media only screen and (max-width: 1200px) {
