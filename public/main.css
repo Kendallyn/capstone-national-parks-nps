@@ -119,7 +119,6 @@ a {
     margin-right: 1rem;
     background-color: #242525;
     border-radius: 10px;
-    border: 2px solid cornflowerblue;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 5px;
@@ -172,7 +171,6 @@ a {
 
 .bucketListTitle h2 {
     margin-bottom: .75rem;
-    text-decoration: underline;
     color: cornflowerblue;
 }
 
