@@ -1,11 +1,3 @@
-//Example from https://github.com/loudlr/nationalparks/blob/master/src/parks.js
-{
-    "parkName": "Denali",
-    "parkCode": "dena",
-    "audio": "snow.mp3"
-}
-
-//My parks, parkName used from option value?? should it be park to match the host from external API?
 {
     "parkName": "Acadia National Park",
     "parkCode": "acad"
