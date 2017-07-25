@@ -1,106 +1,105 @@
 "use strict"
-var nationalParks = [
-    {
+var nationalParks = [{
         "parkName": "Acadia National Park",
         "parkCode": "acad"
-},
+    },
     {
         "parkName": "Arches National Park",
         "parkCode": "arch"
-}, {
+    }, {
         "parkName": "Badlands National Park",
         "parkCode": "badl"
-}, {
+    }, {
         "parkName": "Bryce Canyon National Park",
         "parkCode": "brca"
-}, {
+    }, {
         "parkName": "Canyonlands National Park",
         "parkCode": "cany"
-}, {
+    }, {
         "parkName": "Capitol Reef National Park",
         "parkCode": "care"
-}, {
+    }, {
         "parkName": "Carlsbad Caverns National Park",
         "parkCode": "cave"
-}, {
+    }, {
         "parkName": "Channel Islands National Park",
         "parkCode": "chis"
-}, {
+    }, {
         "parkName": "Crater Lake National Park",
         "parkCode": "crla"
-}, {
+    }, {
         "parkName": "Death Valley National Park",
         "parkCode": "deva"
-}, {
+    }, {
         "parkName": "Denali National Park",
         "parkCode": "dena"
-}, {
+    }, {
         "parkName": "Gates of the Arctic National Park",
         "parkCode": "gaar"
-}, {
+    }, {
         "parkName": "Glacier National Park",
         "parkCode": "glac"
-}, {
+    }, {
         "parkName": "Glacier Bay National Park",
         "parkCode": "glba"
-}, {
+    }, {
         "parkName": "Grand Canyon National Park",
         "parkCode": "grca"
-}, {
+    }, {
         "parkName": "Grand Teton National Park",
         "parkCode": "grte"
-}, {
+    }, {
         "parkName": "Great Sand Dunes National Park",
         "parkCode": "grsa"
-}, {
+    }, {
         "parkName": "Great Smoky Mountains National Park",
         "parkCode": "grsm"
-}, {
+    }, {
         "parkName": "Hawaii Volcanoes National Park",
         "parkCode": "havo"
-}, {
+    }, {
         "parkName": "Joshua Tree National Park",
         "parkCode": "jotr"
-}, {
+    }, {
         "parkName": "Katmai National Park and Preserve",
         "parkCode": "katm"
-}, {
+    }, {
         "parkName": "Kenai Fjords National Park",
         "parkCode": "kefj"
-}, {
+    }, {
         "parkName": "Lassen Volcanic National Park",
         "parkCode": "lavo"
-}, {
+    }, {
         "parkName": "Mesa Verde National Park",
         "parkCode": "meve"
-}, {
+    }, {
         "parkName": "Mount Rainier National Park",
         "parkCode": "mora"
-}, {
+    }, {
         "parkName": "North Cascades National Park",
         "parkCode": "noca"
-}, {
+    }, {
         "parkName": "Olympic National Park",
         "parkCode": "olym"
-}, {
+    }, {
         "parkName": "Rocky Mountain National Park",
         "parkCode": "romo"
-}, {
+    }, {
         "parkName": "Saguaro National Park",
         "parkCode": "sagu"
-}, {
+    }, {
         "parkName": "Sequoia National Park",
         "parkCode": "seki"
-}, {
+    }, {
         "parkName": "Yellowstone National Park",
         "parkCode": "yell"
-}, {
+    }, {
         "parkName": "Yosemite National Park",
         "parkCode": "yose"
-}, {
+    }, {
         "parkName": "Zion National Park",
         "parkCode": "zion"
-}]
+    }]
 
 //User will search a national park they want information on
 //$("#searchButton").submit(function (event) {
@@ -126,82 +125,32 @@ function populateParks() {
 }
 
 //Results of park information from the external API will be returned(fullName, description, weatherInfo, states, directionsInfo, url)
-//var getParkResults = function (nationalParks) {
-//    //    var emitter = new events.EventEmitter();
-//    var parkCode = populateParks();
-//
-//    var options = {
-//        host: 'developer.nps.gov',
-//        path: '/api/v0/parks?parkCode=' + parkCode,
-//        method: 'GET',
-//        headers: {
-//            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
-//            'Content-Type': "application/json",
-//            'Port': 443,
-//            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
-//        }
-//    };
-//
-//    https.get(options, function (res) {
-//        //        console.log(res)
-//        var body = '';
-//
-//
-//        res.on('data', function (chunk) {
-//
-//            console.log("inside data");
-//            body += chunk;
-//            //            emitter.emit('end', body);
-//            //            res.json(body);
-//            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
-//            var jsonFormattedResults = JSON.parse(body);
-//            console.log(jsonFormattedResults);
-//            emitter.emit('end', jsonFormattedResults);
-//            //var stringResult = JSON.parse(body);
-//            //eventCallback(stringResult);
-//        });
-//
-//        //        res.on('end', function () {
-//        //            console.log("inside end");
-//        //            emitter.emit('end', body);
-//        //            //var stringResult = JSON.parse(body);
-//        //            //eventCallback(stringResult);
-//        //        });
-//    }).on('error', function (e) {
-//        console.log("inside error");
-//        console.log("Got error: ", e);
-//
-//        emitter.emit('error', e);
-//    });
-//    return emitter;
-//};
-//getParkResults(nationalParks);
-//console.log(getParkResults);
 
-function getNpsResults(parkCode) {
-    console.log(location);
+function getParkResult(parkCode) {
+    console.log(parkCode);
     $.ajax({
             type: "GET",
-            path: '/api/v0/parks?parkCode=' + parkCode,
+            url: '/park/' + parkCode,
             dataType: 'json',
         })
         .done(function (dataOutput) {
-            //console.log(dataOutput);
+            console.log(dataOutput);
             displayActiveSearchData(dataOutput.results);
         })
         .fail(function (jqXHR, error, errorThrown) {
-            //console.log(jqXHR);
-            //console.log(error);
-            //console.log(errorThrown);
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
 }
-getNpsResults();
+
 
 // STEP 1 - get the input from the user
-$("#searchButton").submit(function (event) {
+$("#parkForm").submit(function (event) {
     event.preventDefault();
     var nationalParks = $(".parks").val();
-    console.log(parks);
+    //    console.log(nationalParks);
+    getParkResult(nationalParks);
 });
 
 
@@ -381,5 +330,5 @@ $("#searchButton").submit(function (event) {
 //
 //            //if last one, empty the div
 //            $(".deleteFavoriteButton").click(function () {
-//                $(".savedHikes").empty();
+//                $(".bucketList").empty();
 //            });
