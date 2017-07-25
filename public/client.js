@@ -1,12 +1,9 @@
 "use strict"
 var nationalParks = [
     {
-        "acad": "Acadia National Park"
-    },
-//    {
-//    "parkName": "Acadia National Park",
-//    "parkCode": "acad"
-//},
+        "parkName": "Acadia National Park",
+        "parkCode": "acad"
+},
     {
         "parkName": "Arches National Park",
         "parkCode": "arch"
@@ -120,7 +117,7 @@ function populateParks() {
     $(".parks").html('');
     var buildTheParksOutput = "";
     buildTheParksOutput += '<option value="0" selected> Choose your park</option>';
-    $.each(parks, function (parkName, parkCode) {
+    $.each(nationalParks, function (parkName, parkCode) {
         buildTheParksOutput += '<option value="' + parkName + '">' + parkCode + '</option>';
     });
 
@@ -129,45 +126,82 @@ function populateParks() {
 }
 
 //Results of park information from the external API will be returned(fullName, description, weatherInfo, states, directionsInfo, url)
+//var getParkResults = function (nationalParks) {
+//    //    var emitter = new events.EventEmitter();
+//    var parkCode = populateParks();
+//
+//    var options = {
+//        host: 'developer.nps.gov',
+//        path: '/api/v0/parks?parkCode=' + parkCode,
+//        method: 'GET',
+//        headers: {
+//            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
+//            'Content-Type': "application/json",
+//            'Port': 443,
+//            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
+//        }
+//    };
+//
+//    https.get(options, function (res) {
+//        //        console.log(res)
+//        var body = '';
+//
+//
+//        res.on('data', function (chunk) {
+//
+//            console.log("inside data");
+//            body += chunk;
+//            //            emitter.emit('end', body);
+//            //            res.json(body);
+//            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
+//            var jsonFormattedResults = JSON.parse(body);
+//            console.log(jsonFormattedResults);
+//            emitter.emit('end', jsonFormattedResults);
+//            //var stringResult = JSON.parse(body);
+//            //eventCallback(stringResult);
+//        });
+//
+//        //        res.on('end', function () {
+//        //            console.log("inside end");
+//        //            emitter.emit('end', body);
+//        //            //var stringResult = JSON.parse(body);
+//        //            //eventCallback(stringResult);
+//        //        });
+//    }).on('error', function (e) {
+//        console.log("inside error");
+//        console.log("Got error: ", e);
+//
+//        emitter.emit('error', e);
+//    });
+//    return emitter;
+//};
+//getParkResults(nationalParks);
+//console.log(getParkResults);
 
-function getParkResults(parkCode) {
-    console.log('userSearch');
+function getNpsResults(parkCode) {
+    console.log(location);
     $.ajax({
             type: "GET",
-            host: "developer.nps.gov",
-            path: "/api/v0/parks + parkCode",
-            url: "/parks/",
-            dataType: "json",
+            path: '/api/v0/parks?parkCode=' + parkCode,
+            dataType: 'json',
         })
         .done(function (dataOutput) {
-            console.log(dataOutput);
-            displayParkResults(dataOutput.results);
+            //console.log(dataOutput);
+            displayActiveSearchData(dataOutput.results);
         })
         .fail(function (jqXHR, error, errorThrown) {
-            //            console.log(jqXHR);
-            //            console.log(error);
-            //            console.log(errorThrown);
+            //console.log(jqXHR);
+            //console.log(error);
+            //console.log(errorThrown);
         });
-};
-
-getParkResults(parks);
+}
+getNpsResults();
 
 // STEP 1 - get the input from the user
 $("#searchButton").submit(function (event) {
-    //if the page refreshes when you submit the form use "preventDefault()" to force JavaScript to handle the form submission
     event.preventDefault();
-    //get the value from the input box
-    var parks = $(".parks").val();
+    var nationalParks = $(".parks").val();
     console.log(parks);
-
-    //    if ((cityNameOrigin == 0) || (cityNameDestination == 0)) {
-    //        alert("Sorry that search did not yeild any results. Please select an origin station, and a destination station and try your search again.");
-    //    } else {
-    //        // console.log(userInput);
-    //        ajaxScheduleSearch(cityNameOrigin, cityNameDestination);
-    //    }
-    //use that value to call the getResults function defined bellow
-
 });
 
 

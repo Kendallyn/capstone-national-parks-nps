@@ -109,55 +109,55 @@ app.use(bodyParser.json());
 
 // external API call
 
-var getFromNps = function (location) {
-    var emitter = new events.EventEmitter();
-
-
-    var options = {
-        host: 'developer.nps.gov',
-        path: '/api/v0/parks?parkCode=yell',
-        method: 'GET',
-        headers: {
-            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
-            'Content-Type': "application/json",
-            'Port': 443,
-            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
-        }
-    };
-
-    https.get(options, function (res) {
-        //        console.log(res)
-        var body = '';
-
-
-        res.on('data', function (chunk) {
-
-            console.log("inside data");
-            body += chunk;
-            //            emitter.emit('end', body);
-            //            res.json(body);
-            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
-            var jsonFormattedResults = JSON.parse(body);
-            console.log(jsonFormattedResults);
-            emitter.emit('end', jsonFormattedResults);
-            //var stringResult = JSON.parse(body);
-            //eventCallback(stringResult);
-        });
-
-        //        res.on('end', function () {
-        //            console.log("inside end");
-        //            emitter.emit('end', body);
-        //            //var stringResult = JSON.parse(body);
-        //            //eventCallback(stringResult);
-        //        });
-    }).on('error', function (e) {
-        console.log("inside error");
-        console.log("Got error: ", e);
-
-        emitter.emit('error', e);
-    });
-    return emitter;
-};
+//var getFromNps = function (location) {
+//    var emitter = new events.EventEmitter();
+//
+//
+//    var options = {
+//        host: 'developer.nps.gov',
+//        path: '/api/v0/parks?parkCode=yell',
+//        method: 'GET',
+//        headers: {
+//            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
+//            'Content-Type': "application/json",
+//            'Port': 443,
+//            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
+//        }
+//    };
+//
+//    https.get(options, function (res) {
+//        //        console.log(res)
+//        var body = '';
+//
+//
+//        res.on('data', function (chunk) {
+//
+//            console.log("inside data");
+//            body += chunk;
+//            //            emitter.emit('end', body);
+//            //            res.json(body);
+//            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
+//            var jsonFormattedResults = JSON.parse(body);
+//            console.log(jsonFormattedResults);
+//            emitter.emit('end', jsonFormattedResults);
+//            //var stringResult = JSON.parse(body);
+//            //eventCallback(stringResult);
+//        });
+//
+//        //        res.on('end', function () {
+//        //            console.log("inside end");
+//        //            emitter.emit('end', body);
+//        //            //var stringResult = JSON.parse(body);
+//        //            //eventCallback(stringResult);
+//        //        });
+//    }).on('error', function (e) {
+//        console.log("inside error");
+//        console.log("Got error: ", e);
+//
+//        emitter.emit('error', e);
+//    });
+//    return emitter;
+//};
 
 
 // local API endpoints
