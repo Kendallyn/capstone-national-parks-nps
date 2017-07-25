@@ -112,6 +112,8 @@ var nationalParks = [{
 //        getSearchResults(parkCode);
 //    }
 //});
+
+//STEP 1 Populate the Parks options
 function populateParks() {
     $(".parks").html('');
     var buildTheParksOutput = "";
@@ -121,44 +123,53 @@ function populateParks() {
     });
 
     //use the HTML output to show it in the index.html
-    $("#results").html(buildTheParksOutput);
+    $("#parkForm").html(buildTheParksOutput);
 }
 
-//Results of park information from the external API will be returned(fullName, description, weatherInfo, states, directionsInfo, url)
+// STEP 2 - get the input from the user
+$("#parkForm").submit(function (event) {
+    event.preventDefault();
+    var nationalParks = $(".parks").val();
+    //  console.log(nationalParks);
+    getParkResult(nationalParks);
+});
 
+//STEP 3
+//Results of park information from the external API will be returned(fullName, description, weatherInfo, states, directionsInfo, url)
 function getParkResult(parkCode) {
-    console.log(parkCode);
+    //    console.log(parkCode);
     $.ajax({
             type: "GET",
             url: '/park/' + parkCode,
             dataType: 'json',
         })
         .done(function (dataOutput) {
+            //will display object from external api to determind parts needed for html build .results will be changed based on output of object in console
             console.log(dataOutput);
-            displayActiveSearchData(dataOutput.results);
+            displayParkResult(dataOutput.results);
         })
         .fail(function (jqXHR, error, errorThrown) {
-            console.log(jqXHR);
-            console.log(error);
-            console.log(errorThrown);
+            //            console.log(jqXHR);
+            //            console.log(error);
+            //            console.log(errorThrown);
         });
 }
 
 
 // STEP 1 - get the input from the user
-$("#parkForm").submit(function (event) {
-    event.preventDefault();
-    var nationalParks = $(".parks").val();
-    //    console.log(nationalParks);
-    getParkResult(nationalParks);
-});
+//$("#parkForm").submit(function (event) {
+//    event.preventDefault();
+//    var nationalParks = $(".parks").val();
+//    //  console.log(nationalParks);
+//    getParkResult(nationalParks);
+//});
 
 
 ////App will display the park result in HTML form
-//function displayParkResults(dataPairs) {
+//function displayParkResult(dataMatches) {
 //    var buildTheHtmlOutput = "";
 //    $.each(dataPairs),
-//        function (dataKey, dataValue) {
+//        function (dataMatchesKey, dataMatchesValue) {
 //            buildTheHtmlOutput += '<li>';
 //            buildTheHtmlOutput += '<section class="results">';
 //            var linkUrl = dataMatchesValue.registrationUrlAdr;

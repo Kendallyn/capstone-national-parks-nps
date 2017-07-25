@@ -35,15 +35,15 @@ app.use(bodyParser.json());
 //    });
 //};
 //
-// external API call
 
+// external API call
 var getFromNps = function (location) {
     var emitter = new events.EventEmitter();
 
 
     var options = {
         host: 'developer.nps.gov',
-        path: '/api/v0/parks?parkCode=' + parkCode,
+        path: '/api/v0/parks?parkCode=yell',
         method: 'GET',
         headers: {
             'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
@@ -84,7 +84,24 @@ var getFromNps = function (location) {
     });
     return emitter;
 };
-
+// external API call from active api example
+//var getFromNps = function (location) {
+//    var emitter = new events.EventEmitter();
+//    unirest.get("http://developer.nps.gov/api/v0/parks?parkCode=")
+//        .header("Accept", "application/json")
+//        .end(function (result) {
+//            //success scenario
+//            if (result.ok) {
+//                emitter.emit('end', result.body);
+//            }
+//            //failure scenario
+//            else {
+//                emitter.emit('error', result.code);
+//            }
+//        });
+//
+//    return emitter;
+//};
 
 
 // local API endpoints
@@ -93,7 +110,7 @@ app.get('/park/:parkCode', function (req, res) {
 
 
     //external api function call and response
-    var searchReq = getFromNps(req.params.location);
+    var searchReq = getFromNps(req.params.parkCode);
 
     //get the data from the first api call
     searchReq.on('end', function (item) {
