@@ -36,133 +36,60 @@ app.use(bodyParser.json());
 //};
 //
 // external API call
-//var getFromNps = function (location) {
-//    var emitter = new events.EventEmitter();
-//    unirest.get("https://developer.nps.gov/api/v0/alerts?parkCode=yell,yose")
-////        .header("Accept", "application/json")
-//        .header("Authorization", "EF26EC69-4C03-458F-9AD7-C33903A87CAB")
-//        .end(function (result) {
-//        //success scenario
-//        if (result.ok) {
-//            emitter.emit('end', result.body);
-//        }
-//        //failure scenario
-//        else {
-//            emitter.emit('error', result.code);
-//        }
-//    });
-//
-//    return emitter;
-//};
 
-// external API call
+var getFromNps = function (location) {
+    var emitter = new events.EventEmitter();
 
-//var getFromNps = function (location) {
-//    var emitter = new events.EventEmitter();
-//
-//
-//    var options = {
-//        host: 'developer.nps.gov',
-//        path: '/api/v0/parks?parkCode=yuch',
-//        method: 'GET',
-//        headers: {
-//            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
-//            'Content-Type': "application/json",
-//            'Port': 443,
-//            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
-//        }
-//    };
-//
-//    https.get(options, function (res) {
-//        //        console.log(res)
-//        var body = '';
-//
-//
-//        res.on('data', function (chunk) {
-//
-//            console.log("inside data");
-//            body += chunk;
-//            //            emitter.emit('end', body);
-//            //            res.json(body);
-//            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
-//            var jsonFormattedResults = JSON.parse(body);
-//            console.log(jsonFormattedResults);
-//            emitter.emit('end', jsonFormattedResults);
-//            //var stringResult = JSON.parse(body);
-//            //eventCallback(stringResult);
-//        });
-//
-//        //        res.on('end', function () {
-//        //            console.log("inside end");
-//        //            emitter.emit('end', body);
-//        //            //var stringResult = JSON.parse(body);
-//        //            //eventCallback(stringResult);
-//        //        });
-//    }).on('error', function (e) {
-//        console.log("inside error");
-//        console.log("Got error: ", e);
-//
-//        emitter.emit('error', e);
-//    });
-//    return emitter;
-//};
 
-// external API call
+    var options = {
+        host: 'developer.nps.gov',
+        path: '/api/v0/parks?parkCode=' + parkCode,
+        method: 'GET',
+        headers: {
+            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
+            'Content-Type': "application/json",
+            'Port': 443,
+            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
+        }
+    };
 
-//var getFromNps = function (location) {
-//    var emitter = new events.EventEmitter();
-//
-//
-//    var options = {
-//        host: 'developer.nps.gov',
-//        path: '/api/v0/parks?parkCode=yell',
-//        method: 'GET',
-//        headers: {
-//            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
-//            'Content-Type': "application/json",
-//            'Port': 443,
-//            'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
-//        }
-//    };
-//
-//    https.get(options, function (res) {
-//        //        console.log(res)
-//        var body = '';
-//
-//
-//        res.on('data', function (chunk) {
-//
-//            console.log("inside data");
-//            body += chunk;
-//            //            emitter.emit('end', body);
-//            //            res.json(body);
-//            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
-//            var jsonFormattedResults = JSON.parse(body);
-//            console.log(jsonFormattedResults);
-//            emitter.emit('end', jsonFormattedResults);
-//            //var stringResult = JSON.parse(body);
-//            //eventCallback(stringResult);
-//        });
-//
-//        //        res.on('end', function () {
-//        //            console.log("inside end");
-//        //            emitter.emit('end', body);
-//        //            //var stringResult = JSON.parse(body);
-//        //            //eventCallback(stringResult);
-//        //        });
-//    }).on('error', function (e) {
-//        console.log("inside error");
-//        console.log("Got error: ", e);
-//
-//        emitter.emit('error', e);
-//    });
-//    return emitter;
-//};
+    https.get(options, function (res) {
+        //        console.log(res)
+        var body = '';
+        res.on('data', function (chunk) {
+
+            console.log("inside data");
+            body += chunk;
+            //            emitter.emit('end', body);
+            //            res.json(body);
+            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
+            var jsonFormattedResults = JSON.parse(body);
+            console.log(jsonFormattedResults);
+            emitter.emit('end', jsonFormattedResults);
+            //var stringResult = JSON.parse(body);
+            //eventCallback(stringResult);
+        });
+
+        //        res.on('end', function () {
+        //            console.log("inside end");
+        //            emitter.emit('end', body);
+        //            //var stringResult = JSON.parse(body);
+        //            //eventCallback(stringResult);
+        //        });
+    }).on('error', function (e) {
+        console.log("inside error");
+        console.log("Got error: ", e);
+
+        emitter.emit('error', e);
+    });
+    return emitter;
+};
+
 
 
 // local API endpoints
 //
-app.get('/activity/:location', function (req, res) {
+app.get('/park/:parkCode', function (req, res) {
 
 
     //external api function call and response
@@ -180,7 +107,7 @@ app.get('/activity/:location', function (req, res) {
 
 });
 //
-//app.post('/add-to-favorites/', function (req, res) {
+//app.post('/add-to-bucket-list/', function (req, res) {
 //
 //    //db connection and data queries
 //    activity.create({
@@ -198,7 +125,7 @@ app.get('/activity/:location', function (req, res) {
 //    });
 //});
 //
-//app.get('/populate-favorites', function (req, res) {
+//app.get('/populate-bucket-list', function (req, res) {
 //    activity.find(function (err, item) {
 //        if (err) {
 //            return res.status(500).json({
@@ -209,7 +136,7 @@ app.get('/activity/:location', function (req, res) {
 //    });
 //});
 
-//app.delete('/delete-favorites/:favoritesId', function (req, res) {
+//app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
 //    activity.findByIdAndRemove(req.params.favoritesId, function (err, items) {
 //        if (err)
 //            return res.status(404).json({
