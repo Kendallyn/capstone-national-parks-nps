@@ -165,59 +165,60 @@ function getParkResult(parkCode) {
 //});
 
 
-////App will display the park result in HTML form
-//function displayParkResult(dataMatches) {
-//    var buildTheHtmlOutput = "";
-//    $.each(dataPairs),
-//        function (dataMatchesKey, dataMatchesValue) {
-//            buildTheHtmlOutput += '<li>';
-//            buildTheHtmlOutput += '<section class="results">';
-//            var linkUrl = dataMatchesValue.registrationUrlAdr;
-//            if (linkUrl === undefined) {
-//                buildTheHtmlOutput += '<h2><a target="_blank" href="www.active.com"' + dataMatchesValue.assetName + '</a></h2>';
-//            } else {
-//                buildTheHtmlOutput += '<h2><a target="_blank" href="' + dataMatchesValue.registrationUrlAdr + '" >' + dataMatchesValue.assetName + '</a></h2>';
-//            }
-//
-//            var showDistance = dataMatchesValue.assetAttributes[0];
-//            if (showDistance === undefined) {
-//                buildTheHtmlOutput += "";
-//            } else {
-//                buildTheHtmlOutput += '<p>' + dataMatchesValue.assetAttributes[0].attribute.attributeValue + '</p>';
-//            }
-//
-//            buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + ', ' + dataMatchesValue.place.stateProvinceCode + '</p>';
-//
-//            buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
-//
-//            var showDescription = dataMatchesValue.assetDescriptions[0];
-//            if (showDescription === undefined) {
-//                buildTheHtmlOutput += "";
-//            } else {
-//                buildTheHtmlOutput += "<div class='auto-populated-description'>" + dataMatchesValue.assetDescriptions[0].description + "</div>";
-//            }
-//
-//            buildTheHtmlOutput += '</div>';
-//            buildTheHtmlOutput += '<form class="addToFavorites">';
-//            buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesValue' value='" + dataMatchesValue.assetName + "'>";
-//            buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesDateValue' value='" + new Date(utcDate) + "'>";
-//            buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesPlaceValue' value='" + dataMatchesValue.place.cityName + ", " + dataMatchesValue.place.stateProvinceCode + "'>";
-//            buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesUrlValue' value='" + dataMatchesValue.registrationUrlAdr + "'>";
-//            buildTheHtmlOutput += '<button type="submit" class="addToFavoritesButton">';
-//            buildTheHtmlOutput += '<input type="image" src="img/hikingbutton-transparency.png" alt="Submit" class="addToFavs">';
-//            buildTheHtmlOutput += '</button>';
-//            buildTheHtmlOutput += '</form>';
-//            buildTheHtmlOutput += '</li>';
-//        });
-//
-//use the HTML output to show it in the index.html
-//$("#results ul").html(buildTheHtmlOutput);
-//}
-//}
-//}
-//
-//
-//
+//App will display the park result in HTML form
+//name, description, weatherInfo, states, directionsInfo, url
+//change order to match from html
+function displayParkResult(dataMatches) {
+    var buildTheHtmlOutput = "";
+    $.each(dataMatches, function (dataMatchesKey, dataMatchesValue) {
+        buildTheHtmlOutput += '<li>';
+        buildTheHtmlOutput += '<section class="results">';
+        var linkUrl = dataMatchesValue.url;
+        if (linkUrl === undefined) {
+            buildTheHtmlOutput += '<h2><a target="_blank" href="www.nps.gov"' + dataMatchesValue.name + '</a></h2>';
+        } else {
+            buildTheHtmlOutput += '<h2><a target="_blank" href="' + dataMatchesValue.url + '" >' + dataMatchesValue.name + '</a></h2>';
+        }
+
+        var showDistance = dataMatchesValue.assetAttributes[0];
+        if (showDistance === undefined) {
+            buildTheHtmlOutput += "";
+        } else {
+            buildTheHtmlOutput += '<p>' + dataMatchesValue.assetAttributes[0].attribute.attributeValue + '</p>';
+        }
+
+        buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + ', ' + dataMatchesValue.place.stateProvinceCode + '</p>';
+
+        buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
+
+        var showDescription = dataMatchesValue.assetDescriptions[0];
+        if (showDescription === undefined) {
+            buildTheHtmlOutput += "";
+        } else {
+            buildTheHtmlOutput += "<div class='auto-populated-description'>" + dataMatchesValue.assetDescriptions[0].description + "</div>";
+        }
+
+        buildTheHtmlOutput += '</div>';
+        buildTheHtmlOutput += '<form class="addToFavorites">';
+        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesValue' value='" + dataMatchesValue.assetName + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesDateValue' value='" + new Date(utcDate) + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesPlaceValue' value='" + dataMatchesValue.place.cityName + ", " + dataMatchesValue.place.stateProvinceCode + "'>";
+        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesUrlValue' value='" + dataMatchesValue.registrationUrlAdr + "'>";
+        buildTheHtmlOutput += '<button type="submit" class="addToFavoritesButton">';
+        buildTheHtmlOutput += '<input type="image" src="img/hikingbutton-transparency.png" alt="Submit" class="addToFavs">';
+        buildTheHtmlOutput += '</button>';
+        buildTheHtmlOutput += '</form>';
+        buildTheHtmlOutput += '</li>';
+    });
+
+    use the HTML output to show it in the index.html
+    $("#results ul").html(buildTheHtmlOutput);
+}
+}
+}
+
+
+
 ////Populate 'National Park Bucket List' section
 //function populateBucketList() {
 //
