@@ -144,9 +144,9 @@ function getParkResult(parkCode) {
             dataType: 'json',
         })
         .done(function (dataOutput) {
-            //displays the external api json object
-            //console.log(dataOutput);
-            //will display object from external api to determind parts needed for html build .results will be changed based on output of object in console
+            //displays the external api json object in the console
+            //            console.log(dataOutput);
+            //.data will be changed based on output of object in console from previous line
             displayParkResult(dataOutput.data);
             //console.log(dataOutput.data["0"].description);
         })
@@ -167,67 +167,65 @@ function getParkResult(parkCode) {
 //});
 
 
-//App will display the park result in HTML form
+//App will take information from json object returned to display the park result information from external api in HTML form
 //name, description, weatherInfo, states, directionsInfo, url
-function displayParkResult(dataOutput) {
+function displayParkResult(dataFromApi) {
     var buildTheHtmlOutput = "";
-    $.each(dataOutput, function (index) {
-        //        console.log(dataOutput);
-        console.log(dataOutput[index].fullName);
-        console.log(dataOutput[index].description);
-        console.log(dataOutput[index].weatherInfo);
-        console.log(dataOutput[index].states);
-        console.log(dataOutput[index].directionsInfo);
-        console.log(dataOutput[index].url);
-        console.log(dataOutput[index].description);
+    $.each(dataFromApi, function (index) {
+        //        console.log(dataFromApi[index].description);
+        //console.log(dataFromApi);
+        //console.log(dataFromApi[index].fullName);
+        //console.log(dataFromApi[index].description);
+        //console.log(dataFromApi[index].weatherInfo);
+        //console.log(dataFromApi[index].states);
+        //console.log(dataFromApi[index].directionsInfo);
+        //console.log(dataFromApi[index].url);
+        //console.log(dataFromApi[index].description);
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
-        var fullName = dataOutput[index].fullName;
-        //        console.log(dataOutput[index].fullName);
-        if (fullName === undefined) {
-            buildTheHtmlOutput += "";
-        } else {
-            buildTheHtmlOutput += '<h2>' + dataOutput[index].fullName + '</h2>';
-        }
-        var description = dataOutput[index].description;
+        var fullName = dataFromApi[index].fullName;
+        console.log(dataFromApi[index]);
+        //        if (fullName === undefined) {
+        //            buildTheHtmlOutput += "";
+        //        } else {
+        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
+        //        }
+        var description = dataFromApi[index].description;
         if (description === undefined) {
             buildTheHtmlOutput += "";
         } else {
-            buildTheHtmlOutput += '<p>' + dataOutput[index].description + '</p>';
+            buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
         }
-        var weatherInfo = dataOutput[index].weatherInfo;
+        var weatherInfo = dataFromApi[index].weatherInfo;
         if (weatherInfo === undefined) {
             buildTheHtmlOutput += "";
         } else {
-            buildTheHtmlOutput += '<p>' + dataOutput[index].weatherInfo + '</p>';
+            buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
         }
-        var states = dataOutput[index].states;
+        var states = dataFromApi[index].states;
         if (states === undefined) {
             buildTheHtmlOutput += "";
         } else {
-            buildTheHtmlOutput += '<p>' + dataOutput[index].states + '</p>';
+            buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
         }
-        var directionsInfo = dataOutput[index].directionsInfo;
+        var directionsInfo = dataFromApi[index].directionsInfo;
         if (directionsInfo === undefined) {
             buildTheHtmlOutput += "";
         } else {
-            buildTheHtmlOutput += "<p>" + dataOutput[index].directionsInfo + "</p>";
+            buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
         }
-        var url = dataOutput[index].url;
+        var url = dataFromApi[index].url;
         if (url === undefined) {
-            buildTheHtmlOutput += '<h2><a target="_blank" href="www.nps.gov"' + '</a></h2>';
+            buildTheHtmlOutput += '<h4><a target="_blank" href="www.nps.gov"' + '</a></h4>';
         } else {
-            buildTheHtmlOutput += '<h2><a target="_blank" href="' + dataOutput[index].url + '" >' + '</a></h2>';
+            buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
         }
         buildTheHtmlOutput += '</section>';
-        buildTheHtmlOutput += '</li>';
-    });
-
-    //use the HTML output to show it in the index.html
-    $("#results ul").html(buildTheHtmlOutput);
-    console.log('show results');
+        buildTheHtmlOutput += '</li>'; //use the HTML output to show it in the index.html
+        $(".results ul").html(buildTheHtmlOutput);
+        console.log('show results');
+    })
 };
-
 
 
 
