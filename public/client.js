@@ -188,7 +188,7 @@ function displayParkResult(dataFromApi) {
         //        if (fullName === undefined) {
         //            buildTheHtmlOutput += "";
         //        } else {
-        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
+        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '<span><img src="img/plus.png" class="add"></span></h2>';
         //        }
         var description = dataFromApi[index].description;
         if (description === undefined) {
