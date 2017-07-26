@@ -146,6 +146,7 @@ function getParkResult(parkCode) {
         .done(function (dataOutput) {
             //will display object from external api to determind parts needed for html build .results will be changed based on output of object in console
             console.log(dataOutput);
+            //displayParkResult(dataOutput.results);
             displayParkResult(dataOutput.results);
         })
         .fail(function (jqXHR, error, errorThrown) {
@@ -168,54 +169,54 @@ function getParkResult(parkCode) {
 //App will display the park result in HTML form
 //name, description, weatherInfo, states, directionsInfo, url
 //change order to match from html
-function displayParkResult(dataMatches) {
+function displayParkResult(dataOutput) {
     var buildTheHtmlOutput = "";
-    $.each(dataMatches, function (dataMatchesKey, dataMatchesValue) {
+    $.each(dataMatches, function (dataMatchesKey, dataOutputValue) {
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
         var linkUrl = dataMatchesValue.url;
         if (linkUrl === undefined) {
             buildTheHtmlOutput += '<h2><a target="_blank" href="www.nps.gov"' + dataMatchesValue.name + '</a></h2>';
+            console.log(data.url);
         } else {
             buildTheHtmlOutput += '<h2><a target="_blank" href="' + dataMatchesValue.url + '" >' + dataMatchesValue.name + '</a></h2>';
         }
-
-        var showDistance = dataMatchesValue.assetAttributes[0];
-        if (showDistance === undefined) {
-            buildTheHtmlOutput += "";
-        } else {
-            buildTheHtmlOutput += '<p>' + dataMatchesValue.assetAttributes[0].attribute.attributeValue + '</p>';
-        }
-
-        buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + ', ' + dataMatchesValue.place.stateProvinceCode + '</p>';
-
-        buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
-
-        var showDescription = dataMatchesValue.assetDescriptions[0];
-        if (showDescription === undefined) {
-            buildTheHtmlOutput += "";
-        } else {
-            buildTheHtmlOutput += "<div class='auto-populated-description'>" + dataMatchesValue.assetDescriptions[0].description + "</div>";
-        }
-
-        buildTheHtmlOutput += '</div>';
-        buildTheHtmlOutput += '<form class="addToFavorites">';
-        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesValue' value='" + dataMatchesValue.assetName + "'>";
-        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesDateValue' value='" + new Date(utcDate) + "'>";
-        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesPlaceValue' value='" + dataMatchesValue.place.cityName + ", " + dataMatchesValue.place.stateProvinceCode + "'>";
-        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesUrlValue' value='" + dataMatchesValue.registrationUrlAdr + "'>";
-        buildTheHtmlOutput += '<button type="submit" class="addToFavoritesButton">';
-        buildTheHtmlOutput += '<input type="image" src="img/hikingbutton-transparency.png" alt="Submit" class="addToFavs">';
-        buildTheHtmlOutput += '</button>';
-        buildTheHtmlOutput += '</form>';
+        //
+        //        var fullName = dataMatchesValue.data[0];
+        //        if (fullName === undefined) {
+        //            buildTheHtmlOutput += "";
+        //        } else {
+        //            buildTheHtmlOutput += '<p>' + dataMatchesValue.assetAttributes[0].attribute.attributeValue + '</p>';
+        //        }
+        //
+        //        buildTheHtmlOutput += '<p>' + dataMatchesValue.place.cityName + ', ' + dataMatchesValue.place.stateProvinceCode + '</p>';
+        //
+        //        buildTheHtmlOutput += '<p>' + new Date(utcDate) + '</p>';
+        //
+        //        var showDescription = dataMatchesValue.assetDescriptions[0];
+        //        if (showDescription === undefined) {
+        //            buildTheHtmlOutput += "";
+        //        } else {
+        //            buildTheHtmlOutput += "<div class='auto-populated-description'>" + dataMatchesValue.assetDescriptions[0].description + "</div>";
+        //        }
+        //
+        //        buildTheHtmlOutput += '</div>';
+        //        buildTheHtmlOutput += '<form class="addToFavorites">';
+        //        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesValue' value='" + dataMatchesValue.assetName + "'>";
+        //        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesDateValue' value='" + new Date(utcDate) + "'>";
+        //        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesPlaceValue' value='" + dataMatchesValue.place.cityName + ", " + dataMatchesValue.place.stateProvinceCode + "'>";
+        //        buildTheHtmlOutput += "<input type='hidden' class='addToFavoritesUrlValue' value='" + dataMatchesValue.registrationUrlAdr + "'>";
+        //        buildTheHtmlOutput += '<button type="submit" class="addToFavoritesButton">';
+        //        buildTheHtmlOutput += '<input type="image" src="img/hikingbutton-transparency.png" alt="Submit" class="addToFavs">';
+        //        buildTheHtmlOutput += '</button>';
+        //        buildTheHtmlOutput += '</form>';
         buildTheHtmlOutput += '</li>';
     });
 
-    use the HTML output to show it in the index.html
+    //use the HTML output to show it in the index.html
     $("#results ul").html(buildTheHtmlOutput);
 }
-}
-}
+
 
 
 
