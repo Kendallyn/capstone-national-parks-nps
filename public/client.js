@@ -151,7 +151,7 @@ function getParkResult(parkCode) {
 function displayParkResult(dataFromApi) {
     var buildTheHtmlOutput = "";
     $.each(dataFromApi, function (index) {
-        console.log(dataFromApi[index]);
+        //        console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
         var fullName = dataFromApi[index].fullName;
@@ -174,12 +174,12 @@ function displayParkResult(dataFromApi) {
         buildTheHtmlOutput += '<form class="addToBucketList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
         //console.log('name');
-        buildTheHtmlOutput += '<input type="image" src="img/plus.png" alt="Submit" class="addToList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListDescription" value="' + dataFromApi[index].description + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListWeatherInfo" value="' + dataFromApi[index].weatherInfo + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListState" value="' + dataFromApi[index].states + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListDirectionsInfo"' + dataFromApi[index].directionsInfo + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkUrl"' + dataFromApi[index].url + '">';
+        buildTheHtmlOutput += '<input type="image" src="../parkImages/yell.jpg" alt="Park Image" class="addToBucketListParkImage">';
         //////////////////////////////////////////////////////////////////////////////
         buildTheHtmlOutput += '</section>';
         buildTheHtmlOutput += '</li>';
@@ -193,127 +193,62 @@ function displayParkResult(dataFromApi) {
 
 
 ////Populate 'National Park Bucket List' section
-//function populateBucketList() {
-//
-//    $.ajax({
-//            type: "GET",
-//            url: "/bucket-list/",
-//            dataType: 'json',
-//        })
-//        .done(function (dataOutput) {
-//            console.log(dataOutput);
-//            If successful, set some globals instead of using result object
-//            if (dataOutput.length != 0) {
-//                var buildTheHtmlOutput = '<div class="pinnedTitle"> <img src="img/hikingbutton-transparency.png"> <h3>Pinned Hiking Trails</h3>  </div>';
-//                $.each(dataOutput, function (dataOutputKey, dataOutputValue) {
-//                    buildTheHtmlOutput += "<li class = 'pinned'>";
-//                    buildTheHtmlOutput += "<div class = 'delete-favorites-container' > ";
-//                    buildTheHtmlOutput += "<form class = 'deleteFavoriteValue' > ";
-//                    buildTheHtmlOutput += "<input type='hidden' class='deleteFavoriteValueInput' value='" + dataOutputValue._id + "'>";
-//                    buildTheHtmlOutput += "<button type = 'submit' class = 'deleteFavoriteButton'>";
-//                    buildTheHtmlOutput += "<i class = 'fa fa-minus-circle' aria - hidden = 'true'></i>";
-//                    buildTheHtmlOutput += "</button>";
-//                    buildTheHtmlOutput += "</form>";
-//                    buildTheHtmlOutput += "</div>";
-//                    buildTheHtmlOutput += '<h4><a target="_blank" href="' + dataOutputValue.url + '" >' + dataOutputValue.name + '</a></h4>';
-//                    var showCity = dataOutputValue.place;
-//                    if (showCity === undefined) {
-//                        buildTheHtmlOutput += "";
-//                    } else {
-//                        buildTheHtmlOutput += '<p>' + dataOutputValue.place + '</p>';
-//                    }
-//                    buildTheHtmlOutput += '<p>' + dataOutputValue.date + '</p>';
-//                    buildTheHtmlOutput += "</li>";
-//                });
-//
-//                $(".savedHikes").html(buildTheHtmlOutput);
-//            }
-//        })
-//        .fail(function (jqXHR, error, errorThrown) {
-//            //console.log(jqXHR);
-//            //console.log(error);
-//            //console.log(errorThrown);
-//        });
-//}
-//$(function () {
-//    populateBucketList();
-//
-//});
-//
-//
-//
-//
+function populateBucketListContainer() {
+    $.ajax({
+            type: 'GET',
+            url: '/populate-bucket-list/',
+            dataType: 'json',
+        })
+        .done(function (dataOutput) {
+            console.log(dataOutput);
+            //If successful, set some globals instead of using result object
+            if (dataOutput.length != 0) {
+                buildTheHtmlOutput += '<div class="bucketList">';
+                $.each(dataFromApi, function (dataOutput.data) {
+                    buildTheHtmlOutput += ""
+                })
+            }
+        });
+}
+
+
 ////User will be able to add a location to 'National Park Bucket List' section
-//$(document).on('click', '#results .add', function (event) {
-//    event.preventDefault();
-//
-//    //highlight the icon to show it has been added to favorites
-//    $(this).toggleClass("highlight");
-//    var favoritesValue = $(this).parent().find('.addToFavoritesValue').val();
-//    var favoritesDateValue = $(this).parent().find('.addToFavoritesDateValue').val();
-//    var favoritesPlaceValue = $(this).parent().find('.addToFavoritesPlaceValue').val();
-//    var favoritesUrlValue = $(this).parent().find('.addToFavoritesUrlValue').val();
-//
-//    var nameObject = {
-//        'name': favoritesValue,
-//        'date': favoritesDateValue,
-//        'place': favoritesPlaceValue,
-//        'url': favoritesUrlValue
-//    };
-//
-//    $.ajax({
-//            method: 'POST',
-//            dataType: 'json',
-//            contentType: 'application/json',
-//            data: JSON.stringify(nameObject),
-//            url: '/add-to-favorites/',
-//        })
-//        .done(function (result) {
-//
-//            populateFavoritesContainer();
-//        })
-//        .fail(function (jqXHR, error, errorThrown) {
-//            //console.log(jqXHR);
-//            //console.log(error);
-//            //console.log(errorThrown);
-//        });
-//});
-//
-//
-//
-//
-//
-//
+$(document).on('click', '.results .add', function (event) {
+    event.preventDefault();
+    //highlights the icon to show it has been added to bucket list
+    //$(this).toggleClass("highlight");
+    var bucketListName = $(this).parent().find('.addToBucketListFullName').val();
+    var bucketListDescription = $(this).parent().find('.addToBucketListDescription').val();
+    var bucketListWeatherInfo = $(this).parent().find('.addToBucketListWeatherInfo').val();
+    var bucketListState = $(this).parent().find('.addToBucketListState').val();
+    var bucketListDirectionsInfo = $(this).parent().find('.addToBucketListDirectionsInfo').val();
+    var bucketListParkUrl = $(this).parent().find('.addToBucketListParkUrl').val();
+
+    var parkObject = {
+        'name': bucketListName,
+        'description': bucketListDescription,
+        'weather': bucketListWeatherInfo,
+        'state': bucketListState,
+        'directions': bucketListDirectionsInfo,
+        'url': bucketListParkUrl
+    };
+    $.ajax({
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(parkObject),
+            url: '/add-to-bucket-list/',
+        })
+        .done(function (result) {
+            populateBucketListContainer();
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            //console.log(jqXHR);
+            //console.log(error);
+            //console.log(errorThrown);
+        });
+});
+
 ////User will be able to 'check' item as a place visited
-//
-//
-//
-//
+
 ////User will be able to remove item from list
-//$(document).on('click', '.remove', function (event) {
-//            event.preventDefault();
-//            //get the value from the input box
-//            var favoritesIdToDelete = $(this).parent().find('.deleteFavoriteValueInput').val();
-//            var nameObject = {
-//                'name': favoritesIdToDelete
-//            };
-//
-//            $.ajax({
-//                    method: 'DELETE',
-//                    dataType: 'json',
-//                    contentType: 'application/json',
-//                    url: '/delete-favorites/' + favoritesIdToDelete,
-//                })
-//                .done(function (result) {
-//                    populateFavoritesContainer();
-//                })
-//                .fail(function (jqXHR, error, errorThrown) {
-//                    //console.log(jqXHR);
-//                    //console.log(error);
-//                    //console.log(errorThrown);
-//                });
-//
-//            //if last one, empty the div
-//            $(".deleteFavoriteButton").click(function () {
-//                $(".bucketList").empty();
-//            });
