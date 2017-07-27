@@ -145,7 +145,7 @@ function getParkResult(parkCode) {
         })
         .done(function (dataOutput) {
             //displays the external api json object in the console
-            //            console.log(dataOutput);
+            //console.log(dataOutput);
             //.data will be changed based on output of object in console from previous line
             displayParkResult(dataOutput.data);
             //console.log(dataOutput.data["0"].description);
@@ -172,30 +172,14 @@ function getParkResult(parkCode) {
 function displayParkResult(dataFromApi) {
     var buildTheHtmlOutput = "";
     $.each(dataFromApi, function (index) {
-        //        console.log(dataFromApi[index].description);
-        //console.log(dataFromApi);
-        //console.log(dataFromApi[index].fullName);
-        //console.log(dataFromApi[index].description);
-        //console.log(dataFromApi[index].weatherInfo);
-        //console.log(dataFromApi[index].states);
-        //console.log(dataFromApi[index].directionsInfo);
-        //console.log(dataFromApi[index].url);
-        //console.log(dataFromApi[index].description);
+        console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
         var fullName = dataFromApi[index].fullName;
-        console.log(dataFromApi[index]);
-        //        if (fullName === undefined) {
-        //            buildTheHtmlOutput += "";
-        //        } else {
+        //        console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '<span><img src="img/plus.png" class="add"></span></h2>';
-        //        }
         var description = dataFromApi[index].description;
-        if (description === undefined) {
-            buildTheHtmlOutput += "";
-        } else {
-            buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
-        }
+        buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
         var weatherInfo = dataFromApi[index].weatherInfo;
         if (weatherInfo === undefined) {
             buildTheHtmlOutput += "";
@@ -203,23 +187,11 @@ function displayParkResult(dataFromApi) {
             buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
         }
         var states = dataFromApi[index].states;
-        if (states === undefined) {
-            buildTheHtmlOutput += "";
-        } else {
-            buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
-        }
+        buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
         var directionsInfo = dataFromApi[index].directionsInfo;
-        if (directionsInfo === undefined) {
-            buildTheHtmlOutput += "";
-        } else {
-            buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
-        }
+        buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
         var url = dataFromApi[index].url;
-        if (url === undefined) {
-            buildTheHtmlOutput += '<h4><a target="_blank" href="www.nps.gov"' + '</a></h4>';
-        } else {
-            buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
-        }
+        buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
         buildTheHtmlOutput += '</section>';
         buildTheHtmlOutput += '</li>'; //use the HTML output to show it in the index.html
         $(".results ul").html(buildTheHtmlOutput);
