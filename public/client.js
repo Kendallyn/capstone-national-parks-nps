@@ -101,17 +101,6 @@ var nationalParks = [{
         "parkCode": "zion"
     }]
 
-//User will search a national park they want information on
-//$("#searchButton").submit(function (event) {
-//    console.log('userSearch');
-//    event.preventDefault();
-//    var userSearch = $(".parks").val();
-//    if (userSearch === "") {
-//        alert("Please chose a park from the list and try again.");
-//    } else {
-//        getSearchResults(parkCode);
-//    }
-//});
 
 //STEP 1 Populate the Parks options
 function populateParks() {
@@ -157,16 +146,6 @@ function getParkResult(parkCode) {
         });
 }
 
-
-// STEP 1 - get the input from the user
-//$("#parkForm").submit(function (event) {
-//    event.preventDefault();
-//    var nationalParks = $(".parks").val();
-//    //  console.log(nationalParks);
-//    getParkResult(nationalParks);
-//});
-
-
 //App will take information from json object returned to display the park result information from external api in HTML form
 //name, description, weatherInfo, states, directionsInfo, url
 function displayParkResult(dataFromApi) {
@@ -176,7 +155,6 @@ function displayParkResult(dataFromApi) {
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
         var fullName = dataFromApi[index].fullName;
-        //        console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '<span><img src="img/plus.png" class="add"></span></h2>';
         var description = dataFromApi[index].description;
         buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
@@ -192,10 +170,23 @@ function displayParkResult(dataFromApi) {
         buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
         var url = dataFromApi[index].url;
         buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
+        /////////////////////////////////////////////////////////
+        buildTheHtmlOutput += '<form class="addToBucketList">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
+        //console.log('name');
+        buildTheHtmlOutput += '<input type="image" src="img/plus.png" alt="Submit" class="addToList">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListDescription" value="' + dataFromApi[index].description + '">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListWeatherInfo" value="' + dataFromApi[index].weatherInfo + '">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListState" value="' + dataFromApi[index].states + '">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListDirectionsInfo"' + dataFromApi[index].directionsInfo + '">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkUrl"' + dataFromApi[index].url + '">';
+        //////////////////////////////////////////////////////////////////////////////
         buildTheHtmlOutput += '</section>';
-        buildTheHtmlOutput += '</li>'; //use the HTML output to show it in the index.html
+        buildTheHtmlOutput += '</li>';
+
+        //use the HTML output to show it in the index.html
         $(".results ul").html(buildTheHtmlOutput);
-        console.log('show results');
+        //        console.log('show results');
     })
 };
 
