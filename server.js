@@ -124,34 +124,34 @@ app.get('/park/:parkCode', function (req, res) {
 
 });
 //
-//app.post('/add-to-bucket-list/', function (req, res) {
+app.post('/add-to-bucket-list/', function (req, res) {
+
+    //db connection and data queries
+    activity.create({
+        name: req.body.name,
+        date: req.body.date,
+        place: req.body.place,
+        url: req.body.url
+    }, function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(201).json(item);
+    });
+});
 //
-//    //db connection and data queries
-//    activity.create({
-//        name: req.body.name,
-//        date: req.body.date,
-//        place: req.body.place,
-//        url: req.body.url
-//    }, function (err, item) {
-//        if (err) {
-//            return res.status(500).json({
-//                message: 'Internal Server Error'
-//            });
-//        }
-//        res.status(201).json(item);
-//    });
-//});
-//
-//app.get('/populate-bucket-list', function (req, res) {
-//    activity.find(function (err, item) {
-//        if (err) {
-//            return res.status(500).json({
-//                message: 'Internal Server Error'
-//            });
-//        }
-//        res.status(200).json(item);
-//    });
-//});
+app.get('/populate-bucket-list', function (req, res) {
+    activity.find(function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(item);
+    });
+});
 
 //app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
 //    activity.findByIdAndRemove(req.params.favoritesId, function (err, items) {
