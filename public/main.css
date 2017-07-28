@@ -24,6 +24,10 @@ body {
     font-size: 14px;
 }
 
+button {
+    background-color: transparent;
+}
+
 section.choose,
 section.results,
 section.bucketListTitle,
@@ -133,11 +137,17 @@ a {
     color: cornflowerblue;
 }
 
+.results ul li .addToBucketListButton {
+    display: inline-block;
+    float: left;
+}
+
 .results ul li .add {
     height: 40px;
     width: 40px;
     position: relative;
-    top: 10px;
+    top: -30px;
+    left: 40px;
 }
 
 .results ul li .parkImage {
