@@ -43,7 +43,7 @@ var getFromNps = function (location) {
 
     var options = {
         host: 'developer.nps.gov',
-        path: '/api/v0/parks?parkCode=yell',
+        path: '/api/v0/parks?parkCode=chis',
         method: 'GET',
         headers: {
             'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
@@ -105,7 +105,6 @@ var getFromNps = function (location) {
 
 
 // local API endpoints
-//
 app.get('/park/:parkCode', function (req, res) {
 
 
@@ -142,7 +141,7 @@ app.post('/add-to-bucket-list/', function (req, res) {
     });
 });
 //
-app.get('/populate-bucket-list', function (req, res) {
+app.get('/populate-bucket-list/', function (req, res) {
     activity.find(function (err, item) {
         if (err) {
             return res.status(500).json({
@@ -153,16 +152,16 @@ app.get('/populate-bucket-list', function (req, res) {
     });
 });
 
-//app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
-//    activity.findByIdAndRemove(req.params.favoritesId, function (err, items) {
-//        if (err)
-//            return res.status(404).json({
-//                message: 'Item not found.'
-//            });
-//
-//        res.status(201).json(items);
-//    });
-//});
+app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
+    activity.findByIdAndRemove(req.params.favoritesId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
 
 
 exports.app = app;

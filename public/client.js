@@ -149,9 +149,9 @@ function getParkResult(parkCode) {
 //App will take information from json object returned to display the park result information from external api in HTML form
 //name, description, weatherInfo, states, directionsInfo, url
 function displayParkResult(dataFromApi) {
-    var buildTheHtmlOutput = "";
+    var buildTheHtmlOutput = '<ul class="results">';
     $.each(dataFromApi, function (index) {
-        //        console.log(dataFromApi[index]);
+        //console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
         var fullName = dataFromApi[index].fullName;
@@ -159,28 +159,27 @@ function displayParkResult(dataFromApi) {
         var description = dataFromApi[index].description;
         buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
         var weatherInfo = dataFromApi[index].weatherInfo;
-        if (weatherInfo === undefined) {
-            buildTheHtmlOutput += "";
-        } else {
-            buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
-        }
+        buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
+        console.log(dataFromApi[index].weatherInfo);
         var states = dataFromApi[index].states;
         buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
         var directionsInfo = dataFromApi[index].directionsInfo;
         buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
         var url = dataFromApi[index].url;
         buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
-        /////////////////////////////////////////////////////////
+
+
         buildTheHtmlOutput += '<form class="addToBucketList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
-        //console.log('name');
+        //        buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton">';
+        //        buildTheHtmlOutput += '<input type="image" src"img/plus.png" alt="submit" class="add">';
+        //        buildTheHtmlOutput += '</button>';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListDescription" value="' + dataFromApi[index].description + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListWeatherInfo" value="' + dataFromApi[index].weatherInfo + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListState" value="' + dataFromApi[index].states + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListDirectionsInfo"' + dataFromApi[index].directionsInfo + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkUrl"' + dataFromApi[index].url + '">';
         buildTheHtmlOutput += '<input type="image" src="../parkImages/yell.jpg" alt="Park Image" class="addToBucketListParkImage">';
-        //////////////////////////////////////////////////////////////////////////////
         buildTheHtmlOutput += '</section>';
         buildTheHtmlOutput += '</li>';
 
@@ -194,16 +193,14 @@ function displayParkResult(dataFromApi) {
 
 ////Populate 'National Park Bucket List' section
 function populateBucketListContainer() {
-    console.log('here');
     $.ajax({
             type: 'GET',
             url: '/populate-bucket-list/',
             dataType: 'json',
         })
-        .done(function (dataOutput) {
-            console.log(dataOutput);
+        .done(function (dataFromApi) {
             //If successful, set some globals instead of using result object
-            if (dataOutput.length != 0) {
+            if (dataFromApi.length != 0) {
                 buildTheHtmlOutput += '<div class="bucketList">';
                 $.each(dataFromApi, function (dataOutput) {
                     buildTheHtmlOutput += '<li>';
@@ -237,42 +234,64 @@ $(function () {
 
 
 ////User will be able to add a location to 'National Park Bucket List' section
-$(document).on('click', '.results .add', function (event) {
-    event.preventDefault();
-    //highlights the icon to show it has been added to bucket list
-    //$(this).toggleClass("highlight");
-    var bucketListName = $(this).parent().find('.addToBucketListFullName').val();
-    var bucketListDescription = $(this).parent().find('.addToBucketListDescription').val();
-    var bucketListWeatherInfo = $(this).parent().find('.addToBucketListWeatherInfo').val();
-    var bucketListState = $(this).parent().find('.addToBucketListState').val();
-    var bucketListDirectionsInfo = $(this).parent().find('.addToBucketListDirectionsInfo').val();
-    var bucketListParkUrl = $(this).parent().find('.addToBucketListParkUrl').val();
-
-    var parkObject = {
-        'name': bucketListName,
-        'description': bucketListDescription,
-        'weather': bucketListWeatherInfo,
-        'state': bucketListState,
-        'directions': bucketListDirectionsInfo,
-        'url': bucketListParkUrl
-    };
-    $.ajax({
-            method: 'POST',
-            dataType: 'json',
-            contentType: 'application/json',
-            data: JSON.stringify(parkObject),
-            url: '/add-to-bucket-list/',
-        })
-        .done(function (result) {
-            populateBucketListContainer();
-        })
-        .fail(function (jqXHR, error, errorThrown) {
-            //console.log(jqXHR);
-            //console.log(error);
-            //console.log(errorThrown);
-        });
-});
+//$(document).on('click', '.results .add', function (event) {
+//    event.preventDefault();
+//    //highlights the icon to show it has been added to bucket list
+//    //$(this).toggleClass("highlight");
+//    var bucketListName = $(this).parent().find('.addToBucketListFullName').val();
+//    var bucketListDescription = $(this).parent().find('.addToBucketListDescription').val();
+//    var bucketListWeatherInfo = $(this).parent().find('.addToBucketListWeatherInfo').val();
+//    var bucketListState = $(this).parent().find('.addToBucketListState').val();
+//    var bucketListDirectionsInfo = $(this).parent().find('.addToBucketListDirectionsInfo').val();
+//    var bucketListParkUrl = $(this).parent().find('.addToBucketListParkUrl').val();
+//
+//    var parkObject = {
+//        'name': bucketListName,
+//        'description': bucketListDescription,
+//        'weather': bucketListWeatherInfo,
+//        'state': bucketListState,
+//        'directions': bucketListDirectionsInfo,
+//        'url': bucketListParkUrl
+//    };
+//
+//    $.ajax({
+//            method: 'POST',
+//            dataType: 'json',
+//            contentType: 'application/json',
+//            data: JSON.stringify(parkObject),
+//            url: '/add-to-bucket-list/',
+//        })
+//        .done(function (result) {
+//            populateBucketListContainer();
+//        })
+//        .fail(function (jqXHR, error, errorThrown) {
+//            //console.log(jqXHR);
+//            //console.log(error);
+//            //console.log(errorThrown);
+//        });
+//});
 
 ////User will be able to 'check' item as a place visited
 
 ////User will be able to remove item from list
+//$(document).on('click', '.remove', function (event) {
+//    event.preventDefault();
+//    var parkIdToDelete = $(this).parent().find('deleteBucketListValue').val();
+//    var parkObject = {
+//        'name': parkIdToDelete
+//    };
+//    $.ajax({
+//            method: 'DELETE',
+//            dataType: 'json',
+//            contentType: 'application/json',
+//            url: '/delete-park-from-bucket-list/' + parkIdToDelete,
+//        })
+//        .done(function (result) {
+//            populateBucketListContainer();
+//        })
+//        .fail(function (jqXHR, error, errorThrown) {
+//            console.log(jqXHR);
+//            console.log(error);
+//            console.log(errorThrown);
+//        });
+//});
