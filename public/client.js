@@ -151,7 +151,7 @@ function getParkResult(parkCode) {
 function displayParkResult(dataFromApi) {
     var buildTheHtmlOutput = '<ul class="results">';
     $.each(dataFromApi, function (index) {
-        //console.log(dataFromApi[index]);
+        console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
         var fullName = dataFromApi[index].fullName;
@@ -241,7 +241,6 @@ $(function () {
 
 ////User will be able to add a location to 'National Park Bucket List' section
 $(document).on('submit', '.addToBucketList', function (event) {
-    console.log('here');
     event.preventDefault();
     //highlights the icon to show it has been added to bucket list
     //$(this).toggleClass("highlight");
@@ -251,8 +250,7 @@ $(document).on('submit', '.addToBucketList', function (event) {
     var bucketListParkImage = $(this).parent().find('.addToBucketListParkImage').val();
 
     var parkObject = {
-        'name': bucketListName,
-        'image': bucketListParkImage
+        'name': bucketListName
     };
 
     $.ajax({
@@ -275,7 +273,7 @@ $(document).on('submit', '.addToBucketList', function (event) {
 ////User will be able to 'check' item as a place visited
 
 ////User will be able to remove item from list
-//$(document).on('click', '.remove', function (event) {
+//$(document).on('submit', '.remove', function (event) {
 //    event.preventDefault();
 //    var parkIdToDelete = $(this).parent().find('deleteBucketListValue').val();
 //    var parkObject = {

@@ -58,12 +58,10 @@ var getFromNps = function (location) {
         //        console.log(res)
         var body = '';
         res.on('data', function (chunk) {
-
-            console.log("inside data");
             body += chunk;
-            //            emitter.emit('end', body);
-            //            res.json(body);
-            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
+            //emitter.emit('end', body);
+            //res.json(body);
+            //var jsonFormattedResults = JSON.parse(body).data[0].description;
             var jsonFormattedResults = JSON.parse(body);
             console.log(jsonFormattedResults);
             emitter.emit('end', jsonFormattedResults);
@@ -127,11 +125,9 @@ app.get('/park/:parkCode', function (req, res) {
 app.post('/add-to-bucket-list/', function (req, res) {
 
     //db connection and data queries
+    //creating object that will POST
     park.create({
-        name: req.body.name,
-        date: req.body.date,
-        place: req.body.place,
-        url: req.body.url
+        name: req.body.fullName
     }, function (err, item) {
         if (err) {
             return res.status(500).json({
