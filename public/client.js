@@ -194,6 +194,7 @@ function displayParkResult(dataFromApi) {
 
 ////Populate 'National Park Bucket List' section
 function populateBucketListContainer() {
+    console.log('here');
     $.ajax({
             type: 'GET',
             url: '/populate-bucket-list/',
@@ -204,12 +205,35 @@ function populateBucketListContainer() {
             //If successful, set some globals instead of using result object
             if (dataOutput.length != 0) {
                 buildTheHtmlOutput += '<div class="bucketList">';
-                $.each(dataFromApi, function (dataOutput.data) {
-                    buildTheHtmlOutput += ""
-                })
+                $.each(dataFromApi, function (dataOutput) {
+                    buildTheHtmlOutput += '<li>';
+                    buildTheHtmlOutput += '<form class="deleteBucketListValue">';
+                    buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataFromApi._id + '">';
+                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
+                    buildTheHtmlOutput += '<img src"img/remove.png">';
+                    buildTheHtmlOutput += '</button>';
+                    buildTheHtmlOutput += '</form>';
+                    buildTheHtmlOutput += '</div>';
+                    buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '<span><img src="img/plus.png" class="add"></span></h2>';
+                    buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
+                    buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
+                    buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
+                    buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
+                    buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
+                    buildTheHtmlOutput += '</li>';
+                });
+                $(".bucketList").html(buildTheHtmlOutput);
             }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            //console.log(jqXHR);
+            //console.log(error);
+            //console.log(errorThrown);
         });
 }
+$(function () {
+    populateBucketListContainer();
+});
 
 
 ////User will be able to add a location to 'National Park Bucket List' section
