@@ -7,6 +7,7 @@ var config = require('./config');
 var https = require('https');
 var http = require('http');
 var app = express();
+var park = require('./models/park');
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
@@ -43,7 +44,7 @@ var getFromNps = function (location) {
 
     var options = {
         host: 'developer.nps.gov',
-        path: '/api/v0/parks?parkCode=chis',
+        path: '/api/v0/parks?parkCode=' + location,
         method: 'GET',
         headers: {
             'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
@@ -126,7 +127,7 @@ app.get('/park/:parkCode', function (req, res) {
 app.post('/add-to-bucket-list/', function (req, res) {
 
     //db connection and data queries
-    activity.create({
+    park.create({
         name: req.body.name,
         date: req.body.date,
         place: req.body.place,
@@ -142,7 +143,7 @@ app.post('/add-to-bucket-list/', function (req, res) {
 });
 //
 app.get('/populate-bucket-list/', function (req, res) {
-    activity.find(function (err, item) {
+    park.find(function (err, item) {
         if (err) {
             return res.status(500).json({
                 message: 'Internal Server Error'
@@ -153,7 +154,7 @@ app.get('/populate-bucket-list/', function (req, res) {
 });
 
 app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
-    activity.findByIdAndRemove(req.params.favoritesId, function (err, items) {
+    park.findByIdAndRemove(req.params.favoritesId, function (err, items) {
         if (err)
             return res.status(404).json({
                 message: 'Item not found.'
