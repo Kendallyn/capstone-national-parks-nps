@@ -155,12 +155,30 @@ function displayParkResult(dataFromApi) {
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
         var fullName = dataFromApi[index].fullName;
-        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '<span><img src="img/plus.png" class="add"></span></h2>';
+        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName;
+
+        //        starting the add to form
+        buildTheHtmlOutput += '<form class="addToBucketList">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
+        buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton">';
+        buildTheHtmlOutput += '<input type="image" src="img/plus.png" class="add" alt="submit">';
+        buildTheHtmlOutput += '</button>';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/yell.jpg">';
+        buildTheHtmlOutput += '</form>';
+        //        end of the add to form
+
+        buildTheHtmlOutput += '</h2>';
+
+        //        start park image
+        buildTheHtmlOutput += '<div id="parkImageFile">';
+        buildTheHtmlOutput += '<img src="img/parkImages/yell.jpg" alt="Yellowstone National Park" class="parkImage">';
+        buildTheHtmlOutput += '</div>';
+        //        end park image
+
         var description = dataFromApi[index].description;
         buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
         var weatherInfo = dataFromApi[index].weatherInfo;
         buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
-        console.log(dataFromApi[index].weatherInfo);
         var states = dataFromApi[index].states;
         buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
         var directionsInfo = dataFromApi[index].directionsInfo;
@@ -168,18 +186,6 @@ function displayParkResult(dataFromApi) {
         var url = dataFromApi[index].url;
         buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
 
-
-        buildTheHtmlOutput += '<form class="addToBucketList">';
-        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
-        //        buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton">';
-        //        buildTheHtmlOutput += '<input type="image" src"img/plus.png" alt="submit" class="add">';
-        //        buildTheHtmlOutput += '</button>';
-        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListDescription" value="' + dataFromApi[index].description + '">';
-        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListWeatherInfo" value="' + dataFromApi[index].weatherInfo + '">';
-        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListState" value="' + dataFromApi[index].states + '">';
-        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListDirectionsInfo"' + dataFromApi[index].directionsInfo + '">';
-        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkUrl"' + dataFromApi[index].url + '">';
-        buildTheHtmlOutput += '<input type="image" src="../parkImages/yell.jpg" alt="Park Image" class="addToBucketListParkImage">';
         buildTheHtmlOutput += '</section>';
         buildTheHtmlOutput += '</li>';
 
@@ -223,9 +229,9 @@ function populateBucketListContainer() {
             }
         })
         .fail(function (jqXHR, error, errorThrown) {
-            //console.log(jqXHR);
-            //console.log(error);
-            //console.log(errorThrown);
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
 }
 $(function () {
@@ -234,42 +240,37 @@ $(function () {
 
 
 ////User will be able to add a location to 'National Park Bucket List' section
-//$(document).on('click', '.results .add', function (event) {
-//    event.preventDefault();
-//    //highlights the icon to show it has been added to bucket list
-//    //$(this).toggleClass("highlight");
-//    var bucketListName = $(this).parent().find('.addToBucketListFullName').val();
-//    var bucketListDescription = $(this).parent().find('.addToBucketListDescription').val();
-//    var bucketListWeatherInfo = $(this).parent().find('.addToBucketListWeatherInfo').val();
-//    var bucketListState = $(this).parent().find('.addToBucketListState').val();
-//    var bucketListDirectionsInfo = $(this).parent().find('.addToBucketListDirectionsInfo').val();
-//    var bucketListParkUrl = $(this).parent().find('.addToBucketListParkUrl').val();
-//
-//    var parkObject = {
-//        'name': bucketListName,
-//        'description': bucketListDescription,
-//        'weather': bucketListWeatherInfo,
-//        'state': bucketListState,
-//        'directions': bucketListDirectionsInfo,
-//        'url': bucketListParkUrl
-//    };
-//
-//    $.ajax({
-//            method: 'POST',
-//            dataType: 'json',
-//            contentType: 'application/json',
-//            data: JSON.stringify(parkObject),
-//            url: '/add-to-bucket-list/',
-//        })
-//        .done(function (result) {
-//            populateBucketListContainer();
-//        })
-//        .fail(function (jqXHR, error, errorThrown) {
-//            //console.log(jqXHR);
-//            //console.log(error);
-//            //console.log(errorThrown);
-//        });
-//});
+$(document).on('submit', '.addToBucketList', function (event) {
+    console.log('here');
+    event.preventDefault();
+    //highlights the icon to show it has been added to bucket list
+    //$(this).toggleClass("highlight");
+
+
+    var bucketListName = $(this).parent().find('.addToBucketListFullName').val();
+    var bucketListParkImage = $(this).parent().find('.addToBucketListParkImage').val();
+
+    var parkObject = {
+        'name': bucketListName,
+        'image': bucketListParkImage
+    };
+
+    $.ajax({
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(parkObject),
+            url: '/add-to-bucket-list/',
+        })
+        .done(function (result) {
+            populateBucketListContainer();
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            //console.log(jqXHR);
+            //console.log(error);
+            //console.log(errorThrown);
+        });
+});
 
 ////User will be able to 'check' item as a place visited
 
