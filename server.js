@@ -179,7 +179,7 @@ app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
 
 
 exports.app = app;
-//exports.runServer = runServer;
+exports.runServer = runServer;
 
 
 // listen for requests
