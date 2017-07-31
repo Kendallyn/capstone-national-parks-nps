@@ -285,6 +285,7 @@ $(document).on('submit', '.addToBucketList', function (event) {
 ////User will be able to 'check' item as a place visited
 $(document).on('submit', '.updateBucketListForm', function (event) {
     event.preventDefault();
+    $(this).toggleClass("checkbox-checked");
     var parkIdUpdate = $(this).parent().find('.updateBucketListItem').val();
     var parkObject = {
         'id': parkIdToUpdate
