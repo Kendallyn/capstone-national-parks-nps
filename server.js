@@ -149,6 +149,17 @@ app.get('/populate-bucket-list/', function (req, res) {
     });
 });
 
+app.put('/update-bucket-list/:bucketListId', function (req, res) {
+    park.findByIdAndUpdate(req.params.bucketListId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
+
 app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
     park.findByIdAndRemove(req.params.bucketListId, function (err, items) {
         if (err)

@@ -218,14 +218,20 @@ function populateBucketListContainer() {
                     buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
-                    buildTheHtmlOutput += '</div>';
                     buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     //        start park image
                     buildTheHtmlOutput += '<div id="parkImageFile">';
                     buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
                     buildTheHtmlOutput += '</div>';
                     //        end park image
-                    buildTheHtmlOutput += '</li>';
+                    //start check box button
+//                    buildTheHtmlOutput += '<form class="updateBucketListForm">';
+//                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
+//                    buildTheHtmlOutput += '<button type="submit" class="updateItem">';
+//                    buildTheHtmlOutput += '<img src="img/checked-checkbox-sprite.png" class="checkbox>';
+//                    buildTheHtmlOutput += '</button>';
+//                    buildTheHtmlOutput += '</form>';
+//                    buildTheHtmlOutput += '</li>';
                 });
                 buildTheHtmlOutput += '</ul>';
                 $(".bucketList").html(buildTheHtmlOutput);
@@ -277,7 +283,27 @@ $(document).on('submit', '.addToBucketList', function (event) {
 });
 
 ////User will be able to 'check' item as a place visited
-
+$(document).on('submit', '.updateBucketListForm', function (event) {
+    event.preventDefault();
+    var parkIdUpdate = $(this).parent().find('.updateBucketListItem').val();
+    var parkObject = {
+        'id': parkIdToUpdate
+    };
+    $.ajax({
+            method: 'PUT',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/update-bucket-list/' + parkIdToUpdate,
+        })
+        .done(function (result) {
+            populateBucketListContainer();
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+});
 
 
 
