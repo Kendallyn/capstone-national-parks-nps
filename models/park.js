@@ -8,6 +8,10 @@ var parkSchema = new mongoose.Schema({
     image: {
         type: String,
         required: false
+    },
+    status: {
+        type: String,
+        required: false
     }
 }, {
     collection: 'parks'

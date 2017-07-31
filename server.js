@@ -126,7 +126,8 @@ app.post('/add-to-bucket-list/', function (req, res) {
     //creating object that will POST
     park.create({
         name: req.body.name,
-        image: req.body.image
+        image: req.body.image,
+        status: req.body.status
     }, function (err, item) {
         console.log(item);
         if (err) {
@@ -149,14 +150,37 @@ app.get('/populate-bucket-list/', function (req, res) {
     });
 });
 
-app.put('/update-bucket-list/:bucketListId', function (req, res) {
-    park.findByIdAndUpdate(req.params.bucketListId, function (err, items) {
-        if (err)
+app.put('/update-bucket-list/:bucketListId/:bucketListStatus', function (req, res) {
+    console.log(req.params.bucketListId, req.params.bucketListStatus);
+    //    park.findByIdAndUpdate(req.params.bucketListId, function (err, items) {
+    //        if (err)
+    //            return res.status(404).json({
+    //                message: 'Item not found.'
+    //            });
+    //
+    //        res.status(201).json(items);
+    //    });
+    var oppositeStatus = "";
+    if (req.params.bucketListStatus == 'unchecked') {
+        oppositeStatus = 'checked'
+    } else {
+        oppositeStatus = 'unchecked'
+    }
+    park.find(function (err, items) {
+        if (err) {
             return res.status(404).json({
                 message: 'Item not found.'
             });
-
-        res.status(201).json(items);
+        }
+        park.update({
+            _id: req.params.bucketListId
+        }, {
+            $set: {
+                status: oppositeStatus
+            }
+        }, function () {
+            res.status(201).json(items);
+        });
     });
 });
 

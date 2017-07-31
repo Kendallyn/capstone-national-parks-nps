@@ -221,14 +221,24 @@ function populateBucketListContainer() {
                     buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     //        start park image
                     buildTheHtmlOutput += '<div id="parkImageFile">';
-                    buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
+                    if (dataOutputValue.status == "unchecked") {
+                        buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
+                    } else {
+                        buildTheHtmlOutput += '<img src="img/parkImages/been-there.jpg" alt="Visited Park" class="parkImage">';
+                    }
+
                     buildTheHtmlOutput += '</div>';
                     //        end park image
                     //start check box button
                     buildTheHtmlOutput += '<form class="updateBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
+                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
                     buildTheHtmlOutput += '<button type="submit" class="checkbox">';
-                    buildTheHtmlOutput += '<img src="img/checked-checkbox-sprite.png" class="checkbox>';
+                    if (dataOutputValue.status == "unchecked") {
+                        buildTheHtmlOutput += '<div class="checkbox"></div>';
+                    } else {
+                        buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
+                    }
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
                     buildTheHtmlOutput += '</li>';
@@ -250,18 +260,14 @@ $(function () {
 
 ////User will be able to add a location to 'National Park Bucket List' section
 $(document).on('submit', '.addToBucketList', function (event) {
-
     event.preventDefault();
-    //highlights the icon to show it has been added to bucket list
-    //$(this).toggleClass("highlight");
-
-
     var bucketListName = $(this).parent().find('.addToBucketListFullName').val();
     var parkCode = $(this).parent().find('.addToBucketListParkCode').val();
 
     var parkObject = {
         'name': bucketListName,
         'image': parkCode,
+        'status': 'unchecked',
     };
     console.log(parkObject);
 
@@ -285,16 +291,18 @@ $(document).on('submit', '.addToBucketList', function (event) {
 ////User will be able to 'check' item as a place visited
 $(document).on('submit', '.updateBucketListForm', function (event) {
     event.preventDefault();
-    $(this).toggleClass("checkbox-checked");
-    var parkIdUpdate = $(this).parent().find('.updateBucketListItem').val();
+    //    $(".checkbox").toggleClass("checkbox-checked");
+    var parkIdToUpdate = $(this).parent().find('.updateBucketListItem').val();
+    var parkStatus = $(this).parent().find('.updateBucketListItemStatus').val();
     var parkObject = {
-        'id': parkIdToUpdate
+        'id': parkIdToUpdate,
+        'status': parkStatus
     };
     $.ajax({
             method: 'PUT',
             dataType: 'json',
             contentType: 'application/json',
-            url: '/update-bucket-list/' + parkIdToUpdate,
+            url: '/update-bucket-list/' + parkIdToUpdate + '/' + parkStatus,
         })
         .done(function (result) {
             populateBucketListContainer();
