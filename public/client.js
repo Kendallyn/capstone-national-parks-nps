@@ -256,6 +256,37 @@ function populateBucketListContainer() {
 $(function () {
     populateBucketListContainer();
 });
+////Adding in beenThere function
+//function populateBeenThereContainer() {
+//    $.ajax({
+//            type: 'GET',
+//            url: '/update-beenThere/',
+//            dataType: 'json',
+//        })
+//        .done(function (dataFromApi) {
+//            //If successful, set some globals instead of using result object
+//            var buildTheHtmlOutput = "";
+//            if (dataFromApi.length != 0) {
+//                buildTheHtmlOutput += '<ul>';
+//                $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
+//                    buildTheHtmlOutput += '<li>';
+//                    buildTheHtmlOutput += '<section class="beenThere">';
+//                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+//                    buildTheHtmlOutput += '</li>';
+//                });
+//                buildTheHtmlOutput += '</ul>';
+//                $(".beenThere").html(buildTheHtmlOutput);
+//            }
+//        })
+//        .fail(function (jqXHR, error, errorThrown) {
+//            console.log(jqXHR);
+//            console.log(error);
+//            console.log(errorThrown);
+//        });
+//}
+//$(function () {
+//    populateBeenThereContainer();
+//});
 
 
 ////User will be able to add a location to 'National Park Bucket List' section
@@ -313,6 +344,29 @@ $(document).on('submit', '.updateBucketListForm', function (event) {
             console.log(errorThrown);
         });
 });
+//User will add item to been there done that section
+//$(document).on('submit', '.bucketList ul li .checkbox', function (event) {
+//    event.preventDefault();
+//    var moveToBeenThere = $(this).parent().find('.updateBucketListItemStatus').val();
+//    var parkObject = {
+//        'id': parkIdToUpdate,
+//        'status': parkStatus
+//    };
+//    $.ajax({
+//            method: 'PUT',
+//            dataType: 'json',
+//            contentType: 'application/json',
+//            url: '/update-beenThere/' + parkIdToUpdate + '/' + parkStatus,
+//        })
+//        .done(function (result) {
+//            populateBeenThereContainer();
+//        })
+//        .fail(function (jqXHR, error, errorThrown) {
+//            console.log(jqXHR);
+//            console.log(error);
+//            console.log(errorThrown);
+//        });
+//});
 
 
 

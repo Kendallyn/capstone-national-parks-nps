@@ -81,24 +81,6 @@ var getFromNps = function (location) {
     });
     return emitter;
 };
-// external API call from active api example
-//var getFromNps = function (location) {
-//    var emitter = new events.EventEmitter();
-//    unirest.get("http://developer.nps.gov/api/v0/parks?parkCode=")
-//        .header("Accept", "application/json")
-//        .end(function (result) {
-//            //success scenario
-//            if (result.ok) {
-//                emitter.emit('end', result.body);
-//            }
-//            //failure scenario
-//            else {
-//                emitter.emit('error', result.code);
-//            }
-//        });
-//
-//    return emitter;
-//};
 
 
 // local API endpoints
