@@ -225,13 +225,13 @@ function populateBucketListContainer() {
                     buildTheHtmlOutput += '</div>';
                     //        end park image
                     //start check box button
-//                    buildTheHtmlOutput += '<form class="updateBucketListForm">';
-//                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
-//                    buildTheHtmlOutput += '<button type="submit" class="updateItem">';
-//                    buildTheHtmlOutput += '<img src="img/checked-checkbox-sprite.png" class="checkbox>';
-//                    buildTheHtmlOutput += '</button>';
-//                    buildTheHtmlOutput += '</form>';
-//                    buildTheHtmlOutput += '</li>';
+                    buildTheHtmlOutput += '<form class="updateBucketListForm">';
+                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
+                    buildTheHtmlOutput += '<button type="submit" class="checkbox">';
+                    buildTheHtmlOutput += '<img src="img/checked-checkbox-sprite.png" class="checkbox>';
+                    buildTheHtmlOutput += '</button>';
+                    buildTheHtmlOutput += '</form>';
+                    buildTheHtmlOutput += '</li>';
                 });
                 buildTheHtmlOutput += '</ul>';
                 $(".bucketList").html(buildTheHtmlOutput);
@@ -328,4 +328,8 @@ $(document).on('submit', '.deleteBucketListForm', function (event) {
             console.log(error);
             console.log(errorThrown);
         });
+    //if last one, empty the div
+    $(".deleteItemButton").click(function () {
+        $(".bucketList").empty();
+    });
 });
