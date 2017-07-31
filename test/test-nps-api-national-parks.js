@@ -54,7 +54,7 @@ describe('nps-api-national-parks', function () {
                     done();
                 });
         });
-        it('should update a park on PUT', function () {
+        it('should update a park on PUT', function (done) {
             const updatePark = {
                 name: 'Big Bend National Park',
                 status: 'checked'
@@ -74,6 +74,7 @@ describe('nps-api-national-parks', function () {
                     res.body.name.should.equal(updatePark.name);
                     res.body.status.should.equal(updatePark.status);
                     res.body.id.should.equal(updatePark.id);
+                    done();
                 });
         });
         it('should delete an item on DELETE', function (done) {
