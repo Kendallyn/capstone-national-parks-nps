@@ -34,10 +34,28 @@ The app's functionality includes:
 * Rate the park after you have visited.
 * Delete parks from Bucket List and Been There Done That sections.
 
+## Technology
+<h4>Front End</h4>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>jQuery</li>
+<li>React.js</li>
+</ul>
+<h4>Back End</h4>
+<ul>
+<li>Node.js</li>
+<li>Express.js</li>
+<li>mLab</li>
+<li>Mocha + Chai</li>
+<li>Travis CI for continuous integration and deployment</li>
+</ul>
 
-## Technical
+The app uses AJAX JSON calls to the <a href="developer.NPS.gov">National Park Service</a> Open Platform API to return the national park search results.
 
-The app is built with HTML, CSS, JavaScript, jQuery, Node.js, and React.js. It uses AJAX JSON calls to the *NPS.gov* Open Platform API to return the national park search results. All data is held in an mLab database during the user's session. App is built to be responsive across mobile, tablet, laptop, and desktop screen resolutions.
+## Responsive
+App is built to be responsive across mobile, tablet, laptop, and desktop screen resolutions.
 
 ## Development Roadmap
 
