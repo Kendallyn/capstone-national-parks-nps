@@ -54,6 +54,27 @@ describe('nps-api-national-parks', function () {
                     done();
                 });
         });
+        it('should update a park on PUT', function (done) {
+            const updatePark = {
+                name: 'Big Bend National Park',
+                status: 'checked'
+            };
+            chai.request(app)
+                .get('/populate-bucket-list/')
+                .then(function (res) {
+                    updatePark.id = res.body[0].id;
+                    return chai.request(app)
+                        .put('/update-bucket-list/:bucketListId/:bucketListStatus')
+                        .send(updatePark);
+                })
+                .then(function (res) {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                    res.body.should.be.a('object');
+                    res.body.name.should.equal(updatePark.name);
+                    res.body.status.should.equal(updatePark.status);
+                });
+        });
         it('should delete an item on DELETE', function (done) {
             chai.request(app)
                 .delete('/')
