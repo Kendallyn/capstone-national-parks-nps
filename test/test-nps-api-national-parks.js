@@ -72,8 +72,8 @@ describe('nps-api-national-parks', function () {
                     res.should.be.json;
                     res.body.should.be.a('object');
                     res.body.name.should.equal(updatePark.name);
-//                    res.body.status.should.equal(updatePark.status);
-                    res.body.id.should.equal(updatePark.id);
+                    res.body.status.should.equal(updatePark.status);
+                    //                    res.body.id.should.equal(updatePark.id);
                     done();
                 });
         });
