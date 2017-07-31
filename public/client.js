@@ -136,7 +136,7 @@ function getParkResult(parkCode) {
             //displays the external api json object in the console
             //console.log(dataOutput);
             //.data will be changed based on output of object in console from previous line
-            displayParkResult(dataOutput.data);
+            displayParkResult(dataOutput.data, parkCode);
             //console.log(dataOutput.data["0"].description);
         })
         .fail(function (jqXHR, error, errorThrown) {
@@ -148,7 +148,7 @@ function getParkResult(parkCode) {
 
 //App will take information from json object returned to display the park result information from external api in HTML form
 //name, description, weatherInfo, states, directionsInfo, url
-function displayParkResult(dataFromApi) {
+function displayParkResult(dataFromApi, parkCode) {
     var buildTheHtmlOutput = '<ul class="results">';
     $.each(dataFromApi, function (index) {
         console.log(dataFromApi[index]);
@@ -160,6 +160,7 @@ function displayParkResult(dataFromApi) {
         //        starting the add to form
         buildTheHtmlOutput += '<form class="addToBucketList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkCode" value="' + parkCode + '">';
         buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton">';
         buildTheHtmlOutput += '<input type="image" src="img/plus.png" class="add" alt="submit">';
         buildTheHtmlOutput += '</button>';
@@ -171,7 +172,7 @@ function displayParkResult(dataFromApi) {
 
         //        start park image
         buildTheHtmlOutput += '<div id="parkImageFile">';
-        buildTheHtmlOutput += '<img src="img/parkImages/yell.jpg" alt="Yellowstone National Park" class="parkImage">';
+        buildTheHtmlOutput += '<img src="img/parkImages/' + parkCode + '.jpg" alt="' + parkCode + ' National Park" class="parkImage">';
         buildTheHtmlOutput += '</div>';
         //        end park image
 
@@ -206,25 +207,27 @@ function populateBucketListContainer() {
         })
         .done(function (dataFromApi) {
             //If successful, set some globals instead of using result object
+            var buildTheHtmlOutput = "";
             if (dataFromApi.length != 0) {
-                buildTheHtmlOutput += '<div class="bucketList">';
-                $.each(dataFromApi, function (dataOutput) {
+                buildTheHtmlOutput += '<ul>';
+                $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
                     buildTheHtmlOutput += '<li>';
-                    buildTheHtmlOutput += '<form class="deleteBucketListValue">';
-                    buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataFromApi._id + '">';
+                    buildTheHtmlOutput += '<form class="deleteBucketListForm">';
+                    buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                    buildTheHtmlOutput += '<img src"img/remove.png">';
+                    buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
                     buildTheHtmlOutput += '</div>';
-                    buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '<span><img src="img/plus.png" class="add"></span></h2>';
-                    buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
-                    buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
-                    buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
-                    buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
-                    buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
+                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                    //        start park image
+                    buildTheHtmlOutput += '<div id="parkImageFile">';
+                    buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
+                    buildTheHtmlOutput += '</div>';
+                    //        end park image
                     buildTheHtmlOutput += '</li>';
                 });
+                buildTheHtmlOutput += '</ul>';
                 $(".bucketList").html(buildTheHtmlOutput);
             }
         })
@@ -241,17 +244,20 @@ $(function () {
 
 ////User will be able to add a location to 'National Park Bucket List' section
 $(document).on('submit', '.addToBucketList', function (event) {
+
     event.preventDefault();
     //highlights the icon to show it has been added to bucket list
     //$(this).toggleClass("highlight");
 
 
     var bucketListName = $(this).parent().find('.addToBucketListFullName').val();
-    var bucketListParkImage = $(this).parent().find('.addToBucketListParkImage').val();
+    var parkCode = $(this).parent().find('.addToBucketListParkCode').val();
 
     var parkObject = {
-        'name': bucketListName
+        'name': bucketListName,
+        'image': parkCode,
     };
+    console.log(parkObject);
 
     $.ajax({
             method: 'POST',
@@ -264,33 +270,36 @@ $(document).on('submit', '.addToBucketList', function (event) {
             populateBucketListContainer();
         })
         .fail(function (jqXHR, error, errorThrown) {
-            //console.log(jqXHR);
-            //console.log(error);
-            //console.log(errorThrown);
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
 });
 
 ////User will be able to 'check' item as a place visited
 
+
+
+
 ////User will be able to remove item from list
-//$(document).on('submit', '.remove', function (event) {
-//    event.preventDefault();
-//    var parkIdToDelete = $(this).parent().find('deleteBucketListValue').val();
-//    var parkObject = {
-//        'name': parkIdToDelete
-//    };
-//    $.ajax({
-//            method: 'DELETE',
-//            dataType: 'json',
-//            contentType: 'application/json',
-//            url: '/delete-park-from-bucket-list/' + parkIdToDelete,
-//        })
-//        .done(function (result) {
-//            populateBucketListContainer();
-//        })
-//        .fail(function (jqXHR, error, errorThrown) {
-//            console.log(jqXHR);
-//            console.log(error);
-//            console.log(errorThrown);
-//        });
-//});
+$(document).on('submit', '.deleteBucketListForm', function (event) {
+    event.preventDefault();
+    var parkIdToDelete = $(this).parent().find('.deleteBucketListItem').val();
+    var parkObject = {
+        'id': parkIdToDelete
+    };
+    $.ajax({
+            method: 'DELETE',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '/delete-from-bucket-list/' + parkIdToDelete,
+        })
+        .done(function (result) {
+            populateBucketListContainer();
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+});

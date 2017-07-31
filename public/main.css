@@ -182,12 +182,19 @@ a {
     color: cornflowerblue;
 }
 
-.bucketListTitle .removeExplanation {
+.bucketListTitle .removeExplanation,
+.bucketList .removeExplanation {
     height: 40px;
     width: 40px;
     position: relative;
     top: 12px;
     right: 6px;
+}
+
+.bucketList .removeExplanation {
+    position: absolute;
+    top: -4px;
+    right: -6px;
 }
 
 .bucketList {

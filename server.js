@@ -12,30 +12,30 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 
-//
-//var runServer = function (callback) {
-//    mongoose.connect(config.DATABASE_URL, function (err) {
-//        if (err && callback) {
-//            return callback(err);
-//        }
-//
-//        app.listen(config.PORT, function () {
-//            console.log('Listening on localhost:' + config.PORT);
-//            if (callback) {
-//                callback();
-//            }
-//        });
-//    });
-//};
-//
-//if (require.main === module) {
-//    runServer(function (err) {
-//        if (err) {
-//            console.error(err);
-//        }
-//    });
-//};
-//
+
+var runServer = function (callback) {
+    mongoose.connect(config.DATABASE_URL, function (err) {
+        if (err && callback) {
+            return callback(err);
+        }
+
+        app.listen(config.PORT, function () {
+            console.log('Listening on localhost:' + config.PORT);
+            if (callback) {
+                callback();
+            }
+        });
+    });
+};
+
+if (require.main === module) {
+    runServer(function (err) {
+        if (err) {
+            console.error(err);
+        }
+    });
+};
+
 
 // external API call
 var getFromNps = function (location) {
@@ -63,7 +63,7 @@ var getFromNps = function (location) {
             //res.json(body);
             //var jsonFormattedResults = JSON.parse(body).data[0].description;
             var jsonFormattedResults = JSON.parse(body);
-            console.log(jsonFormattedResults);
+            //            console.log(jsonFormattedResults);
             emitter.emit('end', jsonFormattedResults);
             //var stringResult = JSON.parse(body);
             //eventCallback(stringResult);
@@ -76,8 +76,6 @@ var getFromNps = function (location) {
         //            //eventCallback(stringResult);
         //        });
     }).on('error', function (e) {
-        console.log("inside error");
-        console.log("Got error: ", e);
 
         emitter.emit('error', e);
     });
@@ -127,8 +125,10 @@ app.post('/add-to-bucket-list/', function (req, res) {
     //db connection and data queries
     //creating object that will POST
     park.create({
-        name: req.body.fullName
+        name: req.body.name,
+        image: req.body.image
     }, function (err, item) {
+        console.log(item);
         if (err) {
             return res.status(500).json({
                 message: 'Internal Server Error'
@@ -150,7 +150,7 @@ app.get('/populate-bucket-list/', function (req, res) {
 });
 
 app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
-    park.findByIdAndRemove(req.params.favoritesId, function (err, items) {
+    park.findByIdAndRemove(req.params.bucketListId, function (err, items) {
         if (err)
             return res.status(404).json({
                 message: 'Item not found.'

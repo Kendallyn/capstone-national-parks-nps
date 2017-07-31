@@ -9,7 +9,8 @@ var parkSchema = new mongoose.Schema({
         type: String,
         required: false
     }
-
+}, {
+    collection: 'parks'
 });
 
 var park = mongoose.model('park', parkSchema);
