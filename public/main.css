@@ -194,7 +194,8 @@ a {
 }
 
 .bucketListTitle .removeExplanation,
-.bucketList .removeExplanation {
+.bucketList .removeExplanation,
+.beenThere .removeExplanation {
     height: 40px;
     width: 40px;
     position: relative;
@@ -202,19 +203,22 @@ a {
     right: 6px;
 }
 
-.bucketList .removeExplanation {
+.bucketList .removeExplanation,
+.beenThere .removeExplanation {
     position: absolute;
     top: -6px;
     right: -6px;
 }
 
-.bucketList {
+.bucketList,
+.beenThere {
     margin-top: 10px;
     font-size: 20px;
     border-bottom: 2px solid cornflowerblue;
 }
 
-.bucketList #checkedOff {
+.bucketList #checkedOff,
+.beenThere #checkedOff {
     font-size: 16px;
     border: 2px solid #F3F0F0;
     padding: 2px;
@@ -227,12 +231,14 @@ a {
     right: 0px;
 }
 
-.bucketList ul {
+.bucketList ul,
+.beenThere ul {
     text-align: center;
     padding-bottom: 1rem;
 }
 
-.bucketList ul li {
+.bucketList ul li,
+.beenThere ul li {
     background-color: #242525;
     display: inline-block;
     width: 47%;
@@ -243,12 +249,14 @@ a {
     padding: 1rem;
 }
 
-.bucketList ul li h2 {
+.bucketList ul li h2,
+.beenThere ul li h2 {
     color: cornflowerblue;
     text-align: center;
 }
 
-.bucketList ul li .remove {
+.bucketList ul li .remove,
+.beenThere ul li .remove {
     height: 45px;
     width: 45px;
     position: absolute;
@@ -256,7 +264,8 @@ a {
     right: -13px;
 }
 
-.bucketList ul li .checkbox {
+.bucketList ul li .checkbox,
+.beenThere ul li .checkbox {
     height: 25px;
     width: 25px;
     background-image: url(img/checked-checkbox-sprite.png);
@@ -268,7 +277,8 @@ a {
     left: 0px;
 }
 
-.bucketList ul li .checkbox-checked {
+.bucketList ul li .checkbox-checked,
+.beenThere ul li .checkbox-checked {
     height: 25px;
     width: 25px;
     background-image: url(img/checked-checkbox-sprite.png);
@@ -280,20 +290,25 @@ a {
     left: 0px;
 }
 
-.bucketList ul li h4 {
+.bucketList ul li h4,
+.beenThere ul li h4 {
     color: lightsteelblue;
 }
 
-.bucketList ul li h4 span {
+.bucketList ul li h4 span,
+.beenThere ul li h4 span {
     color: #F3F0F0;
 }
 
-.bucketList ul li img {
+.bucketList ul li img,
+.beenThere ul li img {
     width: 100%;
     height: 100%;
     padding-top: 5px;
 }
 
+
+/*
 .beenThere ul li {
     background-color: #242525;
     display: inline-block;
@@ -304,6 +319,7 @@ a {
     vertical-align: top;
     padding: 1rem;
 }
+*/
 
 footer {
     width: 100%;
