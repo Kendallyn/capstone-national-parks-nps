@@ -237,6 +237,7 @@ function populateBucketListContainer() {
                     if (dataOutputValue.status == "unchecked") {
                         buildTheHtmlOutput += '<div class="checkbox"></div>';
                     } else {
+                        populateBeenThereContainer();
                         buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
                     }
                     buildTheHtmlOutput += '</button>';
@@ -257,36 +258,36 @@ $(function () {
     populateBucketListContainer();
 });
 ////Adding in beenThere function
-//function populateBeenThereContainer() {
-//    $.ajax({
-//            type: 'GET',
-//            url: '/update-beenThere/',
-//            dataType: 'json',
-//        })
-//        .done(function (dataFromApi) {
-//            //If successful, set some globals instead of using result object
-//            var buildTheHtmlOutput = "";
-//            if (dataFromApi.length != 0) {
-//                buildTheHtmlOutput += '<ul>';
-//                $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
-//                    buildTheHtmlOutput += '<li>';
-//                    buildTheHtmlOutput += '<section class="beenThere">';
-//                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
-//                    buildTheHtmlOutput += '</li>';
-//                });
-//                buildTheHtmlOutput += '</ul>';
-//                $(".beenThere").html(buildTheHtmlOutput);
-//            }
-//        })
-//        .fail(function (jqXHR, error, errorThrown) {
-//            console.log(jqXHR);
-//            console.log(error);
-//            console.log(errorThrown);
-//        });
-//}
-//$(function () {
-//    populateBeenThereContainer();
-//});
+function populateBeenThereContainer() {
+    $.ajax({
+            type: 'GET',
+            url: '/update-beenThere/',
+            dataType: 'json',
+        })
+        .done(function (dataFromApi) {
+            //If successful, set some globals instead of using result object
+            var buildTheHtmlOutput = "";
+            if (dataFromApi.length != 0) {
+                buildTheHtmlOutput += '<ul>';
+                $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
+                    buildTheHtmlOutput += '<li>';
+                    buildTheHtmlOutput += '<section class="beenThere">';
+                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                    buildTheHtmlOutput += '</li>';
+                });
+                buildTheHtmlOutput += '</ul>';
+                $(".beenThere").html(buildTheHtmlOutput);
+            }
+        })
+        .fail(function (jqXHR, error, errorThrown) {
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
+        });
+}
+$(function () {
+    populateBeenThereContainer();
+});
 
 
 ////User will be able to add a location to 'National Park Bucket List' section
