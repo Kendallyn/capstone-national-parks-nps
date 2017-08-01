@@ -154,7 +154,6 @@ function displayParkResult(dataFromApi, parkCode) {
         console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
-        var fullName = dataFromApi[index].fullName;
         buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName;
 
         //        starting the add to form
@@ -164,7 +163,7 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton">';
         buildTheHtmlOutput += '<input type="image" src="img/plus.png" class="add" alt="submit">';
         buildTheHtmlOutput += '</button>';
-        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/yell.jpg">';
+        buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/' + parkCode + '.jpg">';
         buildTheHtmlOutput += '</form>';
         //        end of the add to form
 
@@ -176,17 +175,17 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '</div>';
         //        end park image
 
-        var description = dataFromApi[index].description;
-        buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
-        var weatherInfo = dataFromApi[index].weatherInfo;
-        buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
-        var states = dataFromApi[index].states;
-        buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
-        var directionsInfo = dataFromApi[index].directionsInfo;
-        buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
-        var url = dataFromApi[index].url;
-        buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
 
+        buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
+        console.log(dataFromApi[index].weatherInfo);
+        if (dataFromApi[index].weatherInfo.search('http') >= 0) {
+            buildTheHtmlOutput += '<a target="_blank" href="' + dataFromApi[index].weatherInfo + '" >Weather Info URL</a>';
+        } else {
+            buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
+        }
+        buildTheHtmlOutput += '<h4>State(s) Park is located in: <span>' + dataFromApi[index].states + '</span></h4>';
+        buildTheHtmlOutput += '<h4>Directions: </h4><p>' + dataFromApi[index].directionsInfo + "</p>";
+        buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
         buildTheHtmlOutput += '</section>';
         buildTheHtmlOutput += '</li>';
 
@@ -195,8 +194,6 @@ function displayParkResult(dataFromApi, parkCode) {
         //        console.log('show results');
     })
 };
-
-
 
 ////Populate 'National Park Bucket List' section
 function populateBucketListContainer() {
@@ -211,38 +208,38 @@ function populateBucketListContainer() {
             if (dataFromApi.length != 0) {
                 buildTheHtmlOutput += '<ul>';
                 $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
-                    buildTheHtmlOutput += '<li>';
-                    buildTheHtmlOutput += '<form class="deleteBucketListForm">';
-                    buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
-                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                    buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
-                    buildTheHtmlOutput += '</button>';
-                    buildTheHtmlOutput += '</form>';
-                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
-                    //        start park image
-                    buildTheHtmlOutput += '<div id="parkImageFile">';
                     if (dataOutputValue.status == "unchecked") {
-                        buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
-                    } else {
-                        buildTheHtmlOutput += '<img src="img/parkImages/been-there.jpg" alt="Visited Park" class="parkImage">';
+                        buildTheHtmlOutput += '<li>';
+                        buildTheHtmlOutput += '<form class="deleteBucketListForm">';
+                        buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
+                        buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
+                        buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
+                        buildTheHtmlOutput += '</button>';
+                        buildTheHtmlOutput += '</form>';
+                        buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                        //        start park image
+                        buildTheHtmlOutput += '<div id="parkImageFile">';
+                        if (dataOutputValue.status == "unchecked") {
+                            buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
+                        } else {
+                            buildTheHtmlOutput += '<img src="img/parkImages/been-there.jpg" alt="Visited Park" class="parkImage">';
+                        }
+                        buildTheHtmlOutput += '</div>';
+                        //        end park image
+                        //start check box button
+                        buildTheHtmlOutput += '<form class="updateBucketListForm">';
+                        buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
+                        buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
+                        buildTheHtmlOutput += '<button type="submit" class="checkbox">';
+                        if (dataOutputValue.status == "unchecked") {
+                            buildTheHtmlOutput += '<div class="checkbox"></div>';
+                        } else {
+                            buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
+                        }
+                        buildTheHtmlOutput += '</button>';
+                        buildTheHtmlOutput += '</form>';
+                        buildTheHtmlOutput += '</li>';
                     }
-
-                    buildTheHtmlOutput += '</div>';
-                    //        end park image
-                    //start check box button
-                    buildTheHtmlOutput += '<form class="updateBucketListForm">';
-                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
-                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
-                    buildTheHtmlOutput += '<button type="submit" class="checkbox">';
-                    if (dataOutputValue.status == "unchecked") {
-                        buildTheHtmlOutput += '<div class="checkbox"></div>';
-                    } else {
-                        populateBeenThereContainer();
-                        buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
-                    }
-                    buildTheHtmlOutput += '</button>';
-                    buildTheHtmlOutput += '</form>';
-                    buildTheHtmlOutput += '</li>';
                 });
                 buildTheHtmlOutput += '</ul>';
                 $(".bucketList").html(buildTheHtmlOutput);
@@ -254,14 +251,12 @@ function populateBucketListContainer() {
             console.log(errorThrown);
         });
 }
-$(function () {
-    populateBucketListContainer();
-});
-////Adding in beenThere function
+
+////Populate 'National Park Bucket List' section
 function populateBeenThereContainer() {
     $.ajax({
             type: 'GET',
-            url: '/update-beenThere/',
+            url: '/populate-bucket-list/',
             dataType: 'json',
         })
         .done(function (dataFromApi) {
@@ -270,10 +265,38 @@ function populateBeenThereContainer() {
             if (dataFromApi.length != 0) {
                 buildTheHtmlOutput += '<ul>';
                 $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
-                    buildTheHtmlOutput += '<li>';
-                    buildTheHtmlOutput += '<section class="beenThere">';
-                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
-                    buildTheHtmlOutput += '</li>';
+                    if (dataOutputValue.status == "checked") {
+                        buildTheHtmlOutput += '<li>';
+                        buildTheHtmlOutput += '<form class="deleteBucketListForm">';
+                        buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
+                        buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
+                        buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
+                        buildTheHtmlOutput += '</button>';
+                        buildTheHtmlOutput += '</form>';
+                        buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                        //        start park image
+                        buildTheHtmlOutput += '<div id="parkImageFile">';
+                        if (dataOutputValue.status == "unchecked") {
+                            buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
+                        } else {
+                            buildTheHtmlOutput += '<img src="img/parkImages/been-there.jpg" alt="Visited Park" class="parkImage">';
+                        }
+                        buildTheHtmlOutput += '</div>';
+                        //        end park image
+                        //start check box button
+                        buildTheHtmlOutput += '<form class="updateBucketListForm">';
+                        buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
+                        buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
+                        buildTheHtmlOutput += '<button type="submit" class="checkbox">';
+                        if (dataOutputValue.status == "unchecked") {
+                            buildTheHtmlOutput += '<div class="checkbox"></div>';
+                        } else {
+                            buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
+                        }
+                        buildTheHtmlOutput += '</button>';
+                        buildTheHtmlOutput += '</form>';
+                        buildTheHtmlOutput += '</li>';
+                    }
                 });
                 buildTheHtmlOutput += '</ul>';
                 $(".beenThere").html(buildTheHtmlOutput);
@@ -286,6 +309,7 @@ function populateBeenThereContainer() {
         });
 }
 $(function () {
+    populateBucketListContainer();
     populateBeenThereContainer();
 });
 
@@ -312,6 +336,7 @@ $(document).on('submit', '.addToBucketList', function (event) {
         })
         .done(function (result) {
             populateBucketListContainer();
+            populateBeenThereContainer();
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
@@ -338,6 +363,7 @@ $(document).on('submit', '.updateBucketListForm', function (event) {
         })
         .done(function (result) {
             populateBucketListContainer();
+            populateBeenThereContainer();
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
@@ -345,31 +371,6 @@ $(document).on('submit', '.updateBucketListForm', function (event) {
             console.log(errorThrown);
         });
 });
-//User will add item to been there done that section
-//$(document).on('submit', '.bucketList ul li .checkbox', function (event) {
-//    event.preventDefault();
-//    var moveToBeenThere = $(this).parent().find('.updateBucketListItemStatus').val();
-//    var parkObject = {
-//        'id': parkIdToUpdate,
-//        'status': parkStatus
-//    };
-//    $.ajax({
-//            method: 'PUT',
-//            dataType: 'json',
-//            contentType: 'application/json',
-//            url: '/update-beenThere/' + parkIdToUpdate + '/' + parkStatus,
-//        })
-//        .done(function (result) {
-//            populateBeenThereContainer();
-//        })
-//        .fail(function (jqXHR, error, errorThrown) {
-//            console.log(jqXHR);
-//            console.log(error);
-//            console.log(errorThrown);
-//        });
-//});
-
-
 
 ////User will be able to remove item from list
 $(document).on('submit', '.deleteBucketListForm', function (event) {
@@ -386,6 +387,7 @@ $(document).on('submit', '.deleteBucketListForm', function (event) {
         })
         .done(function (result) {
             populateBucketListContainer();
+            populateBeenThereContainer();
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
