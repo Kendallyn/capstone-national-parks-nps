@@ -7,6 +7,10 @@ Thinkful (https://www.thinkful.com) Final Capstone Project - Full Stack app inte
 
 ![results section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/searchResults.png)
 
+![bucket list section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/bucketListSection.png)
+
+![been there section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/beenThereSection.png)
+
 ## Background
 
 I built this app because I enjoy visiting National Parks and I wanted to have a convinent way to look up National Park information to be able to plan my next visit.
