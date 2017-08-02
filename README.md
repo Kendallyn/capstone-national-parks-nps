@@ -16,7 +16,7 @@ Thinkful (https://www.thinkful.com) Final Capstone Project - Full Stack app inte
 I built this app because I enjoy visiting National Parks and I wanted to have a convinent way to look up National Park information to be able to plan my next visit.
 
 ## Use Case
-This app gives people to search information on the National Parks such as the description, weather information, and directions to that park. The user is able to save the park to a bucket list and they are able to check that park off of their bucket list once they have visited.
+This app gives people a way to search information on the National Parks to find a description, weather information, and directions to that park. The user is able to save the park to a bucket list and they are able to check that park off of their bucket list once they have visited.
 
 ## Initial UX
 
