@@ -32,6 +32,7 @@ section.choose,
 section.results,
 section.bucketListTitle,
 section.bucketList,
+section.beenThereTitle,
 section.beenThere,
 footer {
     width: 80%;
@@ -86,8 +87,7 @@ a {
 }
 
 .choose,
-.parks,
-.monuments {
+.parks {
     padding: 5px;
     margin-top: 1rem;
     font-family: 'Lora', serif;
@@ -181,21 +181,18 @@ a {
 }
 
 .bucketListTitle,
-.beenThere {
+.beenThereTitle {
     text-align: center;
     font-size: 20px;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-}
-
-.bucketListTitle,
-.beenThere h2 {
-    margin-bottom: .75rem;
     color: cornflowerblue;
 }
 
-.bucketListTitle p {
+.bucketListTitle p,
+.beenThereTitle p {
     color: #F3F0F0;
+    margin-top: .5rem;
 }
 
 .bucketListTitle .removeExplanation,
@@ -313,20 +310,6 @@ a {
     padding-top: 5px;
 }
 
-
-/*
-.beenThere ul li {
-    background-color: #242525;
-    display: inline-block;
-    width: 47%;
-    border-radius: 5px;
-    margin: 1%;
-    position: relative;
-    vertical-align: top;
-    padding: 1rem;
-}
-*/
-
 footer {
     width: 100%;
     text-align: center;
@@ -386,6 +369,8 @@ footer ul li a .fa-envelope {
     section.results,
     section.bucketListTitle,
     section.bucketList,
+    section.beenThereTitle,
+    section.beenThere,
     footer {
         width: 95%;
         margin-left: auto;
@@ -395,7 +380,8 @@ footer ul li a .fa-envelope {
         width: 100%;
         height: auto;
     }
-    .bucketList ul li {
+    .bucketList ul li,
+    .beenThere ul li {
         display: block;
         margin-left: 1.3rem;
         width: 95%;
@@ -407,6 +393,8 @@ footer ul li a .fa-envelope {
     section.results,
     section.bucketListTitle,
     section.bucketList,
+    section.beenThereTitle,
+    section.beenThere,
     footer {
         width: 98%;
         margin-left: auto;
