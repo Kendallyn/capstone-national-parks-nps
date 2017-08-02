@@ -105,7 +105,7 @@ a {
 #searchButton {
     font-size: 1.25rem;
     border: 2px solid cornflowerblue;
-    padding: 3px;
+    padding: 2px;
     border-radius: 5px;
     background-color: black;
     font-family: 'Lora', serif;
@@ -124,7 +124,6 @@ a {
     margin-top: 10px;
     margin-left: 1rem;
     margin-right: 1rem;
-    /*    background-color: #242525;*/
     border-radius: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -189,6 +188,7 @@ a {
     color: cornflowerblue;
 }
 
+.bucketListTitle,
 .beenThereTitle {
     border-top: 2px solid #242525;
     padding-top: 10px;
@@ -241,7 +241,6 @@ a {
 .beenThere ul {
     text-align: center;
     padding-bottom: 1rem;
-    /*    background-color: #242525;*/
     border-radius: 10px;
 }
 
@@ -404,6 +403,13 @@ footer ul li a .fa-envelope {
         width: 98%;
         margin-left: auto;
         margin-right: auto;
+    }
+    .results ul li .add {
+        height: 40px;
+        width: 40px;
+        position: relative;
+        top: -30px;
+        left: 25px;
     }
     #searchButton {
         font-size: 24px;
