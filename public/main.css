@@ -21,7 +21,7 @@ html {
 body {
     font-weight: bold;
     color: #F3F0F0;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 button {
@@ -44,12 +44,12 @@ footer {
 .top {
     margin: 10px;
     padding: 2px;
-    font-family: ‘Simonetta’, cursive;
+    font-family: 'Simonetta', cursive;
 }
 
 .top h1 {
     font-size: 50px;
-    font-family: ‘Simonetta’, cursive;
+    font-family: 'Simonetta', cursive;
 }
 
 .top h1,
@@ -97,9 +97,9 @@ a {
     color: #F3F0F0;
 }
 
-.parks,
-.monuments {
+#parkForm .parks {
     border: 2px solid cornflowerblue;
+    text-align: center;
 }
 
 #searchButton {
@@ -187,6 +187,11 @@ a {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     color: cornflowerblue;
+}
+
+.beenThereTitle {
+    border-top: 2px solid #242525;
+    padding-top: 10px;
 }
 
 .bucketListTitle p,
