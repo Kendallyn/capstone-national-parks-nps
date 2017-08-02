@@ -396,6 +396,6 @@ $(document).on('submit', '.deleteBucketListForm', function (event) {
         });
     //if last one, empty the div
     $(".deleteItemButton").click(function () {
-        $(".bucketList").empty();
+        $(".bucketList, .beenThere").empty();
     });
 });
