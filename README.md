@@ -2,7 +2,10 @@
 # National Park Explorer
 Thinkful (https://www.thinkful.com) Final Capstone Project - Full Stack app integrating with National Park Service API
 
-*Add in screen shots
+![landing page](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/landingPage.png)
+
+
+![results section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/searchResults.png)
 
 ## Background
 
