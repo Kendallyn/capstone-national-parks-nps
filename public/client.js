@@ -172,14 +172,14 @@ function displayParkResult(dataFromApi, parkCode) {
         //        start park image
         buildTheHtmlOutput += '<div id="parkImageFile">';
         buildTheHtmlOutput += '<img src="img/parkImages/' + parkCode + '.jpg" alt="' + parkCode + ' National Park" class="parkImage">';
-        buildTheHtmlOutput += '</div>';
+        buildTheHtmlOutput += '<local/div>';
         //        end park image
 
 
         buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
         console.log(dataFromApi[index].weatherInfo);
         if (dataFromApi[index].weatherInfo.search('http') >= 0) {
-            buildTheHtmlOutput += '<a target="_blank" href="' + dataFromApi[index].weatherInfo + '" >Weather Info URL</a>';
+            buildTheHtmlOutput += '<h4>Weather Information: <a target="_blank" href="' + dataFromApi[index].weatherInfo + '" >Click for weather info</a></h4>';
         } else {
             buildTheHtmlOutput += '<h4>Weather Information: </h4><p>' + dataFromApi[index].weatherInfo + '</p>';
         }

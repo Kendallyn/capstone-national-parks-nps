@@ -124,7 +124,7 @@ a {
     margin-top: 10px;
     margin-left: 1rem;
     margin-right: 1rem;
-    background-color: #242525;
+    /*    background-color: #242525;*/
     border-radius: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -134,6 +134,11 @@ a {
 
 .results ul {
     list-style: none;
+}
+
+.results ul li {
+    background-color: #242525;
+    border-radius: 10px;
 }
 
 .results ul li h2 {
@@ -206,7 +211,7 @@ a {
 .bucketList .removeExplanation,
 .beenThere .removeExplanation {
     position: absolute;
-    top: -6px;
+    top: -10px;
     right: -6px;
 }
 
@@ -214,7 +219,6 @@ a {
 .beenThere {
     margin-top: 10px;
     font-size: 20px;
-    border-bottom: 2px solid cornflowerblue;
 }
 
 .bucketList #checkedOff,
@@ -235,6 +239,8 @@ a {
 .beenThere ul {
     text-align: center;
     padding-bottom: 1rem;
+    /*    background-color: #242525;*/
+    border-radius: 10px;
 }
 
 .bucketList ul li,
