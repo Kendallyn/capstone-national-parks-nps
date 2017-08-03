@@ -183,8 +183,8 @@ exports.runServer = runServer;
 
 
 // listen for requests
-app.listen(process.env.PORT || 8080, function () {
-    return console.log('Your app is listening on port ' + (process.env.PORT || 8080));
-});
+//app.listen(process.env.PORT || 8080, function () {
+//    return console.log('Your app is listening on port ' + (process.env.PORT || 8080));
+//});
 
-//app.listen(3002);
+app.listen(8080);
