@@ -129,6 +129,7 @@ a {
     padding-right: 20px;
     padding-top: 5px;
     padding-bottom: 20px;
+    position: relative;
 }
 
 .results ul {
@@ -146,6 +147,12 @@ a {
     color: cornflowerblue;
 }
 
+.results .addToBucketList {
+    position: absolute;
+    top: 24px;
+    left: -34px;
+}
+
 .results ul li .addToBucketListButton {
     display: inline-block;
     float: left;
@@ -154,9 +161,6 @@ a {
 .results ul li .add {
     height: 40px;
     width: 40px;
-    position: relative;
-    top: -30px;
-    left: 25px;
 }
 
 .results ul li .parkImage {
