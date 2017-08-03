@@ -177,7 +177,6 @@ function displayParkResult(dataFromApi, parkCode) {
 
 
         buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
-        console.log(dataFromApi[index].weatherInfo);
         if (dataFromApi[index].weatherInfo.search('http') >= 0) {
             buildTheHtmlOutput += '<h4>Weather Information: <a target="_blank" href="' + dataFromApi[index].weatherInfo + '" >Click for weather info</a></h4>';
         } else {
@@ -197,6 +196,7 @@ function displayParkResult(dataFromApi, parkCode) {
 
 ////Populate 'National Park Bucket List' section
 function populateBucketListContainer() {
+    alert("here");
     $.ajax({
             type: 'GET',
             url: '/populate-bucket-list/',
@@ -240,6 +240,9 @@ function populateBucketListContainer() {
                         buildTheHtmlOutput += '</form>';
                         buildTheHtmlOutput += '</li>';
                     }
+                    //                    else {
+                    //                        buildTheHtmlOutput = "";
+                    //                    }
                 });
                 buildTheHtmlOutput += '</ul>';
                 $(".bucketList").html(buildTheHtmlOutput);
@@ -297,6 +300,9 @@ function populateBeenThereContainer() {
                         buildTheHtmlOutput += '</form>';
                         buildTheHtmlOutput += '</li>';
                     }
+                    //                    else {
+                    //                            buildTheHtmlOutput = "";
+                    //                        }
                 });
                 buildTheHtmlOutput += '</ul>';
                 $(".beenThere").html(buildTheHtmlOutput);
@@ -395,7 +401,7 @@ $(document).on('submit', '.deleteBucketListForm', function (event) {
             console.log(errorThrown);
         });
     //if last one, empty the div
-    $(".deleteItemButton").click(function () {
-        $(".bucketList, .beenThere").empty();
-    });
+    //    $(".deleteItemButton").click(function () {
+    //        $(".bucketList, .beenThere").empty();
+    //    });
 });
