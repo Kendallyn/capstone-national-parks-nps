@@ -401,6 +401,9 @@ footer ul li a .fa-envelope {
 }
 
 @media only screen and (max-width: 800px) {
+    body {
+        font-size: 8px;
+    }
     .wrapper p {
         display: none;
     }
