@@ -196,7 +196,7 @@ function displayParkResult(dataFromApi, parkCode) {
 
 ////Populate 'National Park Bucket List' section
 function populateBucketListContainer() {
-    alert("here");
+//    alert("here");
     $.ajax({
             type: 'GET',
             url: '/populate-bucket-list/',
