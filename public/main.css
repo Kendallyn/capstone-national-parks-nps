@@ -397,6 +397,9 @@ footer ul li a .fa-envelope {
 }
 
 @media only screen and (max-width: 800px) {
+    .wrapper p {
+        display: none;
+    }
     section.choose,
     section.results,
     section.bucketListTitle,
