@@ -172,7 +172,7 @@ function displayParkResult(dataFromApi, parkCode) {
         //        start park image
         buildTheHtmlOutput += '<div id="parkImageFile">';
         buildTheHtmlOutput += '<img src="img/parkImages/' + parkCode + '.jpg" alt="' + parkCode + ' National Park" class="parkImage">';
-        buildTheHtmlOutput += '<local/div>';
+        buildTheHtmlOutput += '</div>';
         //        end park image
 
 
@@ -196,7 +196,8 @@ function displayParkResult(dataFromApi, parkCode) {
 
 ////Populate 'National Park Bucket List' section
 function populateBucketListContainer() {
-//    alert("here");
+    $(".bucketList").html("");
+    //    alert("here");
     $.ajax({
             type: 'GET',
             url: '/populate-bucket-list/',
@@ -204,49 +205,47 @@ function populateBucketListContainer() {
         })
         .done(function (dataFromApi) {
             //If successful, set some globals instead of using result object
+
             var buildTheHtmlOutput = "";
-            if (dataFromApi.length != 0) {
-                buildTheHtmlOutput += '<ul>';
-                $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
+
+            buildTheHtmlOutput += '<ul>';
+            $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
+                if (dataOutputValue.status == "unchecked") {
+                    buildTheHtmlOutput += '<li>';
+                    buildTheHtmlOutput += '<form class="deleteBucketListForm">';
+                    buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
+                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
+                    buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
+                    buildTheHtmlOutput += '</button>';
+                    buildTheHtmlOutput += '</form>';
+                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                    //        start park image
+                    buildTheHtmlOutput += '<div id="parkImageFile">';
                     if (dataOutputValue.status == "unchecked") {
-                        buildTheHtmlOutput += '<li>';
-                        buildTheHtmlOutput += '<form class="deleteBucketListForm">';
-                        buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
-                        buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                        buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
-                        buildTheHtmlOutput += '</button>';
-                        buildTheHtmlOutput += '</form>';
-                        buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
-                        //        start park image
-                        buildTheHtmlOutput += '<div id="parkImageFile">';
-                        if (dataOutputValue.status == "unchecked") {
-                            buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
-                        } else {
-                            buildTheHtmlOutput += '<img src="img/parkImages/been-there.jpg" alt="Visited Park" class="parkImage">';
-                        }
-                        buildTheHtmlOutput += '</div>';
-                        //        end park image
-                        //start check box button
-                        buildTheHtmlOutput += '<form class="updateBucketListForm">';
-                        buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
-                        buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
-                        buildTheHtmlOutput += '<button type="submit" class="checkbox">';
-                        if (dataOutputValue.status == "unchecked") {
-                            buildTheHtmlOutput += '<div class="checkbox"></div>';
-                        } else {
-                            buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
-                        }
-                        buildTheHtmlOutput += '</button>';
-                        buildTheHtmlOutput += '</form>';
-                        buildTheHtmlOutput += '</li>';
+                        buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
+                    } else {
+                        buildTheHtmlOutput += '<img src="img/parkImages/been-there.jpg" alt="Visited Park" class="parkImage">';
                     }
-                    //                    else {
-                    //                        buildTheHtmlOutput = "";
-                    //                    }
-                });
-                buildTheHtmlOutput += '</ul>';
-                $(".bucketList").html(buildTheHtmlOutput);
-            }
+                    buildTheHtmlOutput += '</div>';
+                    //        end park image
+                    //start check box button
+                    buildTheHtmlOutput += '<form class="updateBucketListForm">';
+                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
+                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
+                    buildTheHtmlOutput += '<button type="submit" class="checkbox">';
+                    if (dataOutputValue.status == "unchecked") {
+                        buildTheHtmlOutput += '<div class="checkbox"></div>';
+                    } else {
+                        buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
+                    }
+                    buildTheHtmlOutput += '</button>';
+                    buildTheHtmlOutput += '</form>';
+                    buildTheHtmlOutput += '</li>';
+                }
+            });
+            buildTheHtmlOutput += '</ul>';
+            $(".bucketList").html(buildTheHtmlOutput);
+
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
