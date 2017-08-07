@@ -197,7 +197,6 @@ function displayParkResult(dataFromApi, parkCode) {
 ////Populate 'National Park Bucket List' section
 function populateBucketListContainer() {
     $(".bucketList").html("");
-    //    alert("here");
     $.ajax({
             type: 'GET',
             url: '/populate-bucket-list/',
@@ -399,8 +398,4 @@ $(document).on('submit', '.deleteBucketListForm', function (event) {
             console.log(error);
             console.log(errorThrown);
         });
-    //if last one, empty the div
-    //    $(".deleteItemButton").click(function () {
-    //        $(".bucketList, .beenThere").empty();
-    //    });
 });
