@@ -255,6 +255,7 @@ function populateBucketListContainer() {
 
 ////Populate 'National Park Bucket List' section
 function populateBeenThereContainer() {
+    $(".bucketList").html("");
     $.ajax({
             type: 'GET',
             url: '/populate-bucket-list/',
@@ -263,48 +264,44 @@ function populateBeenThereContainer() {
         .done(function (dataFromApi) {
             //If successful, set some globals instead of using result object
             var buildTheHtmlOutput = "";
-            if (dataFromApi.length != 0) {
-                buildTheHtmlOutput += '<ul>';
-                $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
-                    if (dataOutputValue.status == "checked") {
-                        buildTheHtmlOutput += '<li>';
-                        buildTheHtmlOutput += '<form class="deleteBucketListForm">';
-                        buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
-                        buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                        buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
-                        buildTheHtmlOutput += '</button>';
-                        buildTheHtmlOutput += '</form>';
-                        buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
-                        //        start park image
-                        buildTheHtmlOutput += '<div id="parkImageFile">';
-                        if (dataOutputValue.status == "unchecked") {
-                            buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
-                        } else {
-                            buildTheHtmlOutput += '<img src="img/parkImages/been-there.jpg" alt="Visited Park" class="parkImage">';
-                        }
-                        buildTheHtmlOutput += '</div>';
-                        //        end park image
-                        //start check box button
-                        buildTheHtmlOutput += '<form class="updateBucketListForm">';
-                        buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
-                        buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
-                        buildTheHtmlOutput += '<button type="submit" class="checkbox">';
-                        if (dataOutputValue.status == "unchecked") {
-                            buildTheHtmlOutput += '<div class="checkbox"></div>';
-                        } else {
-                            buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
-                        }
-                        buildTheHtmlOutput += '</button>';
-                        buildTheHtmlOutput += '</form>';
-                        buildTheHtmlOutput += '</li>';
+
+            buildTheHtmlOutput += '<ul>';
+            $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
+                if (dataOutputValue.status == "checked") {
+                    buildTheHtmlOutput += '<li>';
+                    buildTheHtmlOutput += '<form class="deleteBucketListForm">';
+                    buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
+                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
+                    buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
+                    buildTheHtmlOutput += '</button>';
+                    buildTheHtmlOutput += '</form>';
+                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                    //        start park image
+                    buildTheHtmlOutput += '<div id="parkImageFile">';
+                    if (dataOutputValue.status == "unchecked") {
+                        buildTheHtmlOutput += '<img src="img/parkImages/' + dataOutputValue.image + '.jpg" alt="' + dataOutputValue.image + ' National Park" class="parkImage">';
+                    } else {
+                        buildTheHtmlOutput += '<img src="img/parkImages/been-there.jpg" alt="Visited Park" class="parkImage">';
                     }
-                    //                    else {
-                    //                            buildTheHtmlOutput = "";
-                    //                        }
-                });
-                buildTheHtmlOutput += '</ul>';
-                $(".beenThere").html(buildTheHtmlOutput);
-            }
+                    buildTheHtmlOutput += '</div>';
+                    //        end park image
+                    //start check box button
+                    buildTheHtmlOutput += '<form class="updateBucketListForm">';
+                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
+                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
+                    buildTheHtmlOutput += '<button type="submit" class="checkbox">';
+                    if (dataOutputValue.status == "unchecked") {
+                        buildTheHtmlOutput += '<div class="checkbox"></div>';
+                    } else {
+                        buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
+                    }
+                    buildTheHtmlOutput += '</button>';
+                    buildTheHtmlOutput += '</form>';
+                    buildTheHtmlOutput += '</li>';
+                }
+            });
+            buildTheHtmlOutput += '</ul>';
+            $(".beenThere").html(buildTheHtmlOutput);
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
@@ -341,11 +338,13 @@ $(document).on('submit', '.addToBucketList', function (event) {
         .done(function (result) {
             populateBucketListContainer();
             populateBeenThereContainer();
+            sweetAlert('Success!', 'Go explore!', 'success');
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
+            sweetAlert('Oops...', 'Please try again', 'error');
         });
 });
 
@@ -368,11 +367,13 @@ $(document).on('submit', '.updateBucketListForm', function (event) {
         .done(function (result) {
             populateBucketListContainer();
             populateBeenThereContainer();
+            sweetAlert('Success!', 'Where to next?', 'success');
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
+            sweetAlert('Oops...', 'Please try again', 'error');
         });
 });
 
@@ -392,10 +393,12 @@ $(document).on('submit', '.deleteBucketListForm', function (event) {
         .done(function (result) {
             populateBucketListContainer();
             populateBeenThereContainer();
+            sweetAlert('Removed!', 'Maybe next time...', 'success');
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
+            sweetAlert('Oops...', 'Please try again', 'error');
         });
 });
