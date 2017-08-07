@@ -4,7 +4,7 @@ Thinkful (https://www.thinkful.com) Final Capstone Project - Full Stack app inte
 
 ![landing page](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/landingPage.png)
 
-![park search page page](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/landingPage.png)
+![park search page page](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/parkSearchPage.png)
 
 ![results section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/searchResults.png)
 
