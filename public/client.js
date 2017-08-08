@@ -212,7 +212,7 @@ function populateBucketListContainer() {
                 if (dataOutputValue.status == "unchecked") {
                     buildTheHtmlOutput += '<li>';
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
-                    buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
+                    buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '" >';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
                     buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
                     buildTheHtmlOutput += '</button>';
@@ -272,7 +272,8 @@ function populateBeenThereContainer() {
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                    buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
+                    //                    buildTheHtmlOutput += '<img src="img/remove.png" class="removeExplanation">';
+                    buildTheHtmlOutput += '<input type="image" src="img/remove.png" class="add removeExplanation" alt="submit">';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
                     buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
@@ -379,6 +380,7 @@ $(document).on('submit', '.updateBucketListForm', function (event) {
 
 ////User will be able to remove item from list
 $(document).on('submit', '.deleteBucketListForm', function (event) {
+    alert('here');
     event.preventDefault();
     var parkIdToDelete = $(this).parent().find('.deleteBucketListItem').val();
     var parkObject = {
