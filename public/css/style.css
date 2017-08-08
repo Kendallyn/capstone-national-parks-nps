@@ -209,8 +209,8 @@ a {
 .results ul li .add {
     height: 40px;
     width: 40px;
-    position: relative;
-    top: -18px;
+    position: absolute;
+    top: -30px;
     left: 25px;
 }
 
