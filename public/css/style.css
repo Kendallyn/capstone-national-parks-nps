@@ -92,7 +92,7 @@ a {
 }
 
 .wrapper.hero-image {
-    background-image: url("img/glacierpan.jpg");
+    background-image: url("../assets/img/glacierpan.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -332,7 +332,7 @@ a {
 .beenThere ul li .checkbox {
     height: 25px;
     width: 25px;
-    background-image: url(img/checked-checkbox-sprite.png);
+    background-image: url("../assets/img/checked-checkbox-sprite.png");
     background-size: 200%;
     background-repeat: no-repeat;
     background-position: right center;
@@ -345,7 +345,7 @@ a {
 .beenThere ul li .checkbox-checked {
     height: 25px;
     width: 25px;
-    background-image: url(img/checked-checkbox-sprite.png);
+    background-image: url("../assets/img/checked-checkbox-sprite.png");
     background-size: 200%;
     background-repeat: no-repeat;
     background-position: left center;
