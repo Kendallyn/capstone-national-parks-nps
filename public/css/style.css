@@ -206,14 +206,12 @@ a {
     left: -34px;
 }
 
-.results ul li .addToBucketListButton {
-    display: inline-block;
-    float: left;
-}
-
 .results ul li .add {
     height: 40px;
     width: 40px;
+    position: relative;
+    top: -18px;
+    left: 25px;
 }
 
 .results ul li .parkImage {

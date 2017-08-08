@@ -264,7 +264,6 @@ function populateBeenThereContainer() {
         .done(function (dataFromApi) {
             //If successful, set some globals instead of using result object
             var buildTheHtmlOutput = "";
-
             buildTheHtmlOutput += '<ul>';
             $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
                 if (dataOutputValue.status == "checked") {
@@ -272,7 +271,7 @@ function populateBeenThereContainer() {
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                    //                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="removeExplanation">';
+                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="removeExplanation">';
                     buildTheHtmlOutput += '<input type="image" src="../assets/img/remove.png" class="add removeExplanation" alt="submit">';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
@@ -380,7 +379,7 @@ $(document).on('submit', '.updateBucketListForm', function (event) {
 
 ////User will be able to remove item from list
 $(document).on('submit', '.deleteBucketListForm', function (event) {
-    //    alert('here');
+//    alert('here');
     event.preventDefault();
     var parkIdToDelete = $(this).parent().find('.deleteBucketListItem').val();
     var parkObject = {
