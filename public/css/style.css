@@ -172,6 +172,13 @@ a {
     top: 12px;
 }
 
+.removeExplanation {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: 16px;
+}
+
 .results {
     text-align: center;
     margin-top: 10px;
@@ -255,21 +262,13 @@ a {
     margin-top: .5rem;
 }
 
-.bucketListTitle .removeExplanation,
 .bucketList .removeExplanation,
 .beenThere .removeExplanation {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     position: relative;
     top: 12px;
     right: 6px;
-}
-
-.bucketList .removeExplanation,
-.beenThere .removeExplanation {
-    position: absolute;
-    top: -10px;
-    right: -6px;
 }
 
 .bucketList,
@@ -315,15 +314,16 @@ a {
 .beenThere ul li h2 {
     color: cornflowerblue;
     text-align: center;
+    margin-top: 1rem;
 }
 
-.bucketList ul li .remove,
-.beenThere ul li .remove {
-    height: 45px;
-    width: 45px;
+.bucketList ul li .deleteBucketListForm .deleteItemButton,
+.beenThere ul li .deleteBucketListForm .deleteItemButton {
+    width: 50px;
+    height: 50px;
     position: absolute;
-    top: -13px;
-    right: -13px;
+    top: -4px;
+    right: -4px;
 }
 
 .bucketList ul li .checkbox,
@@ -362,11 +362,11 @@ a {
     color: #F3F0F0;
 }
 
-.bucketList ul li img,
-.beenThere ul li img {
+.bucketList ul li .parkImage,
+.beenThere ul li .parkImage {
     width: 100%;
     height: 100%;
-    padding-top: 5px;
+    margin-top: 1rem;
 }
 
 footer {

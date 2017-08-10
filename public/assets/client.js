@@ -154,7 +154,7 @@ function displayParkResult(dataFromApi, parkCode) {
         console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<section class="results">';
-        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName;
+        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
 
         //        starting the add to form
         buildTheHtmlOutput += '<form class="addToBucketList">';
@@ -166,8 +166,6 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/' + parkCode + '.jpg">';
         buildTheHtmlOutput += '</form>';
         //        end of the add to form
-
-        buildTheHtmlOutput += '</h2>';
 
         //        start park image
         buildTheHtmlOutput += '<div id="parkImageFile">';
@@ -211,13 +209,24 @@ function populateBucketListContainer() {
             $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
                 if (dataOutputValue.status == "unchecked") {
                     buildTheHtmlOutput += '<li>';
+                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '" >';
-                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="removeExplanation">';
+                    //Working code in chrome next 3 lines//
+                    //                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton" value="something">';
+                    //                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="removeExplanation">';
+                    //                    buildTheHtmlOutput += '</button>';
+
+                    //Testing code
+                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton" value="something">';
+                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButton">';
                     buildTheHtmlOutput += '</button>';
+
+
+
+
                     buildTheHtmlOutput += '</form>';
-                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                    //                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     //        start park image
                     buildTheHtmlOutput += '<div id="parkImageFile">';
                     if (dataOutputValue.status == "unchecked") {
@@ -268,14 +277,24 @@ function populateBeenThereContainer() {
             $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
                 if (dataOutputValue.status == "checked") {
                     buildTheHtmlOutput += '<li>';
+                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
+                    //Working code in chrome next 4 lines
+                    //                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
+                    //                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="removeExplanation">';
+                    //                    buildTheHtmlOutput += '<input type="image" src="../assets/img/remove.png" class="removeExplanation" alt="submit">';
+                    //                    buildTheHtmlOutput += '</button>';
+
+                    //Testing code
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="removeExplanation">';
-                    buildTheHtmlOutput += '<input type="image" src="../assets/img/remove.png" class="add removeExplanation" alt="submit">';
+                    //                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButton">';
+                    buildTheHtmlOutput += '<input type="image" src="../assets/img/remove.png" class="deleteItemButton" alt="submit">';
                     buildTheHtmlOutput += '</button>';
+
+
                     buildTheHtmlOutput += '</form>';
-                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                    //                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     //        start park image
                     buildTheHtmlOutput += '<div id="parkImageFile">';
                     if (dataOutputValue.status == "unchecked") {
@@ -379,7 +398,7 @@ $(document).on('submit', '.updateBucketListForm', function (event) {
 
 ////User will be able to remove item from list
 $(document).on('submit', '.deleteBucketListForm', function (event) {
-//    alert('here');
+    //    alert('here');
     event.preventDefault();
     var parkIdToDelete = $(this).parent().find('.deleteBucketListItem').val();
     var parkObject = {
