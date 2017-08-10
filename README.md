@@ -64,3 +64,19 @@ This is v1.0 of the app, but future enhancements are expected to include:
 * Integrate in National Monuments in addition to the parks
 * Add in links to hotels and campgrounds nearby parks
 
+## How to run it
+Use command line to navigate into the project folder and run the following in terminal
+
+### Local Node scripts
+* to install the node Project ===> npm install
+* to run Node server ===> nodemon server.js
+
+### Local Mongo DB scripts
+* to run tests ===> mongod
+
+### Local React scripts
+* to build React ===> npm run build
+* to run React server ===> npm run react
+
+### Local tests scripts
+* to run tests ===> npm run test
