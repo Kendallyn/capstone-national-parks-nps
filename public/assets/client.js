@@ -167,7 +167,7 @@ function displayParkResult(dataFromApi, parkCode) {
         //        buildTheHtmlOutput += '</button>';
 
         buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton" value="">';
-        buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="addToBucketListButton" alt="submit">';
+        buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="addToBucketListButtonImage" alt="submit">';
         buildTheHtmlOutput += '</button>';
 
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/' + parkCode + '.jpg">';

@@ -204,11 +204,14 @@ a {
 }
 
 section.results ul li .addToBucketList .addToBucketListButton {
-    height: 3rem;
-    width: 3rem;
     position: absolute;
     top: 10px;
     left: 27px;
+}
+
+section.results ul li .addToBucketList .addToBucketListButtonImage {
+    height: 3rem;
+    width: 3rem;
 }
 
 .results ul li .parkImage {
@@ -317,7 +320,8 @@ section.results ul li .addToBucketList .addToBucketListButton {
 }
 
 .bucketList ul li .checkbox,
-.beenThere ul li .checkbox {
+.beenThere ul li .checkbox,
+{
     height: 25px;
     width: 25px;
     background-image: url("../assets/img/checked-checkbox-sprite.png");
