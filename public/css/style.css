@@ -203,7 +203,7 @@ a {
     color: cornflowerblue;
 }
 
-section.results ul li .addToBucketList .addToBucketListButton .add {
+section.results ul li .addToBucketList .addToBucketListButton {
     height: 3rem;
     width: 3rem;
     position: absolute;

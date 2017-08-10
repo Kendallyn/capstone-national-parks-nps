@@ -153,7 +153,7 @@ function displayParkResult(dataFromApi, parkCode) {
     var buildTheHtmlOutput = "";
     $.each(dataFromApi, function (index) {
         console.log(dataFromApi[index]);
-//        buildTheHtmlOutput += '<ul>';
+        //        buildTheHtmlOutput += '<ul>';
         buildTheHtmlOutput += '<li>';
         //        buildTheHtmlOutput += '<section class="results">';
         buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
@@ -166,8 +166,8 @@ function displayParkResult(dataFromApi, parkCode) {
         //        buildTheHtmlOutput += '<input type="image" src="../assets/img/plus.png" class="add" alt="submit">';
         //        buildTheHtmlOutput += '</button>';
 
-        buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton" value="something">';
-        buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="add" alt="submit">';
+        buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton" value="">';
+        buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="addToBucketListButton" alt="submit">';
         buildTheHtmlOutput += '</button>';
 
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/' + parkCode + '.jpg">';
@@ -192,7 +192,7 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
         buildTheHtmlOutput += '</section>';
         buildTheHtmlOutput += '</li>';
-//        buildTheHtmlOutput += '</ul>';
+        //        buildTheHtmlOutput += '</ul>';
 
         //use the HTML output to show it in the index.html
         $(".results ul").html(buildTheHtmlOutput);
