@@ -79,4 +79,5 @@ Use command line to navigate into the project folder and run the following in te
 * to run React server ===> npm run react
 
 ### Local tests scripts
+Note: make sure the nodemon and react server are closed before running this
 * to run tests ===> npm run test

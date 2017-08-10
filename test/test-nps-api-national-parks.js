@@ -16,9 +16,9 @@ describe('nps-api-national-parks', function () {
     before(function (done) {
         server.runServer(function () {
             Park.create({
-                name: 'Isle Royale National Park'
+                name: 'Yellowstone National Park'
             }, {
-                name: 'Everglades National Park'
+                name: 'Denali National Park'
             }, function () {
                 done();
             });
