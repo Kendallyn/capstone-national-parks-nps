@@ -2,15 +2,15 @@
 # National Park Explorer
 Thinkful (https://www.thinkful.com) Final Capstone Project - Full Stack app integrating with National Park Service API
 
-![landing page](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/landingPage.png)
+![landing page](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/assets/img/github-readme-img/landingPage.png)
 
-![park search page](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/parkSearchPage.png)
+![park search page](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/assets/img/github-readme-img/parkSearchPage.png)
 
-![results section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/searchResults.png)
+![results section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/assets/img/github-readme-img/searchResults.png)
 
-![bucket list section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/bucketListSection.png)
+![bucket list section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/assets/img/github-readme-img/bucketListSection.png)
 
-![been there section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/img/github-readme-img/beenThereSection.png)
+![been there section](https://github.com/Kendallyn/capstone-national-parks-nps/blob/master/public/assets/img/github-readme-img/beenThereSection.png)
 
 ## Background
 
