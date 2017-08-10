@@ -179,26 +179,22 @@ a {
     top: 16px;
 }
 
-.results {
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 20px;
-    position: relative;
-}
-
 .results ul {
     list-style: none;
 }
 
 .results ul li {
+    text-align: center;
     background-color: #242525;
     border-radius: 10px;
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    position: relative;
 }
 
 .results ul li h2 {
@@ -207,18 +203,12 @@ a {
     color: cornflowerblue;
 }
 
-.results .addToBucketList {
+section.results ul li .addToBucketList .addToBucketListButton .add {
+    height: 3rem;
+    width: 3rem;
     position: absolute;
-    top: 24px;
-    left: -34px;
-}
-
-.results ul li .add {
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    top: -30px;
-    left: 25px;
+    top: 10px;
+    left: 27px;
 }
 
 .results ul li .parkImage {

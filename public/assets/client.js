@@ -149,20 +149,27 @@ function getParkResult(parkCode) {
 //App will take information from json object returned to display the park result information from external api in HTML form
 //name, description, weatherInfo, states, directionsInfo, url
 function displayParkResult(dataFromApi, parkCode) {
-    var buildTheHtmlOutput = '<ul class="results">';
+    //    var buildTheHtmlOutput = '<ul class="results">';
+    var buildTheHtmlOutput = "";
     $.each(dataFromApi, function (index) {
         console.log(dataFromApi[index]);
+//        buildTheHtmlOutput += '<ul>';
         buildTheHtmlOutput += '<li>';
-        buildTheHtmlOutput += '<section class="results">';
+        //        buildTheHtmlOutput += '<section class="results">';
         buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
 
         //        starting the add to form
         buildTheHtmlOutput += '<form class="addToBucketList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkCode" value="' + parkCode + '">';
-        buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton">';
-        buildTheHtmlOutput += '<input type="image" src="../assets/img/plus.png" class="add" alt="submit">';
+        //        buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton">';
+        //        buildTheHtmlOutput += '<input type="image" src="../assets/img/plus.png" class="add" alt="submit">';
+        //        buildTheHtmlOutput += '</button>';
+
+        buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton" value="something">';
+        buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="add" alt="submit">';
         buildTheHtmlOutput += '</button>';
+
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/' + parkCode + '.jpg">';
         buildTheHtmlOutput += '</form>';
         //        end of the add to form
@@ -185,6 +192,7 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
         buildTheHtmlOutput += '</section>';
         buildTheHtmlOutput += '</li>';
+//        buildTheHtmlOutput += '</ul>';
 
         //use the HTML output to show it in the index.html
         $(".results ul").html(buildTheHtmlOutput);
@@ -218,7 +226,7 @@ function populateBucketListContainer() {
                     //                    buildTheHtmlOutput += '</button>';
 
                     //Testing code
-                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton" value="something">';
+                    buildTheHtmlOutput += '<button type="submit" class="deleteItemButton" value="">';
                     buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButton">';
                     buildTheHtmlOutput += '</button>';
 
