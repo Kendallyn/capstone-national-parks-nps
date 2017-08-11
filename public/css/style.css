@@ -201,6 +201,7 @@ a {
     font-size: 26px;
     text-align: center;
     color: cornflowerblue;
+    line-height: 3rem;
 }
 
 section.results ul li .addToBucketList .addToBucketListButton {
@@ -323,7 +324,6 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
     height: 3rem;
 }
 
-
 .bucketList ul li .checkbox,
 .beenThere ul li .checkbox,
 {
@@ -337,6 +337,7 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
     top: 0px;
     left: 0px;
 }
+
 
 .bucketList ul li .checkbox-checked,
 .beenThere ul li .checkbox-checked {
