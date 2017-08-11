@@ -227,10 +227,8 @@ function populateBucketListContainer() {
 
                     //Testing code
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton" value="">';
-                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButton">';
+                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage">';
                     buildTheHtmlOutput += '</button>';
-
-
 
 
                     buildTheHtmlOutput += '</form>';
@@ -244,7 +242,8 @@ function populateBucketListContainer() {
                     }
                     buildTheHtmlOutput += '</div>';
                     //        end park image
-                    //start check box button
+
+                                    //start check box button
                     buildTheHtmlOutput += '<form class="updateBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
@@ -297,7 +296,7 @@ function populateBeenThereContainer() {
                     //Testing code
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
                     //                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButton">';
-                    buildTheHtmlOutput += '<input type="image" src="../assets/img/remove.png" class="deleteItemButton" alt="submit">';
+                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage" alt="submit">';
                     buildTheHtmlOutput += '</button>';
 
 
