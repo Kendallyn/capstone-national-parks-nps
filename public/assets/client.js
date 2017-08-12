@@ -219,15 +219,12 @@ function populateBucketListContainer() {
                     buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
                     buildTheHtmlOutput += '<button type="submit" class="checkbox">';
                     if (dataOutputValue.status == "unchecked") {
-                        buildTheHtmlOutput += '<div class="checkbox"></div>';
+                        buildTheHtmlOutput += '<div class="checkboxImage"></div>';
                     } else {
-                        buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
+                        buildTheHtmlOutput += '<div class="checkbox checkbox-checkedImage"></div>';
                     }
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
-
-
-
 
                     //        start park image
                     buildTheHtmlOutput += '<div id="parkImageFile">';
@@ -238,19 +235,6 @@ function populateBucketListContainer() {
                     }
                     buildTheHtmlOutput += '</div>';
                     //        end park image
-
-                    //start check box button
-//                    buildTheHtmlOutput += '<form class="updateBucketListForm">';
-//                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
-//                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
-//                    buildTheHtmlOutput += '<button type="submit" class="checkbox">';
-//                    if (dataOutputValue.status == "unchecked") {
-//                        buildTheHtmlOutput += '<div class="checkbox"></div>';
-//                    } else {
-//                        buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
-//                    }
-//                    buildTheHtmlOutput += '</button>';
-//                    buildTheHtmlOutput += '</form>';
                     buildTheHtmlOutput += '</li>';
                 }
             });
@@ -313,18 +297,6 @@ function populateBeenThereContainer() {
                     buildTheHtmlOutput += '</div>';
                     //        end park image
 
-                    //start check box button
-//                    buildTheHtmlOutput += '<form class="updateBucketListForm">';
-//                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
-//                    buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItemStatus" value="' + dataOutputValue.status + '">';
-//                    buildTheHtmlOutput += '<button type="submit" class="checkbox">';
-//                    if (dataOutputValue.status == "unchecked") {
-//                        buildTheHtmlOutput += '<div class="checkbox"></div>';
-//                    } else {
-//                        buildTheHtmlOutput += '<div class="checkbox checkbox-checked"></div>';
-//                    }
-//                    buildTheHtmlOutput += '</button>';
-//                    buildTheHtmlOutput += '</form>';
                     buildTheHtmlOutput += '</li>';
                 }
             });
@@ -407,7 +379,6 @@ $(document).on('submit', '.updateBucketListForm', function (event) {
 
 ////User will be able to remove item from list
 $(document).on('submit', '.deleteBucketListForm', function (event) {
-    //    alert('here');
     event.preventDefault();
     var parkIdToDelete = $(this).parent().find('.deleteBucketListItem').val();
     var parkObject = {

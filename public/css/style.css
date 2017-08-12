@@ -324,33 +324,32 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
     height: 3rem;
 }
 
-.bucketList ul li .checkbox,
-.beenThere ul li .checkbox,
-{
-    height: 25px;
-    width: 25px;
+.bucketList ul li .updateBucketListForm .checkbox,
+.beenThere ul li .updateBucketListForm .checkbox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height:2rem;
+    width: 2rem;
     background-image: url("../assets/img/checked-checkbox-sprite.png");
     background-size: 200%;
     background-repeat: no-repeat;
     background-position: right center;
+}
+
+.bucketList ul li .updateBucketListForm .checkbox-checked,
+.beenThere ul li .updateBucketListForm .checkbox-checked {
     position: absolute;
     top: 0px;
     left: 0px;
-}
-
-
-.bucketList ul li .checkbox-checked,
-.beenThere ul li .checkbox-checked {
-    height: 25px;
-    width: 25px;
+    height: 2rem;
+    width: 2rem;
     background-image: url("../assets/img/checked-checkbox-sprite.png");
     background-size: 200%;
     background-repeat: no-repeat;
     background-position: left center;
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }
+
 
 .bucketList ul li h4,
 .beenThere ul li h4 {
