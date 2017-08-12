@@ -35,6 +35,7 @@ body {
 
 button {
     background-color: transparent;
+    outline: none;
 }
 
 section.choose,
@@ -153,6 +154,9 @@ a {
 #parkForm .parks {
     border: 2px solid cornflowerblue;
     text-align: center;
+    outline: none;
+    padding: 3px;
+    font-size: 1.35rem;
 }
 
 #searchButton {
