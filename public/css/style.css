@@ -169,6 +169,25 @@ a {
     color: #F3F0F0;
 }
 
+.instructions {
+    background-color: #242525;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem auto;
+    width: 50%;
+
+}
+
+.instructions .checkboxInfo{
+    border: 2.5px solid cornflowerblue;
+    border-radius: 5px;
+    position: relative;
+    top: 0px;
+    right: -6px;
+    padding: 1px 13px;
+}
+
 .iconDisplay {
     height: 40px;
     width: 40px;
