@@ -68,16 +68,16 @@ This is v1.0 of the app, but future enhancements are expected to include:
 Use command line to navigate into the project folder and run the following in terminal
 
 ### Local Node scripts
-* to install the node Project ===> npm install
-* to install Nodemon globally ===> sudo npm install nodemon --save-dev -g
-* to run Node server (serving both Node and React code) ===> nodemon server.js
+* To install the node Project ===> npm install
+* To install Nodemon globally ===> sudo npm install nodemon --save-dev -g
+* To run Node server (serving both Node and React code) ===> nodemon server.js
 
 ### Local Mongo DB scripts
-* to run tests ===> mongod
+* To run tests ===> mongod
 
 ### Local React scripts
-* to build React ===> npm run build
+* To build React ===> npm run build
 
 ### Local tests scripts
 Note: make sure the nodemon and react server are closed before running this
-* to run tests ===> npm run test
+* To run tests ===> npm run test
