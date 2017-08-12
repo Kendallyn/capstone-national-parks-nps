@@ -305,14 +305,14 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
     margin: 1%;
     position: relative;
     vertical-align: top;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .bucketList ul li h2,
 .beenThere ul li h2 {
     color: cornflowerblue;
     text-align: center;
-    margin-top: 1rem;
+    padding: .16rem;
 }
 
 .bucketList ul li .deleteBucketListForm .deleteItemButton,
