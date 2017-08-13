@@ -505,16 +505,10 @@ footer ul li a .fa-envelope {
         border-radius: 10px;
     }
 
-/*
-    .instructions .checkboxInfo {
-        border: 2.5px solid cornflowerblue;
-        border-radius: 5px;
-        position: relative;
-        top: 0px;
-        right: -6px;
-        padding: 0% 2.5%;
+    .instructions {
+        display: block;
+        width: auto;
     }
-*/
 
 
     section.choose,
