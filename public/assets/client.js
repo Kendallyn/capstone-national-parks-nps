@@ -153,7 +153,6 @@ function displayParkResult(dataFromApi, parkCode) {
         console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
         buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
-
         //        starting the add to form
         buildTheHtmlOutput += '<form class="addToBucketList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';

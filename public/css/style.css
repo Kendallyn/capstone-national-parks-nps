@@ -176,30 +176,33 @@ a {
     text-align: center;
     margin: 1rem auto;
     width: 50%;
-
 }
 
-.instructions .checkboxInfo{
-    border: 2.5px solid cornflowerblue;
-    border-radius: 5px;
+section.choose .instructions .checkbox{
+    background-image: url("../assets/img/checked-checkbox-sprite.png");
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    width: 2.5rem;
+    height: 2.5rem;
     position: relative;
-    top: 0px;
+    top: 10px;
     right: -6px;
-    padding: 1px 13px;
 }
 
-.iconDisplay {
-    height: 40px;
-    width: 40px;
-    position: relative;
-    top: 12px;
-}
-
-.removeExplanation {
+.instructions .iconDisplay {
     height: 50px;
     width: 50px;
     position: relative;
-    top: 16px;
+    top: 15px;
+}
+
+.instructions .removeExplanation {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: 15px;
+    right: 4px;
 }
 
 .results ul {
@@ -234,8 +237,8 @@ section.results ul li .addToBucketList .addToBucketListButton {
 }
 
 section.results ul li .addToBucketList .addToBucketListButtonImage {
-    height: 3rem;
-    width: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
 }
 
 .results ul li .parkImage {
@@ -502,6 +505,19 @@ footer ul li a .fa-envelope {
         padding: 1rem;
         border-radius: 10px;
     }
+
+/*
+    .instructions .checkboxInfo {
+        border: 2.5px solid cornflowerblue;
+        border-radius: 5px;
+        position: relative;
+        top: 0px;
+        right: -6px;
+        padding: 0% 2.5%;
+    }
+*/
+
+
     section.choose,
     section.results,
     section.bucketListTitle,
