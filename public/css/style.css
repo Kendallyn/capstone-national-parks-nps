@@ -178,7 +178,8 @@ a {
     width: 50%;
 }
 
-section.choose .instructions .checkbox{
+/*
+section.choose .instructions .checkbox {
     background-image: url("../assets/img/checked-checkbox-sprite.png");
     background-size: 200%;
     background-repeat: no-repeat;
@@ -189,20 +190,35 @@ section.choose .instructions .checkbox{
     top: 10px;
     right: -6px;
 }
+*/
+
+.checkboxForShow {
+    height: 2rem;
+    width: 2rem;
+    background-image: url(../assets/img/checked-checkbox-sprite.png);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    display: inline-block;
+}
 
 .instructions .iconDisplay {
     height: 50px;
     width: 50px;
     position: relative;
-    top: 15px;
 }
 
 .instructions .removeExplanation {
     height: 50px;
     width: 50px;
     position: relative;
-    top: 15px;
-    right: 4px;
+}
+
+.instructions h6 {
+    height: 3rem;
+}
+.instructions p {
+    font-size: 0.9rem;
 }
 
 .results ul {
@@ -355,7 +371,7 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
     position: absolute;
     top: 0px;
     left: 0px;
-    height:2rem;
+    height: 2rem;
     width: 2rem;
     background-image: url("../assets/img/checked-checkbox-sprite.png");
     background-size: 200%;
@@ -375,7 +391,6 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
     background-repeat: no-repeat;
     background-position: left center;
 }
-
 
 .bucketList ul li h4,
 .beenThere ul li h4 {
@@ -504,13 +519,10 @@ footer ul li a .fa-envelope {
         padding: 1rem;
         border-radius: 10px;
     }
-
     .instructions {
         display: block;
         width: auto;
     }
-
-
     section.choose,
     section.results,
     section.bucketListTitle,
