@@ -152,9 +152,7 @@ function displayParkResult(dataFromApi, parkCode) {
     $.each(dataFromApi, function (index) {
         console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
-        buildTheHtmlOutput += '<div class="resultsTitle">';
         buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
-        buildTheHtmlOutput += '</div>';
         //        starting the add to form
         buildTheHtmlOutput += '<form class="addToBucketList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
