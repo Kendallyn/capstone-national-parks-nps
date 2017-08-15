@@ -12,6 +12,7 @@
 
 <body>
     <header class="top">
+       <a name="header"></a>
         <h1>National Park Explorer</h1>
         <ul>
             <!--Link for user to quickly access bucket list-->
@@ -20,9 +21,12 @@
             <a href="park-search.html#beenThereTop">Been There, Done That!</a>
         </ul>
     </header>
+    <div id="reactBackground"></div>
+<!--
     <div class="wrapper">
         <img src="assets/img/glacierpan.jpg" class="topPicture" alt="Glacier National Park">
     </div>
+-->
     <section class="choose">
         <p>A place to find out information about National Parks to help you get out and explore! </p>
         <!--Have a drop down list of national parks-->
@@ -65,6 +69,8 @@
             </select>
             <button id="searchButton" type="submit">Search</button>
         </form>
+        <div id="reactInstructions"></div>
+<!--
         <div class="instructions">
             <h3>Instructions:</h3>
             <div class="column first">
@@ -82,6 +88,7 @@
                 <p>Delete from <br />any list</p>
             </div>
         </div>
+-->
     </section>
     <section class="results">
         <ul>
@@ -127,11 +134,16 @@
                 </a>
             </li>
         </ul>
+        <div id="back-top" style="display: block;">
+            <a href="#header"><i class="fa fa-chevron-up"></i></a>
+        </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
     <script src="./assets/sweetAlert/sweetalert.min.js"></script>
     <script type="text/javascript" src="assets/client.js"></script>
+
+    <script type="text/javascript" src="react-output/index.js"></script>
 </body>
 
 </html>

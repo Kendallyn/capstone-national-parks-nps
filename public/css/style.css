@@ -178,20 +178,6 @@ a {
     width: 60%;
 }
 
-/*
-section.choose .instructions .checkbox {
-    background-image: url("../assets/img/checked-checkbox-sprite.png");
-    background-size: 200%;
-    background-repeat: no-repeat;
-    background-position: right center;
-    width: 2.5rem;
-    height: 2.5rem;
-    position: relative;
-    top: 10px;
-    right: -6px;
-}
-*/
-
 .checkboxForShow {
     height: 2rem;
     width: 2rem;
@@ -417,6 +403,7 @@ footer {
     padding-bottom: 1rem;
     padding-top: 0rem;
     border-top: 2px solid cornflowerblue;
+    position: relative;
 }
 
 footer p {
@@ -445,6 +432,14 @@ footer ul li a:hover {
 
 footer ul li a .fa-envelope {
     font-size: 41px;
+}
+
+footer #back-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border: 1px solid gray;
+    padding: 0.5rem;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -521,8 +516,9 @@ footer ul li a .fa-envelope {
     }
     .instructions {
         display: block;
-        width: auto;
+/*        width: 60%;*/
     }
+
     section.choose,
     section.results,
     section.bucketListTitle,
