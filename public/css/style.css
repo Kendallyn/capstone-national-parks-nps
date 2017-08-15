@@ -233,10 +233,14 @@ a {
     line-height: 3rem;
 }
 
+.results .resultsTitle {
+    word-break: normal;
+}
+
 section.results ul li .addToBucketList .addToBucketListButton {
     position: absolute;
-    top: 10px;
-    left: 27px;
+    top: 8px;
+    left: 10px;
 }
 
 section.results ul li .addToBucketList .addToBucketListButtonImage {
