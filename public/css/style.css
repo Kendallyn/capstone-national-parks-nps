@@ -125,7 +125,7 @@ a {
     display: inline-block;
     margin: 1rem 0.5%;
     text-align: center;
-    border: 1px solid white;
+    border: 1px solid #F3F0F0;
     padding: 1rem;
     /*    background-color: #242525;*/
 }
@@ -148,7 +148,7 @@ a {
 
 .choose .column h5 {
     font-size: 7rem;
-    color: white;
+    color: #F3F0F0;
 }
 
 #parkForm .parks {
@@ -203,6 +203,7 @@ a {
 .instructions h6 {
     height: 3rem;
 }
+
 .instructions p {
     font-size: 0.9rem;
 }
@@ -510,15 +511,14 @@ footer #back-top {
         display: block;
         margin: 1rem auto;
         text-align: center;
-        border: 1px solid white;
+        border: 1px solid #F3F0F0;
         padding: 1rem;
         border-radius: 10px;
     }
     .instructions {
         display: block;
-/*        width: 60%;*/
+        /*        width: 60%;*/
     }
-
     section.choose,
     section.results,
     section.bucketListTitle,

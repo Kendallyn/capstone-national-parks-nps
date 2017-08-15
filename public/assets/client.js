@@ -31,7 +31,7 @@ var nationalParks = [{
         "parkName": "Death Valley National Park",
         "parkCode": "deva"
     }, {
-        "parkName": "Denali National Park",
+        "parkName": "Denali National Park & Preserve",
         "parkCode": "dena"
     }, {
         "parkName": "Gates of the Arctic National Park",
@@ -263,7 +263,7 @@ function populateBeenThereContainer() {
             $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
                 if (dataOutputValue.status == "checked") {
                     buildTheHtmlOutput += '<li>';
-//                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                    //                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
