@@ -536,7 +536,7 @@ footer #back-top {
         top: -30px;
         left: 0px;
     }
-    .result ul li h2 {
+    .results ul li h2 {
         word-break: normal;
         padding-top: 1rem;
     }
@@ -544,4 +544,8 @@ footer #back-top {
         font-size: .75rem;
         font-family: 'Simonetta', cursive;
     }
+}
+
+@media only screen and (max-width: 800px) {
+
 }
