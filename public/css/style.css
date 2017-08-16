@@ -471,7 +471,6 @@ footer #back-top {
         margin-left: auto;
         margin-right: auto;
     }
-
     #parkForm .parks {
         border: 2px solid cornflowerblue;
         text-align: center;
@@ -480,8 +479,8 @@ footer #back-top {
         font-size: 2.25rem;
         border-radius: 5px;
     }
-
-    #searchButton, #searchButtonHome {
+    #searchButton,
+    #searchButtonHome {
         font-size: 2.25rem;
         border: 2px solid cornflowerblue;
         padding: 3px;
@@ -490,18 +489,9 @@ footer #back-top {
         font-family: 'Lora', serif;
         color: #F3F0F0;
     }
-
-    .instructions {
-        background-color: #242525;
-        border-radius: 10px;
-        padding: 1rem;
-        text-align: center;
-        margin: 1rem auto;
-        width: 60%;
-        font-size: 1.5rem;
+    .instructions p {
+        font-size: 1.25rem;
     }
-
-
     .results ul li .parkImage {
         width: 100%;
         height: auto;
