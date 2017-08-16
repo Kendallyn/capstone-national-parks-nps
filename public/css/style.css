@@ -518,6 +518,17 @@ footer #back-top {
     .instructions {
         display: block;
     }
+
+    #searchButton {
+        font-size: 2.25rem;
+        border: 2px solid cornflowerblue;
+        border-radius: 5px;
+        padding: 3px;
+        background-color: black;
+        font-family: 'Lora', serif;
+        color: #F3F0F0;
+    }
+
     section.choose,
     section.results,
     section.bucketListTitle,

@@ -11,7 +11,7 @@ export default class Intro extends React.Component {
                     A place to find out information about National Parks <br />
                     to help you get out and explore!
                 </h3>
-                <a id='searchButton' href='park-search.html'>Explore!</a>
+                <a id='searchButtonHome' href='park-search.html'>Explore!</a>
             </div>
             );
     }
