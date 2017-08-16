@@ -59,22 +59,10 @@ var getFromNps = function (location) {
         var body = '';
         res.on('data', function (chunk) {
             body += chunk;
-            //emitter.emit('end', body);
-            //res.json(body);
-            //var jsonFormattedResults = JSON.parse(body).data[0].description;
             var jsonFormattedResults = JSON.parse(body);
-            //            console.log(jsonFormattedResults);
             emitter.emit('end', jsonFormattedResults);
-            //var stringResult = JSON.parse(body);
-            //eventCallback(stringResult);
         });
 
-        //        res.on('end', function () {
-        //            console.log("inside end");
-        //            emitter.emit('end', body);
-        //            //var stringResult = JSON.parse(body);
-        //            //eventCallback(stringResult);
-        //        });
     }).on('error', function (e) {
 
         emitter.emit('error', e);
@@ -120,7 +108,6 @@ app.post('/add-to-bucket-list/', function (req, res) {
         res.status(201).json(item);
     });
 });
-//
 app.get('/populate-bucket-list/', function (req, res) {
     park.find(function (err, item) {
         if (err) {
@@ -134,14 +121,6 @@ app.get('/populate-bucket-list/', function (req, res) {
 
 app.put('/update-bucket-list/:bucketListId/:bucketListStatus', function (req, res) {
     console.log(req.params.bucketListId, req.params.bucketListStatus);
-    //    park.findByIdAndUpdate(req.params.bucketListId, function (err, items) {
-    //        if (err)
-    //            return res.status(404).json({
-    //                message: 'Item not found.'
-    //            });
-    //
-    //        res.status(201).json(items);
-    //    });
     var oppositeStatus = "";
     if (req.params.bucketListStatus == 'unchecked') {
         oppositeStatus = 'checked'
@@ -180,11 +159,5 @@ app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
 
 exports.app = app;
 exports.runServer = runServer;
-
-
-// listen for requests
-//app.listen(process.env.PORT || 8080, function () {
-//    return console.log('Your app is listening on port ' + (process.env.PORT || 8080));
-//});
 
 app.listen(8080);

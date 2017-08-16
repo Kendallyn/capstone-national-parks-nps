@@ -461,7 +461,6 @@ footer #back-top {
     header {
         width: 100%;
     }
-
     body {
         font-size: 8px;
     }
@@ -497,7 +496,6 @@ footer #back-top {
         color: #F3F0F0;
         margin-top: .5rem;
     }
-
     .results ul li .parkImage {
         width: 100%;
         height: auto;
@@ -510,12 +508,10 @@ footer #back-top {
         word-break: normal;
         margin-top: 3rem;
     }
-
     .results ul li h4,
     .results ul li p {
         line-height: 1.5;
     }
-
     .bucketList ul li,
     .beenThere ul li {
         display: block;
