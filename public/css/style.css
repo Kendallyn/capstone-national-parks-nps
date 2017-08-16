@@ -471,6 +471,17 @@ footer #back-top {
         margin-left: auto;
         margin-right: auto;
     }
+
+    #searchButtonHome {
+        font-size: 2.25rem;
+        border: 2px solid cornflowerblue;
+        padding: 3px;
+        border-radius: 5px;
+        background-color: black;
+        font-family: 'Lora', serif;
+        color: #F3F0F0;
+    }
+
     .results ul li .parkImage {
         width: 100%;
         height: auto;
@@ -484,12 +495,14 @@ footer #back-top {
         word-break: normal;
         margin-top: 3rem;
     }
+
     .bucketList ul li,
     .beenThere ul li {
         display: block;
         margin-left: 1.3rem;
         width: 95%;
     }
+
     footer p {
         font-size: .75rem;
         font-family: 'Simonetta', cursive;
@@ -547,10 +560,12 @@ footer #back-top {
         top: -30px;
         left: 0px;
     }
+/*
     .results ul li h2 {
         word-break: normal;
         margin-top: 2rem;
     }
+*/
     footer p {
         font-size: .75rem;
         font-family: 'Simonetta', cursive;
