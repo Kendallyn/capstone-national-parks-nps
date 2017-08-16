@@ -216,6 +216,7 @@ a {
     text-align: center;
     background-color: #242525;
     border-radius: 10px;
+    border: 1px solid gray;
     padding-top: 5px;
     padding-right: 20px;
     padding-bottom: 20px;
