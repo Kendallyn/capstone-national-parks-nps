@@ -149,7 +149,6 @@ function getParkResult(parkCode) {
 function displayParkResult(dataFromApi, parkCode) {
     var buildTheHtmlOutput = "";
     $.each(dataFromApi, function (index) {
-        console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
 //        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
         //        starting the add to form
@@ -318,7 +317,6 @@ $(document).on('submit', '.addToBucketList', function (event) {
         'image': parkCode,
         'status': 'unchecked',
     };
-    console.log(parkObject);
 
     $.ajax({
             method: 'POST',
@@ -343,7 +341,6 @@ $(document).on('submit', '.addToBucketList', function (event) {
 ////User will be able to 'check' item as a place visited
 $(document).on('submit', '.updateBucketListForm', function (event) {
     event.preventDefault();
-    //    $(".checkbox").toggleClass("checkbox-checked");
     var parkIdToUpdate = $(this).parent().find('.updateBucketListItem').val();
     var parkStatus = $(this).parent().find('.updateBucketListItemStatus').val();
     var parkObject = {
