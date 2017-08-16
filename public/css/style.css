@@ -458,6 +458,10 @@ footer #back-top {
 }
 
 @media only screen and (max-width: 1000px) {
+    header {
+        width: 100%;
+    }
+
     body {
         font-size: 8px;
     }
@@ -473,23 +477,23 @@ footer #back-top {
         margin-right: auto;
     }
     #parkForm .parks {
+        font-size: 2rem;
         border: 2px solid cornflowerblue;
         border-radius: 5px;
         text-align: center;
         outline: none;
         padding: 3px;
         background-color: black;
-        font-size: 2rem;
         font-family: 'Lora', serif;
     }
     #searchButton,
     #searchButtonHome {
-        font-size: 2rem;
+        font-size: 1.85rem;
+        font-family: 'Lora', serif;
         border: 2px solid cornflowerblue;
-        padding: 2.75px;
         border-radius: 5px;
         background-color: black;
-        font-family: 'Lora', serif;
+        padding: 3px;
         color: #F3F0F0;
         margin-top: .5rem;
     }
