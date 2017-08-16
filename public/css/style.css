@@ -158,7 +158,7 @@ a {
     font-size: 1.35rem;
 }
 
-#searchButton {
+#searchButton, #searchButtonHome {
     font-size: 1.25rem;
     border: 2px solid cornflowerblue;
     padding: 3px;
@@ -453,11 +453,29 @@ footer #back-top {
         margin-left: auto;
         margin-right: auto;
     }
+    #searchButtonHome {
+        font-size: 2.25rem;
+        border: 2px solid cornflowerblue;
+        border-radius: 5px;
+        padding: 3px;
+        background-color: black;
+        font-family: 'Lora', serif;
+        color: #F3F0F0;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
     body {
         font-size: 8px;
+    }
+    #searchButtonHome {
+        font-size: 2.25rem;
+        border: 2px solid cornflowerblue;
+        border-radius: 5px;
+        padding: 3px;
+        background-color: black;
+        font-family: 'Lora', serif;
+        color: #F3F0F0;
     }
     section.choose,
     section.results,
@@ -519,7 +537,7 @@ footer #back-top {
         display: block;
     }
 
-    #searchButton {
+    #searchButtonHome {
         font-size: 2.25rem;
         border: 2px solid cornflowerblue;
         border-radius: 5px;
