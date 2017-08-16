@@ -538,7 +538,7 @@ footer #back-top {
     }
     .results ul li h2 {
         word-break: normal;
-        padding-top: 1rem;
+        margin-top: 2rem;
     }
     footer p {
         font-size: .75rem;
@@ -546,9 +546,3 @@ footer #back-top {
     }
 }
 
-@media only screen and (max-width: 640px) {
-    .results ul li h2 {
-        word-break: normal;
-        padding-top: 4rem;
-    }
-}
