@@ -471,6 +471,15 @@ footer #back-top {
         margin-left: auto;
         margin-right: auto;
     }
+
+    #parkForm .parks {
+        border: 2px solid cornflowerblue;
+        text-align: center;
+        outline: none;
+        padding: 3px;
+        font-size: 2.25rem;
+    }
+
     #searchButtonHome {
         font-size: 2.25rem;
         border: 2px solid cornflowerblue;
