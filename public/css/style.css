@@ -510,9 +510,20 @@ footer #back-top {
         margin-left: 1.3rem;
         width: 95%;
     }
+
+    footer {
+        text-align: center;
+        padding-bottom: 1rem;
+        padding-top: 0rem;
+        border-top: 2px solid cornflowerblue;
+        position: relative;
+    }
+
     footer p {
         font-size: .75rem;
         font-family: 'Simonetta', cursive;
+        padding-top: 1rem;
+        padding-bottom: .5rem;
     }
 }
 
