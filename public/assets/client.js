@@ -135,14 +135,13 @@ function getParkResult(parkCode) {
         .done(function (dataOutput) {
             //displays the external api json object in the console
             //console.log(dataOutput);
-            //.data will be changed based on output of object in console from previous line
             displayParkResult(dataOutput.data, parkCode);
             //console.log(dataOutput.data["0"].description);
         })
         .fail(function (jqXHR, error, errorThrown) {
-            //console.log(jqXHR);
-            //console.log(error);
-            //console.log(errorThrown);
+            console.log(jqXHR);
+            console.log(error);
+            console.log(errorThrown);
         });
 }
 
@@ -152,7 +151,7 @@ function displayParkResult(dataFromApi, parkCode) {
     $.each(dataFromApi, function (index) {
         console.log(dataFromApi[index]);
         buildTheHtmlOutput += '<li>';
-        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
+//        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
         //        starting the add to form
         buildTheHtmlOutput += '<form class="addToBucketList">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
@@ -160,18 +159,15 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton" value="">';
         buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="addToBucketListButtonImage" alt="submit">';
         buildTheHtmlOutput += '</button>';
-
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/' + parkCode + '.jpg">';
         buildTheHtmlOutput += '</form>';
         //        end of the add to form
-
+        buildTheHtmlOutput += '<h2>' + dataFromApi[index].fullName + '</h2>';
         //        start park image
         buildTheHtmlOutput += '<div id="parkImageFile">';
         buildTheHtmlOutput += '<img src="../assets/img/parkImages/' + parkCode + '.jpg" alt="' + parkCode + ' National Park" class="parkImage">';
         buildTheHtmlOutput += '</div>';
         //        end park image
-
-
         buildTheHtmlOutput += '<h4>Description: </h4><p>' + dataFromApi[index].description + '</p>';
         if (dataFromApi[index].weatherInfo.search('http') >= 0) {
             buildTheHtmlOutput += '<h4>Weather Information: <a target="_blank" href="' + dataFromApi[index].weatherInfo + '" >Click for weather info</a></h4>';
@@ -183,7 +179,6 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '<h4>Park Website: <a target="_blank" href="' + dataFromApi[index].url + '" >' + dataFromApi[index].fullName + '</a></h4>';
         buildTheHtmlOutput += '</section>';
         buildTheHtmlOutput += '</li>';
-
         //use the HTML output to show it in the index.html
         $(".results ul").html(buildTheHtmlOutput);
     })
@@ -211,7 +206,6 @@ function populateBucketListContainer() {
                     buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage">';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
-
                     //start check box button
                     buildTheHtmlOutput += '<form class="updateBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="updateBucketListItem" value="' + dataOutputValue._id + '">';
@@ -224,7 +218,6 @@ function populateBucketListContainer() {
                     }
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
-
                     //        start park image
                     buildTheHtmlOutput += '<div id="parkImageFile">';
                     if (dataOutputValue.status == "unchecked") {
@@ -263,7 +256,7 @@ function populateBeenThereContainer() {
             $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
                 if (dataOutputValue.status == "checked") {
                     buildTheHtmlOutput += '<li>';
-                    //                    buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
+                    //buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
