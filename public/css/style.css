@@ -546,6 +546,9 @@ footer #back-top {
     }
 }
 
-@media only screen and (max-width: 800px) {
-
+@media only screen and (max-width: 640px) {
+    .results ul li h2 {
+        word-break: normal;
+        padding-top: 2rem;
+    }
 }
