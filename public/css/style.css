@@ -478,7 +478,7 @@ footer #back-top {
         outline: none;
         padding: 3px;
         font-size: 2.25rem;
-        border-radius: 10px;
+        border-radius: 5px;
     }
 
     #searchButton, #searchButtonHome {
@@ -490,6 +490,18 @@ footer #back-top {
         font-family: 'Lora', serif;
         color: #F3F0F0;
     }
+
+    .instructions {
+        background-color: #242525;
+        border-radius: 10px;
+        padding: 1rem;
+        text-align: center;
+        margin: 1rem auto;
+        width: 60%;
+        font-size: 1.5rem;
+    }
+
+
     .results ul li .parkImage {
         width: 100%;
         height: auto;
