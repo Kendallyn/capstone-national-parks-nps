@@ -525,6 +525,10 @@ footer #back-top {
         padding-top: 1rem;
         padding-bottom: .5rem;
     }
+
+    footer .fa {
+        display: inline;
+    }
 }
 
 @media only screen and (max-width: 800px) {
