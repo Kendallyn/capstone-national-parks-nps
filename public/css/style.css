@@ -475,6 +475,15 @@ footer #back-top {
         width: 100%;
         height: auto;
     }
+
+    .results ul li h2 {
+        font-size: 26px;
+        text-align: center;
+        color: cornflowerblue;
+        line-height: 3rem;
+        word-break: normal;
+        margin-top: 3rem;
+    }
     .bucketList ul li,
     .beenThere ul li {
         display: block;
