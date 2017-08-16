@@ -538,6 +538,7 @@ footer #back-top {
     }
     .result ul li h2 {
         word-break: normal;
+        padding-top: 1rem;
     }
     footer p {
         font-size: .75rem;
