@@ -80,7 +80,7 @@ footer {
 p,
 h2,
 h4 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lora', sans-serif;
 }
 
 a {
@@ -109,6 +109,7 @@ a {
     padding-bottom: 8rem;
 }
 
+/*
 .choose,
 .parks {
     padding: 5px;
@@ -119,6 +120,7 @@ a {
     font-size: 1.25rem;
     color: #F3F0F0;
 }
+*/
 
 .choose .column {
     width: 31%;
@@ -150,18 +152,30 @@ a {
     color: #F3F0F0;
 }
 
+.choose p {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+#parkForm {
+    text-align: center;
+}
+
 #parkForm .parks {
     border: 2px solid cornflowerblue;
-    text-align: center;
+    border-radius: 5px;
+    color: #F3F0F0;
+    background-color: black;
     outline: none;
     padding: 3px;
     font-size: 1.35rem;
-    border-radius: 5px;
+    font-family: 'Lora', sans-serif;
 }
 
 #searchButton,
 #searchButtonHome {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     border: 2px solid cornflowerblue;
     padding: 3px;
     border-radius: 5px;
@@ -177,6 +191,7 @@ a {
     text-align: center;
     margin: 1rem auto;
     width: 60%;
+    font-family: 'Lora', sans-serif;
 }
 
 .checkboxForShow {
