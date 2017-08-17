@@ -502,7 +502,7 @@ footer #back-top {
         background-color: black;
         color: #F3F0F0;
         margin-top: .5rem;
-        padding: .1rem;
+        padding: .1rem .25rem;
     }
 
     .instructions h3, .choose h2 {
