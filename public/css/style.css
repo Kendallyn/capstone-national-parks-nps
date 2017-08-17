@@ -505,9 +505,10 @@ footer #back-top {
         padding: .1rem;
     }
 
-    .instructions h3 {
+    .instructions h3, .choose h2 {
         font-size: 1.5rem;
     }
+
 
     .results ul li .parkImage {
         width: 100%;
