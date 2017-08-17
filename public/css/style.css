@@ -109,18 +109,10 @@ a {
     padding-bottom: 8rem;
 }
 
-/*
-.choose,
-.parks {
-    padding: 5px;
-    margin-top: 1rem;
-    font-family: 'Lora', sans-serif;
+.choose h2 {
     text-align: center;
-    background-color: black;
-    font-size: 1.25rem;
-    color: #F3F0F0;
+    margin-top: .5rem;
 }
-*/
 
 .choose .column {
     width: 31%;
