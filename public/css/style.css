@@ -510,6 +510,11 @@ footer #back-top {
         color: #F3F0F0;
         margin-top: .5rem;
     }
+
+    .instructions h3 {
+        font-size: 1.5rem;
+    }
+
     .results ul li .parkImage {
         width: 100%;
         height: auto;
@@ -559,6 +564,9 @@ footer #back-top {
 }
 
 @media only screen and (max-width: 800px) {
+    header {
+        width: 100%;
+    }
     body {
         font-size: 8px;
     }
