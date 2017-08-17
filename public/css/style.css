@@ -80,7 +80,7 @@ footer {
 p,
 h2,
 h4 {
-    font-family: 'Lora', serif;
+    font-family: 'Lora', sans-serif;
 }
 
 a {
@@ -113,7 +113,7 @@ a {
 .parks {
     padding: 5px;
     margin-top: 1rem;
-    font-family: 'Lora', serif;
+    font-family: 'Lora', sans-serif;
     text-align: center;
     background-color: black;
     font-size: 1.25rem;
@@ -165,7 +165,7 @@ a {
     padding: 3px;
     border-radius: 5px;
     background-color: black;
-    font-family: 'Lora', serif;
+    font-family: 'Lora', sans-serif;
     color: #F3F0F0;
 }
 
@@ -310,7 +310,7 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
     border-radius: 5px;
     background-color: #242525;
     color: #F3F0F0;
-    font-family: 'Lora', serif;
+    font-family: 'Lora', sans-serif;
     position: absolute;
     top: 27px;
     right: 0px;
@@ -482,12 +482,12 @@ footer #back-top {
         text-align: center;
         outline: none;
         background-color: black;
-        font-family: 'Lora', serif;
+        font-family: 'Lora', sans-serif;
     }
     #searchButton,
     #searchButtonHome {
         font-size: 1.85rem;
-        font-family: 'Lora', serif;
+        font-family: 'Lora', sans-serif;
         border: 2px solid cornflowerblue;
         border-radius: 5px;
         background-color: black;
