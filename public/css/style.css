@@ -504,15 +504,12 @@ footer #back-top {
         margin-top: .5rem;
         padding: .1rem .25rem;
     }
-
     .instructions h3 {
         font-size: 1.5rem;
     }
-
     .choose h2 {
         font-size: 2rem;
     }
-
     .results ul li .parkImage {
         width: 100%;
         height: auto;
@@ -614,12 +611,6 @@ footer #back-top {
         top: -30px;
         left: 0px;
     }
-    /*
-    .results ul li h2 {
-        word-break: normal;
-        margin-top: 2rem;
-    }
-*/
     footer p {
         font-size: .75rem;
         font-family: 'Simonetta', cursive;
