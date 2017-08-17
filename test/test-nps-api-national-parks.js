@@ -5,11 +5,8 @@ const chaiHttp = require('chai-http');
 const should = chai.should();
 chai.use(chaiHttp);
 
-import React from 'react';
-import {
-    shallow
-}
-from 'enzyme';
+//import React from 'react';
+import {shallow} from 'enzyme';
 import Intro from './components/intro';
 import HowItWorks from './components/howitworks';
 import Instructions from './components/instructions';
