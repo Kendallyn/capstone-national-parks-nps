@@ -485,7 +485,7 @@ footer #back-top {
         margin-right: auto;
     }
     #parkForm .parks {
-        font-size: 2rem;
+        font-size: 1.85rem;
         border: 2px solid cornflowerblue;
         border-radius: 5px;
         text-align: center;
@@ -502,6 +502,7 @@ footer #back-top {
         background-color: black;
         color: #F3F0F0;
         margin-top: .5rem;
+        padding: .1rem;
     }
 
     .instructions h3 {
