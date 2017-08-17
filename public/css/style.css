@@ -156,11 +156,12 @@ a {
     outline: none;
     padding: 3px;
     font-size: 1.35rem;
+    border-radius: 5px;
 }
 
 #searchButton,
 #searchButtonHome {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     border: 2px solid cornflowerblue;
     padding: 3px;
     border-radius: 5px;
