@@ -1,5 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
+
+
 import Intro from './components/intro';
 import HowItWorks from './components/howitworks';
 import Instructions from './components/instructions';
@@ -12,20 +14,20 @@ describe('<Intro />', () => {
                 });
     });
 
-    describe('<HowItWorks />', () => {
-        it('Renders without crashing', () => {
-            shallow(<HowItWorks />);
-                    });
-        });
-
-        describe('<Instructions />', () => {
-            it('Renders without crashing', () => {
-                shallow(<Instructions />);
-                        });
-            });
-
-            describe('<Background />', () => {
-                it('Renders without crashing', () => {
-                    shallow(<Background />);
-                            });
+describe('<HowItWorks />', () => {
+    it('Renders without crashing', () => {
+        shallow(<HowItWorks />);
                 });
+    });
+
+describe('<Instructions />', () => {
+    it('Renders without crashing', () => {
+        shallow(<Instructions />);
+                });
+    });
+
+describe('<Background />', () => {
+    it('Renders without crashing', () => {
+        shallow(<Background />);
+                });
+    });
