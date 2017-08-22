@@ -29,7 +29,6 @@ The app's functionality includes:
 * The app returns information such as park description, weather information, directions, and park website.
 * Add chosen park to a Bucket List section.
 * Update park to visited and save to Been There Done That section.
-* Rate the park after you have visited.
 * Delete parks from Bucket List and Been There Done That sections.
 
 ## Technology
