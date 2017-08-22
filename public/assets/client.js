@@ -119,14 +119,12 @@ function populateParks() {
 $("#parkForm").submit(function (event) {
     event.preventDefault();
     var nationalParks = $(".parks").val();
-    //  console.log(nationalParks);
     getParkResult(nationalParks);
 });
 
 //STEP 3
 //Results of park information from the external API will be returned(fullName, description, weatherInfo, states, directionsInfo, url)
 function getParkResult(parkCode) {
-    //    console.log(parkCode);
     $.ajax({
             type: "GET",
             url: '/park/' + parkCode,
@@ -134,9 +132,7 @@ function getParkResult(parkCode) {
         })
         .done(function (dataOutput) {
             //displays the external api json object in the console
-            //console.log(dataOutput);
             displayParkResult(dataOutput.data, parkCode);
-            //console.log(dataOutput.data["0"].description);
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);
@@ -254,7 +250,6 @@ function populateBeenThereContainer() {
             $.each(dataFromApi, function (dataOutputKey, dataOutputValue) {
                 if (dataOutputValue.status == "checked") {
                     buildTheHtmlOutput += '<li>';
-                    //buildTheHtmlOutput += '<h2>' + dataOutputValue.name + '</h2>';
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';

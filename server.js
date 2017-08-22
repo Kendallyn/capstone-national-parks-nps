@@ -55,7 +55,6 @@ var getFromNps = function (location) {
     };
 
     https.get(options, function (res) {
-        //        console.log(res)
         var body = '';
         res.on('data', function (chunk) {
             body += chunk;
