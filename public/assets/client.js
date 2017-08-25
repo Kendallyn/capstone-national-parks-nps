@@ -151,7 +151,8 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkCode" value="' + parkCode + '">';
         buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton" value="">';
-        buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="addToBucketListButtonImage" alt="submit">';
+//        buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="addToBucketListButtonImage" alt="submit">';
+        buildTheHtmlOutput += '<i class="fa fa-plus-square-o" aria-hidden="true"></i>';
         buildTheHtmlOutput += '</button>';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/' + parkCode + '.jpg">';
         buildTheHtmlOutput += '</form>';
@@ -197,7 +198,8 @@ function populateBucketListContainer() {
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '" >';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton" value="">';
-                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage">';
+//                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage">';
+                    buildTheHtmlOutput += '<i class="fa fa-minus-square-o" aria-hidden="true"></i>';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
                     //start check box button
@@ -253,7 +255,8 @@ function populateBeenThereContainer() {
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
-                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage" alt="submit">';
+//                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage" alt="submit">';
+                    buildTheHtmlOutput += '<i class="fa fa-minus-square-o" aria-hidden="true"></i>';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
 

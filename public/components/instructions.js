@@ -10,7 +10,7 @@ export default class Instructions extends React.Component {
                 <h3>How to use:</h3>
                 <p>Choose and search for a park from the drop down list and reference the below icons on how to save, update, and delete parks from your lists</p>
                 <div className='column first'>
-                    <h6><img src='assets/img/plus.png' className='iconDisplay'/></h6>
+                <h6><i className="fa fa-plus-square-o" aria-hidden="true"></i></h6>
                     <p>Add to <br />Bucket list</p>
                 </div>
                 <div className='column'>
@@ -20,7 +20,7 @@ export default class Instructions extends React.Component {
                     <p>Move to <br />Been There</p>
                 </div>
                 <div className='column last'>
-                    <h6><img src='assets/img/remove.png' className='removeExplanation'/></h6>
+                <h6><i className="fa fa-minus-square-o" aria-hidden="true"></i></h6>
                     <p>Delete from <br />any list</p>
                 </div>
             </div>

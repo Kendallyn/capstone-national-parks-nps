@@ -126,9 +126,19 @@ a {
     border-bottom-left-radius: 10px;
 }
 
+.choose .column.first h6 i {
+    font-size: 2.5rem;
+    color: #F3F0F0;
+}
+
 .choose .column.last {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.choose .column.last h6 i {
+    font-size: 2.5rem;
+    color: #F3F0F0;
 }
 
 .choose .column h4 {
@@ -222,7 +232,7 @@ a {
 }
 
 .instructions p {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .results ul {
@@ -258,9 +268,16 @@ section.results ul li .addToBucketList .addToBucketListButton {
     left: 10px;
 }
 
+/*
 section.results ul li .addToBucketList .addToBucketListButtonImage {
     height: 3.5rem;
     width: 3.5rem;
+}
+*/
+
+section.results ul li .addToBucketList .addToBucketListButton i {
+    font-size: 3rem;
+    color: #F3F0F0;
 }
 
 .results ul li .parkImage {
@@ -362,15 +379,24 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
 .bucketList ul li .deleteBucketListForm .deleteItemButton,
 .beenThere ul li .deleteBucketListForm .deleteItemButton {
     position: absolute;
-    top: -7px;
-    right: -7px;
+    top: -2px;
+    right: 0px;
 }
 
+/*
 .bucketList ul li .deleteBucketListForm .deleteItemButtonImage,
 .beenThere ul li .deleteBucketListForm .deleteItemButtonImage {
     width: 3rem;
     height: 3rem;
 }
+*/
+
+.bucketList ul li .deleteBucketListForm .deleteItemButton i,
+.beenThere ul li .deleteBucketListForm .deleteItemButton i{
+    font-size: 2.5rem;
+    color: #F3F0F0;
+}
+
 
 .bucketList ul li .updateBucketListForm .checkbox,
 .beenThere ul li .updateBucketListForm .checkbox {
@@ -418,6 +444,7 @@ section.results ul li .addToBucketList .addToBucketListButtonImage {
 footer {
     width: 100%;
     text-align: center;
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 1rem;
