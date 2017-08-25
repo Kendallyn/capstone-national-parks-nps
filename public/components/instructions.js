@@ -7,7 +7,8 @@ export default class Instructions extends React.Component {
     render() {
         return (
             <div className='instructions'>
-                <h3>Instructions:</h3>
+                <h3>How to use:</h3>
+                <p>Choose and search for a park from the drop down list and reference the below icons on how to save, update, and delete parks from your lists</p>
                 <div className='column first'>
                     <h6><img src='assets/img/plus.png' className='iconDisplay'/></h6>
                     <p>Add to <br />Bucket list</p>

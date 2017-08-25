@@ -7,7 +7,7 @@ export default class HowItWorks extends React.Component {
     render() {
         return (
             <section className='choose'>
-                <h2>How it works</h2>
+                <h2>What to expect</h2>
                 <div className='column first'>
                     <h4>Search</h4>
                     <h5><i className='fa fa-search' aria-hidden='true'></i></h5>

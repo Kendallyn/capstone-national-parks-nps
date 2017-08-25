@@ -163,11 +163,21 @@ a {
     font-family: 'Lora', sans-serif;
 }
 
-#searchButton,
-#searchButtonHome {
+#searchButton {
     font-size: 1.25rem;
     border: 2px solid cornflowerblue;
     padding: 2.5px;
+    border-radius: 5px;
+    background-color: black;
+    font-family: 'Lora', sans-serif;
+    color: #F3F0F0;
+    margin-left: .5rem;
+}
+
+#searchButtonHome {
+    font-size: 2rem;
+    border: 2px solid cornflowerblue;
+    padding: .25rem;
     border-radius: 5px;
     background-color: black;
     font-family: 'Lora', sans-serif;
@@ -483,7 +493,7 @@ footer #back-top {
         margin-right: auto;
     }
     #parkForm .parks {
-        font-size: 1.85rem;
+        font-size: 1.25rem;
         border: 2px solid cornflowerblue;
         border-radius: 5px;
         text-align: center;
@@ -491,16 +501,15 @@ footer #back-top {
         background-color: black;
         font-family: 'Lora', sans-serif;
     }
-    #searchButton,
     #searchButtonHome {
-        font-size: 1.85rem;
-        font-family: 'Lora', sans-serif;
+        font-size: 2rem;
         border: 2px solid cornflowerblue;
+        padding: .25rem;
         border-radius: 5px;
         background-color: black;
+        font-family: 'Lora', sans-serif;
         color: #F3F0F0;
-        margin-top: .5rem;
-        padding: .1rem .25rem;
+        margin-left: .5rem;
     }
     .instructions h3 {
         font-size: 1.5rem;
@@ -587,6 +596,37 @@ footer #back-top {
         border: 1px solid #F3F0F0;
         padding: 1rem;
         border-radius: 10px;
+    }
+    #parkForm .parks {
+        font-size: 1rem;
+        border: 2px solid cornflowerblue;
+        border-radius: 5px;
+        text-align: center;
+        outline: none;
+        background-color: black;
+        font-family: 'Lora', sans-serif;
+    }
+    #searchButtonHome {
+        font-size: 1.5rem;
+        border: 2px solid cornflowerblue;
+        padding: .25rem;
+        border-radius: 5px;
+        background-color: black;
+        font-family: 'Lora', sans-serif;
+        color: #F3F0F0;
+        margin-left: .5rem;
+    }
+
+    #searchButton {
+        font-size: 1rem;
+        border: 2px solid cornflowerblue;
+        padding: 2.5px;
+        border-radius: 5px;
+        background-color: black;
+        font-family: 'Lora', sans-serif;
+        color: #F3F0F0;
+        margin-left: .5rem;
+        margin-top: .5rem;
     }
     .instructions {
         display: block;
