@@ -268,13 +268,6 @@ section.results ul li .addToBucketList .addToBucketListButton {
     left: 10px;
 }
 
-/*
-section.results ul li .addToBucketList .addToBucketListButtonImage {
-    height: 3.5rem;
-    width: 3.5rem;
-}
-*/
-
 section.results ul li .addToBucketList .addToBucketListButton i {
     font-size: 3rem;
     color: #F3F0F0;
@@ -382,14 +375,6 @@ section.results ul li .addToBucketList .addToBucketListButton i {
     top: -2px;
     right: 0px;
 }
-
-/*
-.bucketList ul li .deleteBucketListForm .deleteItemButtonImage,
-.beenThere ul li .deleteBucketListForm .deleteItemButtonImage {
-    width: 3rem;
-    height: 3rem;
-}
-*/
 
 .bucketList ul li .deleteBucketListForm .deleteItemButton i,
 .beenThere ul li .deleteBucketListForm .deleteItemButton i{
