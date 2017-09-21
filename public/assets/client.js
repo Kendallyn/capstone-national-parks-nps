@@ -138,6 +138,7 @@ function getParkResult(parkCode) {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
+            sweetAlert('Oops...', 'Please try again', 'error');
         });
 }
 
