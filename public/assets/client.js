@@ -138,7 +138,10 @@ function getParkResult(parkCode) {
             console.log(jqXHR);
             console.log(error);
             console.log(errorThrown);
+<<<<<<< HEAD
             sweetAlert('Oops...', 'Please try again', 'error');
+=======
+>>>>>>> 6cd1ef71a2aca4f8a95e081b8d1086d97b9b2a85
         });
 }
 
@@ -152,6 +155,10 @@ function displayParkResult(dataFromApi, parkCode) {
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListFullName" value="' + dataFromApi[index].fullName + '">';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkCode" value="' + parkCode + '">';
         buildTheHtmlOutput += '<button type="submit" class="addToBucketListButton" value="">';
+<<<<<<< HEAD
+=======
+//        buildTheHtmlOutput += '<img src="../assets/img/plus.png" class="addToBucketListButtonImage" alt="submit">';
+>>>>>>> 6cd1ef71a2aca4f8a95e081b8d1086d97b9b2a85
         buildTheHtmlOutput += '<i class="fa fa-plus-square-o" aria-hidden="true"></i>';
         buildTheHtmlOutput += '</button>';
         buildTheHtmlOutput += '<input type="hidden" class="addToBucketListParkImage" value="img/parkImages/' + parkCode + '.jpg">';
@@ -198,6 +205,10 @@ function populateBucketListContainer() {
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '" >';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton" value="">';
+<<<<<<< HEAD
+=======
+//                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage">';
+>>>>>>> 6cd1ef71a2aca4f8a95e081b8d1086d97b9b2a85
                     buildTheHtmlOutput += '<i class="fa fa-minus-square-o" aria-hidden="true"></i>';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
@@ -254,6 +265,10 @@ function populateBeenThereContainer() {
                     buildTheHtmlOutput += '<form class="deleteBucketListForm">';
                     buildTheHtmlOutput += '<input type="hidden" class="deleteBucketListItem" value="' + dataOutputValue._id + '">';
                     buildTheHtmlOutput += '<button type="submit" class="deleteItemButton">';
+<<<<<<< HEAD
+=======
+//                    buildTheHtmlOutput += '<img src="../assets/img/remove.png" class="deleteItemButtonImage" alt="submit">';
+>>>>>>> 6cd1ef71a2aca4f8a95e081b8d1086d97b9b2a85
                     buildTheHtmlOutput += '<i class="fa fa-minus-square-o" aria-hidden="true"></i>';
                     buildTheHtmlOutput += '</button>';
                     buildTheHtmlOutput += '</form>';
