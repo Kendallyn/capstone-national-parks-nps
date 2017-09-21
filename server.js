@@ -7,34 +7,35 @@ var config = require('./config');
 var https = require('https');
 var http = require('http');
 var app = express();
+var park = require('./models/park');
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
 
-//
-//var runServer = function (callback) {
-//    mongoose.connect(config.DATABASE_URL, function (err) {
-//        if (err && callback) {
-//            return callback(err);
-//        }
-//
-//        app.listen(config.PORT, function () {
-//            console.log('Listening on localhost:' + config.PORT);
-//            if (callback) {
-//                callback();
-//            }
-//        });
-//    });
-//};
-//
-//if (require.main === module) {
-//    runServer(function (err) {
-//        if (err) {
-//            console.error(err);
-//        }
-//    });
-//};
-//
+
+var runServer = function (callback) {
+    mongoose.connect(config.DATABASE_URL, function (err) {
+        if (err && callback) {
+            return callback(err);
+        }
+
+        app.listen(config.PORT, function () {
+            console.log('Listening on localhost:' + config.PORT);
+            if (callback) {
+                callback();
+            }
+        });
+    });
+};
+
+if (require.main === module) {
+    runServer(function (err) {
+        if (err) {
+            console.error(err);
+        }
+    });
+};
+
 
 // external API call
 var getFromNps = function (location) {
@@ -43,7 +44,7 @@ var getFromNps = function (location) {
 
     var options = {
         host: 'developer.nps.gov',
-        path: '/api/v0/parks?parkCode=yell',
+        path: '/api/v0/parks?parkCode=' + location,
         method: 'GET',
         headers: {
             'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
@@ -54,58 +55,22 @@ var getFromNps = function (location) {
     };
 
     https.get(options, function (res) {
-        //        console.log(res)
         var body = '';
         res.on('data', function (chunk) {
-
-            console.log("inside data");
             body += chunk;
-            //            emitter.emit('end', body);
-            //            res.json(body);
-            //            var jsonFormattedResults = JSON.parse(body).data[0].description;
             var jsonFormattedResults = JSON.parse(body);
-            console.log(jsonFormattedResults);
             emitter.emit('end', jsonFormattedResults);
-            //var stringResult = JSON.parse(body);
-            //eventCallback(stringResult);
         });
 
-        //        res.on('end', function () {
-        //            console.log("inside end");
-        //            emitter.emit('end', body);
-        //            //var stringResult = JSON.parse(body);
-        //            //eventCallback(stringResult);
-        //        });
     }).on('error', function (e) {
-        console.log("inside error");
-        console.log("Got error: ", e);
 
         emitter.emit('error', e);
     });
     return emitter;
 };
-// external API call from active api example
-//var getFromNps = function (location) {
-//    var emitter = new events.EventEmitter();
-//    unirest.get("http://developer.nps.gov/api/v0/parks?parkCode=")
-//        .header("Accept", "application/json")
-//        .end(function (result) {
-//            //success scenario
-//            if (result.ok) {
-//                emitter.emit('end', result.body);
-//            }
-//            //failure scenario
-//            else {
-//                emitter.emit('error', result.code);
-//            }
-//        });
-//
-//    return emitter;
-//};
 
 
 // local API endpoints
-//
 app.get('/park/:parkCode', function (req, res) {
 
 
@@ -124,54 +89,74 @@ app.get('/park/:parkCode', function (req, res) {
 
 });
 //
-//app.post('/add-to-bucket-list/', function (req, res) {
-//
-//    //db connection and data queries
-//    activity.create({
-//        name: req.body.name,
-//        date: req.body.date,
-//        place: req.body.place,
-//        url: req.body.url
-//    }, function (err, item) {
-//        if (err) {
-//            return res.status(500).json({
-//                message: 'Internal Server Error'
-//            });
-//        }
-//        res.status(201).json(item);
-//    });
-//});
-//
-//app.get('/populate-bucket-list', function (req, res) {
-//    activity.find(function (err, item) {
-//        if (err) {
-//            return res.status(500).json({
-//                message: 'Internal Server Error'
-//            });
-//        }
-//        res.status(200).json(item);
-//    });
-//});
+app.post('/add-to-bucket-list/', function (req, res) {
 
-//app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
-//    activity.findByIdAndRemove(req.params.favoritesId, function (err, items) {
-//        if (err)
-//            return res.status(404).json({
-//                message: 'Item not found.'
-//            });
-//
-//        res.status(201).json(items);
-//    });
-//});
+    //db connection and data queries
+    //creating object that will POST
+    park.create({
+        name: req.body.name,
+        image: req.body.image,
+        status: req.body.status
+    }, function (err, item) {
+        console.log(item);
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(201).json(item);
+    });
+});
+app.get('/populate-bucket-list/', function (req, res) {
+    park.find(function (err, item) {
+        if (err) {
+            return res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+        res.status(200).json(item);
+    });
+});
+
+app.put('/update-bucket-list/:bucketListId/:bucketListStatus', function (req, res) {
+    console.log(req.params.bucketListId, req.params.bucketListStatus);
+    var oppositeStatus = "";
+    if (req.params.bucketListStatus == 'unchecked') {
+        oppositeStatus = 'checked'
+    } else {
+        oppositeStatus = 'unchecked'
+    }
+    park.find(function (err, items) {
+        if (err) {
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+        }
+        park.update({
+            _id: req.params.bucketListId
+        }, {
+            $set: {
+                status: oppositeStatus
+            }
+        }, function () {
+            res.status(201).json(items);
+        });
+    });
+});
+
+app.delete('/delete-from-bucket-list/:bucketListId', function (req, res) {
+    park.findByIdAndRemove(req.params.bucketListId, function (err, items) {
+        if (err)
+            return res.status(404).json({
+                message: 'Item not found.'
+            });
+
+        res.status(201).json(items);
+    });
+});
 
 
 exports.app = app;
-//exports.runServer = runServer;
+exports.runServer = runServer;
 
-
-// listen for requests
-app.listen(process.env.PORT || 8080, function () {
-    return console.log('Your app is listening on port ' + (process.env.PORT || 8080));
-});
-
-//app.listen(3002);
+app.listen(8080);

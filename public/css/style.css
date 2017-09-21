@@ -1,0 +1,668 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+    -moz-margin-before: 0px;
+    -moz-margin-after: 0px;
+    -moz-margin-start: 0px;
+    -moz-margin-end: 0px;
+    -moz-padding-before: 0px;
+    -moz-padding-after: 0px;
+    -moz-padding-start: 0px;
+    -moz-padding-end: 0px;
+}
+
+html {
+    background-color: black;
+}
+
+body {
+    font-weight: bold;
+    color: #F3F0F0;
+    font-size: 16px;
+}
+
+button {
+    background-color: transparent;
+    outline: none;
+}
+
+section.choose,
+section.results,
+section.bucketListTitle,
+section.bucketList,
+section.beenThereTitle,
+section.beenThere,
+footer {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.top {
+    margin: 10px;
+    padding: 2px;
+    font-family: 'Simonetta', cursive;
+}
+
+.top h1 {
+    font-size: 50px;
+    font-family: 'Simonetta', cursive;
+}
+
+.top h1,
+.top ul {
+    display: inline-block;
+}
+
+.top ul {
+    float: right;
+    font-size: 20px;
+}
+
+.top ul a {
+    display: block;
+    color: cornflowerblue;
+}
+
+p,
+h2,
+h4 {
+    font-family: 'Lora', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #F3F0F0;
+}
+
+.wrapper .topPicture {
+    width: 100%;
+}
+
+.wrapper.hero-image {
+    background-image: url("../assets/img/glacierpan.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.wrapper.hero-image h3 {
+    font-family: 'Simonetta', cursive;
+    font-size: 2rem;
+    padding-bottom: 8rem;
+}
+
+.choose h2 {
+    text-align: center;
+    margin-top: .5rem;
+}
+
+.choose .column {
+    width: 31%;
+    display: inline-block;
+    margin: 1rem 0.5%;
+    text-align: center;
+    border: 1px solid #F3F0F0;
+    padding: 1rem;
+}
+
+.choose .column.first {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.choose .column.first h6 i {
+    font-size: 2.5rem;
+    color: #F3F0F0;
+}
+
+.choose .column.last {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.choose .column.last h6 i {
+    font-size: 2.5rem;
+    color: #F3F0F0;
+}
+
+.choose .column h4 {
+    font-size: 2rem;
+    font-family: 'Simonetta', cursive;
+    color: #ed7864;
+}
+
+.choose .column h5 {
+    font-size: 7rem;
+    color: #F3F0F0;
+}
+
+.choose p {
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+#parkForm {
+    text-align: center;
+}
+
+#parkForm .parks {
+    border: 2px solid cornflowerblue;
+    border-radius: 5px;
+    color: #F3F0F0;
+    background-color: black;
+    outline: none;
+    padding: 3px;
+    font-size: 1.35rem;
+    font-family: 'Lora', sans-serif;
+}
+
+#searchButton {
+    font-size: 1.25rem;
+    border: 2px solid cornflowerblue;
+    padding: 2.5px;
+    border-radius: 5px;
+    background-color: black;
+    font-family: 'Lora', sans-serif;
+    color: #F3F0F0;
+    margin-left: .5rem;
+}
+
+#searchButtonHome {
+    font-size: 2rem;
+    border: 2px solid cornflowerblue;
+    padding: .50rem;
+    border-radius: 5px;
+    background-color: black;
+    font-family: 'Lora', sans-serif;
+    color: #F3F0F0;
+    margin-left: .5rem;
+}
+
+.instructions {
+    background-color: #242525;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem auto;
+    width: 60%;
+    font-family: 'Lora', sans-serif;
+}
+
+.checkboxForShow {
+    height: 2rem;
+    width: 2rem;
+    background-image: url(../assets/img/checked-checkbox-sprite.png);
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    display: inline-block;
+}
+
+.instructions .iconDisplay {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+.instructions .removeExplanation {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+.instructions h6 {
+    height: 3rem;
+}
+
+.instructions p {
+    font-size: 1rem;
+}
+
+.results ul {
+    list-style: none;
+}
+
+.results ul li {
+    text-align: center;
+    background-color: #242525;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    position: relative;
+}
+
+.results ul li h2 {
+    font-size: 26px;
+    text-align: center;
+    color: cornflowerblue;
+    line-height: 3rem;
+    word-break: normal;
+}
+
+section.results ul li .addToBucketList .addToBucketListButton {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+section.results ul li .addToBucketList .addToBucketListButton i {
+    font-size: 3rem;
+    color: #F3F0F0;
+}
+
+.results ul li .parkImage {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.results ul li h4 {
+    text-align: left;
+    color: cornflowerblue;
+    font-size: 22px;
+}
+
+.results ul li h4 span {
+    color: #F3F0F0;
+}
+
+.results ul li p {
+    text-align: left;
+    font-size: 20px;
+}
+
+.bucketListTitle,
+.beenThereTitle {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: cornflowerblue;
+}
+
+.bucketListTitle,
+.beenThereTitle {
+    border-top: 2px solid #242525;
+    padding-top: 10px;
+}
+
+.bucketListTitle p,
+.beenThereTitle p {
+    color: #F3F0F0;
+    margin-top: .5rem;
+}
+
+.bucketList .removeExplanation,
+.beenThere .removeExplanation {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: 12px;
+    right: 6px;
+}
+
+.bucketList,
+.beenThere {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.bucketList #checkedOff,
+.beenThere #checkedOff {
+    font-size: 16px;
+    border: 2px solid #F3F0F0;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #242525;
+    color: #F3F0F0;
+    font-family: 'Lora', sans-serif;
+    position: absolute;
+    top: 27px;
+    right: 0px;
+}
+
+.bucketList ul,
+.beenThere ul {
+    text-align: center;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+}
+
+.bucketList ul li,
+.beenThere ul li {
+    background-color: #242525;
+    display: inline-block;
+    width: 47%;
+    border-radius: 5px;
+    margin: 1%;
+    position: relative;
+    vertical-align: top;
+    padding: 1.5rem;
+}
+
+.bucketList ul li h2,
+.beenThere ul li h2 {
+    color: cornflowerblue;
+    text-align: center;
+    padding: .16rem;
+}
+
+.bucketList ul li .deleteBucketListForm .deleteItemButton,
+.beenThere ul li .deleteBucketListForm .deleteItemButton {
+    position: absolute;
+    top: -2px;
+    right: 0px;
+}
+
+.bucketList ul li .deleteBucketListForm .deleteItemButton i,
+.beenThere ul li .deleteBucketListForm .deleteItemButton i{
+    font-size: 2.5rem;
+    color: #F3F0F0;
+}
+
+
+.bucketList ul li .updateBucketListForm .checkbox,
+.beenThere ul li .updateBucketListForm .checkbox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 2rem;
+    width: 2rem;
+    background-image: url("../assets/img/checked-checkbox-sprite.png");
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.bucketList ul li .updateBucketListForm .checkbox-checked,
+.beenThere ul li .updateBucketListForm .checkbox-checked {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 2rem;
+    width: 2rem;
+    background-image: url("../assets/img/checked-checkbox-sprite.png");
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.bucketList ul li h4,
+.beenThere ul li h4 {
+    color: lightsteelblue;
+}
+
+.bucketList ul li h4 span,
+.beenThere ul li h4 span {
+    color: #F3F0F0;
+}
+
+.bucketList ul li .parkImage,
+.beenThere ul li .parkImage {
+    width: 100%;
+    height: 100%;
+    margin-top: 1rem;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem;
+    padding-top: 0rem;
+    border-top: 2px solid cornflowerblue;
+    position: relative;
+}
+
+footer p {
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    color: #F3F0F0;
+    font-family: ‘Simonetta’, cursive;
+    font-size: .85rem;
+}
+
+footer ul li {
+    display: inline-block;
+    font-size: 35px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: .5rem;
+}
+
+footer ul li a {
+    color: #F3F0F0;
+}
+
+footer ul li a:hover {
+    color: cornflowerblue;
+}
+
+footer ul li a .fa-envelope {
+    font-size: 41px;
+}
+
+footer #back-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border: 1px solid gray;
+    padding: 0.5rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    section.choose,
+    section.results,
+    section.bucketListTitle,
+    section.bucketList,
+    footer {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    header {
+        width: 100%;
+    }
+    body {
+        font-size: 8px;
+    }
+    section.choose,
+    section.results,
+    section.bucketListTitle,
+    section.bucketList,
+    section.beenThereTitle,
+    section.beenThere,
+    footer {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #parkForm .parks {
+        font-size: 1.25rem;
+        border: 2px solid cornflowerblue;
+        border-radius: 5px;
+        text-align: center;
+        outline: none;
+        background-color: black;
+        font-family: 'Lora', sans-serif;
+    }
+    #searchButtonHome {
+        font-size: 2rem;
+        border: 2px solid cornflowerblue;
+        padding: .25rem;
+        border-radius: 5px;
+        background-color: black;
+        font-family: 'Lora', sans-serif;
+        color: #F3F0F0;
+        margin-left: .5rem;
+    }
+    .instructions h3 {
+        font-size: 1.5rem;
+    }
+    .choose h2 {
+        font-size: 2rem;
+    }
+    .results ul li .parkImage {
+        width: 100%;
+        height: auto;
+    }
+    .results ul li h2 {
+        font-size: 26px;
+        text-align: center;
+        color: cornflowerblue;
+        line-height: 3rem;
+        word-break: normal;
+        margin-top: 3rem;
+    }
+    .results ul li h4,
+    .results ul li p {
+        line-height: 1.5;
+    }
+    .bucketList ul li,
+    .beenThere ul li {
+        display: block;
+        margin-left: 1.3rem;
+        width: 95%;
+    }
+    footer {
+        text-align: center;
+        padding-bottom: 1rem;
+        padding-top: 0rem;
+        border-top: 2px solid cornflowerblue;
+        position: relative;
+    }
+    footer p {
+        font-size: .75rem;
+        font-family: 'Simonetta', cursive;
+        padding-top: 1rem;
+        padding-bottom: .5rem;
+    }
+    footer .fa {
+        display: inline;
+    }
+    footer #back-top {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        border: 1px solid gray;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    header {
+        width: 100%;
+    }
+    body {
+        font-size: 8px;
+    }
+    .top h1 {
+        font-size: 2.75rem;
+        padding-bottom: .50rem;
+    }
+    .top ul a {
+        display: inline;
+        position: relative;
+        top: -9px;
+        padding: .50rem;
+    }
+    .wrapper p {
+        display: none;
+    }
+    .wrapper.hero-image h3 {
+        font-size: 1.5rem;
+    }
+    .choose .column {
+        width: 90%;
+        display: block;
+        margin: 1rem auto;
+        text-align: center;
+        border: 1px solid #F3F0F0;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    #parkForm .parks {
+        font-size: 1rem;
+        border: 2px solid cornflowerblue;
+        border-radius: 5px;
+        text-align: center;
+        outline: none;
+        background-color: black;
+        font-family: 'Lora', sans-serif;
+    }
+    #searchButtonHome {
+        font-size: 1.5rem;
+        border: 2px solid cornflowerblue;
+        padding: .25rem;
+        border-radius: 5px;
+        background-color: black;
+        font-family: 'Lora', sans-serif;
+        color: #F3F0F0;
+        margin-left: .5rem;
+    }
+
+    #searchButton {
+        font-size: 1rem;
+        border: 2px solid cornflowerblue;
+        padding: 2.5px;
+        border-radius: 5px;
+        background-color: black;
+        font-family: 'Lora', sans-serif;
+        color: #F3F0F0;
+        margin-left: .5rem;
+        margin-top: .5rem;
+    }
+    .instructions {
+        display: block;
+    }
+    section.choose,
+    section.results,
+    section.bucketListTitle,
+    section.bucketList,
+    section.beenThereTitle,
+    section.beenThere,
+    footer {
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .results ul li .add {
+        height: 50px;
+        width: 500px;
+        position: relative;
+        top: -30px;
+        left: 0px;
+    }
+    footer p {
+        font-size: .75rem;
+        font-family: 'Simonetta', cursive;
+    }
+}

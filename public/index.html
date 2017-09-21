@@ -6,191 +6,26 @@
     <title>National Park Explorer</title>
     <link href="https://fonts.googleapis.com/css?family=Lora|Simonetta" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
     <header class="top">
         <h1>National Park Explorer</h1>
-        <ul>
-            <!--Link for user to quickly access bucket list-->
-            <a href="something.com">Bucket List</a>
-        </ul>
     </header>
-    <div class="wrapper">
-        <img src="img/glacierpan.jpg" class="topPicture" alt="Glacier National Park">
-        <p>Glacier National Park</p>
-    </div>
-    <section class="choose">
-        <p>A place to find out information about National Parks to help you get out and explore! </p>
-        <!--Have a drop down list of national parks-->
-        <form id="parkForm">
-            <select name="nationalPark" class="parks" placeholder="National Parks" required>
-                <option value="">Choose your park</option>
-                <option value="acad">Acadia National Park</option>
-                <option value="arch">Arches National Park</option>
-                <option value="badl">Badlands National Park</option>
-                <option value="brca">Bryce Canyon National Park</option>
-                <option value="cany">Canyonlands National Park</option>
-                <option value="care">Capitol Reef National Park</option>
-                <option value="cave">Carlsbad Caverns National Park</option>
-                <option value="chis">Channel Islands National Park</option>
-                <option value="crla">Crater Lake National Park</option>
-                <option value="deva">Death Valley National Park</option>
-                <option value="dena">Denali National Park</option>
-                <option value="gaar">Gates of the Arctic National Park</option>
-                <option value="glac">Glacier National Park</option>
-                <option value="glba">Glacier Bay National Park</option>
-                <option value="grca">Grand Canyon National Park</option>
-                <option value="grte">Grand Teton National Park</option>
-                <option value="grsa">Great Sand Dunes National Park</option>
-                <option value="grsm">Great Smoky Mountains National Park</option>
-                <option value="havo">Hawaii Volcanoes National Park</option>
-                <option value="jotr">Joshua Tree National Park</option>
-                <option value="katm">Katmai National Park and Preserve</option>
-                <option value="kefj">Kenai Fjords National Park</option>
-                <option value="lavo">Lassen Volcanic National Park</option>
-                <option value="meve">Mesa Verde National Park</option>
-                <option value="mora">Mount Rainier National Park</option>
-                <option value="noca">North Cascades National Park</option>
-                <option value="olym">Olympic National Park</option>
-                <option value="romo">Rocky Mountain National Park</option>
-                <option value="sagu">Saguaro National Park</option>
-                <option value="seki">Sequoia National Park</option>
-                <option value="yell">Yellowstone National Park</option>
-                <option value="yose">Yosemite National Park</option>
-                <option value="zion">Zion National Park</option>
-            </select>
-            <button id="searchButton" type="submit">Search</button>
-        </form>
-        <p class="instructions">To add the park to your bucket list, click <span><img src="img/plus.png" class="iconDisplay"></span></p>
-    </section>
-    <section class="results">
-        <ul>
-            <!--           <li>-->
-            <!--Full Name from API-->
-            <!--                <h2>Yellowstone National Park <span><img src="img/plus.png" class="add"></span></h2>-->
-            <!--Image from my file-->
-            <!--
-                <div id="parkImageFile">
-                    <img src="../parkImages/Yellowstone%20National%20Park.jpg" alt="Yellowstone National Park" class="parkImage">
-                </div>
--->
-            <!--Description from API-->
-            <!--
-                <h4>Description:</h4>
-                <p>Visit Yellowstone and experience the world's first national park. Marvel at a volcano’s hidden power rising up in colorful hot springs, mudpots, and geysers. Explore mountains, forests, and lakes to watch wildlife and witness the drama of the natural world unfold. Discover the history that led to the conservation of our national treasures “for the benefit and enjoyment of the people.</p>
--->
-            <!--Weatherinfo from API-->
-            <!--
-                <h4>Weather Information:</h4>
-                <p> Yellowstone's weather can vary quite a bit, even in a single day. In the summer, daytime highs can exceed 70F (25C), only to drop 20 or more degrees when a thunderstorm rolls through. It can snow during any month of the year, and winter lows frequently drop below zero, especially at night. Bring a range of clothing options, including a warm jacket and rain gear, even in the summer.</p>
--->
-            <!--State located in from API-->
-            <!--<h4>State(s) Park is located in: <span>ID,MT,WY</span></h4>-->
-            <!--Directions Info from API-->
-            <!--
-                <h4>Directions: </h4>
-                <p>Yellowstone National Park covers nearly 3,500 square miles in the northwest corner of Wyoming (3% of the park is in Montana and 1% is in Idaho). Yellowstone has five entrance stations, and several are closed to regular vehicles during winter. It takes many hours to drive between these entrances, so be sure to check the status of roads at the entrance you intend to use while planning your trip and before you arrive.</p>
--->
-            <!--Park URL from API-->
-            <!--
-                <h4>Park website: <a href="https://www.nps.gov/yell/index.htm">Yellowstone National Park</a></h4>
-</li>
--->
-        </ul>
-    </section>
-    <section class="bucketListTitle">
-        <h2>National Park Bucket List</h2>
-        <p>Once you have visited the park, check it off your Bucket List!</p>
-        <p>Or to remove an item, click <span><img src="img/remove.png" class="removeExplanation"></span></p>
-    </section>
-    <section class="bucketList">
-        <!--Section where user can save parks they want to visit and check them off after visiting-->
-        <ul>
-<!--            <li>-->
-                <!--Full Name from API-->
-<!--                <h2>Yellowstone National Park <span><img src="img/remove.png" class="remove"></span></h2>-->
-                <!--User can check box once they have visited-->
-<!--
-                <div class="checkbox">
-                </div>
--->
-                <!--Description from API-->
-                <!--<h4>Description:</h4>
-<p>Visit Yellowstone and experience the world's first national park. Marvel at a volcano’s hidden power rising up in colorful hot springs, mudpots, and geysers. Explore mountains, forests, and lakes to watch wildlife and witness the drama of the natural world unfold. Discover the history that led to the conservation of our national treasures “for the benefit and enjoyment of the people.</p>-->
-                <!--Weatherinfo from API-->
-                <!--<h4>Weather Information:</h4>
-                <p> Yellowstone's weather can vary quite a bit, even in a single day. In the summer, daytime highs can exceed 70F (25C), only to drop 20 or more degrees when a thunderstorm rolls through. It can snow during any month of the year, and winter lows frequently drop below zero, especially at night. Bring a range of clothing options, including a warm jacket and rain gear, even in the summer.</p>-->
-                <!--State located in from API-->
-<!--                <h4>State(s) Park is located in: <span>ID,MT,WY</span></h4>-->
-                <!--Directions Info from API-->
-                <!--<h4>Directions: </h4>
-<p>Yellowstone National Park covers nearly 3,500 square miles in the northwest corner of Wyoming (3% of the park is in Montana and 1% is in Idaho). Yellowstone has five entrance stations, and several are closed to regular vehicles during winter. It takes many hours to drive between these entrances, so be sure to check the status of roads at the entrance you intend to use while planning your trip and before you arrive.</p>-->
-                <!--Park URL from API-->
-<!--
-                <h4>Park website: <a href="https://www.nps.gov/yell/index.htm">Yellowstone National Park</a></h4>
-                <img src="../parkImages/Yellowstone%20National%20Park.jpg" alt="Yellowstone National Park" class="parkImage">
-            </li>
-            <li>
--->
-                <!--Full Name from API-->
-<!--                <h2>Yosemite National Park<span><img src="img/remove.png" class="remove"></span></h2>-->
-                <!--User can check box once they have visited-->
-<!--
-                <div class="checkbox">
-                </div>
--->
-<!--                <h4>State(s) Park is located in: <span>CA</span></h4>-->
-                <!--Park URL from API-->
-<!--
-                <h4>Park website <a href="https://www.nps.gov/yose/index.htm">Yosemite National Park</a></h4>
-                <img src="../parkImages/Yosemite%20National%20Park.jpg" alt="Yosemite National Park" class="parkImage">
-            </li>
-            <li>
--->
-                <!--Full Name from API-->
-<!--                <h2>Grand Teton National Park <span><img src="img/remove.png" class="remove"></span></h2>-->
-<!--
-                <div class="checkbox-checked">
-                </div>
--->
-                <!--State located in from API-->
-<!--                <h4>State(s) Park is located in: <span>WY</span></h4>-->
-                <!--Park URL from API-->
-<!--
-                <h4>Park website <a href="www.nps.gov/grte/index.htm">Grand Teton National Park</a></h4>
-                <img src="../parkImages/Grand%20Teton%20National%20Park.jpg" alt="Grand Teton National Park" class="parkImage">
-            </li>
-            <li>
--->
-                <!--Full Name from API-->
-<!--                <h2>Denali National Park & Preserve<span><img src="img/remove.png" class="remove"></span></h2>-->
-<!--
-                <div class="checkbox-checked">
-                </div>
--->
-                <!--State located in from API-->
-<!--                <h4>State(s) Park is located in: <span>AK</span></h4>-->
-                <!--Park URL from API-->
-<!--
-                <h4>Park website <a href="www.nps.gov/dena/index.htm">Denali National Park & Preserve</a></h4>
-<img src="../parkImages/Denali%20National%20Park.jpg" alt="Denali National Park and Preserve" class="parkImage">
-</li>
--->
-        </ul>
-    </section>
+    <div id="reactIntro"></div>
+    <div id="reactHowItWorks"></div>
     <footer>
         <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017 Kendallyn Lyon</p>
         <ul>
             <li>
-                <a href="mailto:kendallynlyon@gmail.com?Subject=Hello" target="_blank">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                <a href="https://github.com/Kendallyn" target="_blank">
+                    <i class="fa fa-github-square" aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/Kendallyn" target="_blank">
-                    <i class="fa fa-github-square" aria-hidden="true"></i>
+                <a href="mailto:kendallynlyon@gmail.com?Subject=Hello" target="_blank">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
                 </a>
             </li>
             <li>
@@ -202,7 +37,9 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="assets/client.js"></script>
+
+    <script type="text/javascript" src="react-output/index.js"></script>
 </body>
 
 </html>

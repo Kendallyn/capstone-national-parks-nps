@@ -1,0 +1,10 @@
+language: node_js
+node_js: node
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: tPnT4funtQdW+sgbTmN37v32PPrcSR2IX2I/pkLu7x5DkhFcPgzM8fYyjpxHVwAWC8cUdRzG6x8ScVojzFr67HGoWQfK9PnJaQvlND4Mwvt9L0mV3Nkx+oTxHlLvicQpFwaqIhU+9dr/jl/BUUQ3Oiv+ltK6wQ7+j5U9rhZdqQ+5C5JrCChiKRjYw4zEDna0EHCyX6R+JwAF3HejmtX6SfiGPX3CJLbPjGVNiZPSnmefdtnWTrYVy+sxDDrHXaIsbhoUISKwIMtryPlEvGFpZ+pl5psb11j4aMMtrHJz8p237SemIbpcRKeAkBZxjjk9MzShrzYT61z+ZBNLqzFcviIAjVJF1Z4TnREDMH/t0hfUKzhKU3xp+uu/Opv6TMWuvdDPS9WJsIiqBOEsdlO5zfdncoCsFfTF6TxJkO0WWh5X+uhY2TzrjBNyNUb2/gfzs7ouG4fZ3KzhK1K2gR89kcBHO8mrDDnb7cnb3yJ09zRQoCJft7rjjrSrs6/Sj7KFRfMc93dn8WzsLCfst05UqZYQA5LHX8FHe0XwCYfuYlmntV2GhqMTljJ+hAQG0VASnsDLJ1c1BgO9qtMSFQpjw6t4HKYyVgNp4oZtByHczDo3p89Zz4BzK/fcgw+5MNzc8w5gfvTR9icPoYBN8wLt2AYzxh6N+S3dTVbYNAmCv3w=
+  app: national-park-explorer
+  on:
+    repo: Kendallyn/capstone-national-parks-nps
