@@ -133,6 +133,7 @@ function getParkResult(parkCode) {
         .done(function (dataOutput) {
             //displays the external api json object in the console
             displayParkResult(dataOutput.data, parkCode);
+            console.log(dataOutput);
         })
         .fail(function (jqXHR, error, errorThrown) {
             console.log(jqXHR);

@@ -42,7 +42,7 @@ var getFromNps = function (location) {
     var emitter = new events.EventEmitter();
     var options = {
         host: 'developer.nps.gov',
-        path: '/api/v1/parks?parkCode=' + location,
+        path: '/api/v1/parks?parkCode=' + location + '&api_key=6eo0dk9fGIU1knoiL1ICR4oKUrYLUx8etZSlqnhT',
         method: 'GET',
         headers: {
             'Authorization': "6eo0dk9fGIU1knoiL1ICR4oKUrYLUx8etZSlqnhT",
