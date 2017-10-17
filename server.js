@@ -40,14 +40,12 @@ if (require.main === module) {
 // external API call
 var getFromNps = function (location) {
     var emitter = new events.EventEmitter();
-
-
     var options = {
         host: 'developer.nps.gov',
-        path: '/api/v0/parks?parkCode=' + location,
+        path: '/api/v1/parks?parkCode=' + location,
         method: 'GET',
         headers: {
-            'Authorization': "EF26EC69-4C03-458F-9AD7-C33903A87CAB",
+            'Authorization': "6eo0dk9fGIU1knoiL1ICR4oKUrYLUx8etZSlqnhT",
             'Content-Type': "application/json",
             'Port': 443,
             'User-Agent': 'Paw/3.1.2 (Macintosh; OS X/10.12.5) GCDHTTPRequest'
